@@ -488,8 +488,8 @@ echo $b;
 - PHP 启用 Xdebug 后，每个浏览器的请求都会告诉 Xdebug
 
 - Xdebug 默认会向本地的 `9000` 端口（php.ini 中配置）询问：有没有谁需要进行 PHP 调试？
-  - 若有 IDE 监听，则建立 TCP 连接
-  - 若无 IDE 监听，则 TCP 连接建立失败，当作什么事都没发生
+  - 若有 PhpStorm 监听，则建立 TCP 连接
+  - 若无 PhpStorm 监听，则 TCP 连接建立失败，当作什么事都没发生
 
 - 以上，PhpStorm 相当于 [DBGP](https://xdebug.org/docs-dbgp.php) 协议的服务端，Xdebug 相当于 DBGP 的客户端
   - DBGP 每次与 PhpStorm 建立连接都会采用新的随机端口
