@@ -47,7 +47,7 @@ echo $b;
 
 ```
 
-- 假设有上述 8 行代码，不打任何断点，仅用 WireShark 看看 Xdebug 与 PhpStorm 之间发送了什么通信
+- 假设有上述 7 行代码，不打任何断点，仅用 WireShark 看看 Xdebug 与 PhpStorm 之间发送了什么通信
 - 以下开始：
 
 - 开始：TCP 3 次握手建立连接
@@ -169,7 +169,7 @@ echo $b;
 
 
 
-- 假设有上述 8 行代码，不打任何断点，仅用 WireShark 看看 Xdebug 与 PhpStorm 之间发送了什么通信
+- 假设有上述 7 行代码，不打任何断点，仅用 WireShark 看看 Xdebug 与 PhpStorm 之间发送了什么通信
 - 以下开始：
 
 - 开始：TCP 3 次握手建立连接
