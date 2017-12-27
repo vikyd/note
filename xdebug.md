@@ -8,7 +8,7 @@
 
 
 # 主要流程
-![Image of Yaktocat](https://github.com/Viky-zhang/note/img/xdebug_php_phpstorm.png)
+![Image of Yaktocat](https://github.com/Viky-zhang/note/blob/master/img/xdebug_php_phpstorm.png)
 
 
 
