@@ -6,7 +6,7 @@
 
 
 
-# 搜索系统
+# 搜索引擎使用习惯
 推荐：
 - 尽量使用 [Google](https://www.google.com) 英文搜索
   - [设置 Google 首页界面为英文](https://www.google.com.hk/preferences?hl=en&fg=1#languages)，并使用全英文关键字进行搜索
@@ -241,7 +241,7 @@ Chrome 插件（前端）：
 
 
 # 笔记
-推荐：有道云笔记（网页版）
+推荐：[有道云笔记](https://note.youdao.com/web/)（网页版）
 
 理由：
 - 随时随地，免费
