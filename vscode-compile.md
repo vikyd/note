@@ -1,6 +1,18 @@
 
-# VSCode 编译
+# VSCode 在 Windows 编译遇到的坑
 官方编译指南：https://github.com/Microsoft/vscode/wiki/How-to-Contribute
+
+
+
+
+# 源码 & 环境
+[VSCode 源码](https://github.com/Microsoft/vscode/commit/c05e57d91e50d53d487a9113c1553ca73311fa6c)
+
+系统：Win7 64bit
+
+命令窗：[Cmder](http://cmder.net/)
+
+
 
 
 
