@@ -4,3 +4,5 @@
 - [Xdebug 原理解释](https://github.com/Viky-zhang/note/blob/master/xdebug.md)
 
 - [常用、实用、好玩的工具软件 & 搜索习惯](https://github.com/vikyd/note/blob/master/bestpractise.md)
+
+- [VSCode 在 Windows 编译遇到的坑](https://github.com/vikyd/note/blob/master/vscode-compile.md)
