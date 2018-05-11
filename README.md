@@ -6,3 +6,5 @@
 - [常用、实用、好玩的工具软件 & 搜索习惯](https://github.com/vikyd/note/blob/master/bestpractise.md)
 
 - [VSCode 在 Windows 编译遇到的坑](https://github.com/vikyd/note/blob/master/vscode-compile.md)
+
+- [在用的主力：IDE、编辑器](https://github.com/vikyd/note/blob/master/ide-editor.md)
