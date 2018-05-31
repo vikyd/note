@@ -9,4 +9,4 @@
 
 - [在用的主力：IDE、编辑器](https://github.com/vikyd/note/blob/master/ide-editor.md)
 
-- [代理设置汇总：Win/Git/VSCode/npm/yarn/Composer/Maven/WebStorm/PhpStorm/IDEA 系/浏览器/Proxifier/Xshell/curl/wget](https://github.com/vikyd/note/blob/master/proxy.md)
+- [代理设置汇总：Win/Git/VSCode/npm/yarn/Composer/Maven/WebStorm/PhpStorm/IDEA 系/浏览器/Proxifier/Xshell/curl/wget/其他](https://github.com/vikyd/note/blob/master/proxy.md)
