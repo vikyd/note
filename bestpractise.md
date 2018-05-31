@@ -23,10 +23,10 @@
 
 # 科学上网
 推荐：
-- shadowsocks + Linode + Google BBR 加速
+- Shadowsocks + Linode + Google BBR 加速
 
 理由：
-- [shadowsocks](https://shadowsocks.org)：目前唯一能用起来的科学上网吧。能用起 Google 就已超值了，GitHub、StackOverflow 访问起来也快些，Chrome 官方版也需要
+- [Shadowsocks](https://shadowsocks.org)：目前唯一能用起来的科学上网吧。能用起 Google 就已超值了，GitHub、StackOverflow 访问起来也快些，Chrome 官方版也需要
 - [Linode](https://www.linode.com)：VPS服务商，5刀/月，便宜，足够的配置，足够网速
 - [Google BBR](https://github.com/iMeiji/shadowsocks_install/wiki/%E5%BC%80%E5%90%AFTCP-BBR%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95)：TCP 无缝加速，Linux 新内核自带，开启下就好
 
