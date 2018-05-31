@@ -60,7 +60,7 @@ Chrome 插件（前端）：
 
 
 
-# Chrome 多标签形式管理多个文件窗口
+# 多标签形式管理多个文件窗口（类似 Chronme 标签页）
 推荐：[Clover](http://cn.ejie.me/)
 
 强烈推荐！！
