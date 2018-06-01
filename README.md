@@ -10,3 +10,5 @@
 - [在用的主力：IDE、编辑器](https://github.com/vikyd/note/blob/master/ide-editor.md)
 
 - [代理设置汇总：Win/Git/VSCode/npm/yarn/Composer/Maven/WebStorm/PhpStorm/IDEA 系/浏览器/Proxifier/Xshell/curl/wget/其他](https://github.com/vikyd/note/blob/master/proxy.md)
+
+- [Chrome 最新、历史版本离线安装包 - 下载方法](https://github.com/vikyd/note/blob/master/chrome_offline_download.md)
