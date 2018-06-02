@@ -10,3 +10,7 @@
 - 用 [puppeteer](https://github.com/GoogleChrome/puppeteer) 动态截屏页面，保存为一系列图片
 - 用 [ffmpeg](https://www.ffmpeg.org/) 根据图片生成视频
 - 用 ffmpeg 视频转 gif
+
+
+
+> google maps cloud animation
