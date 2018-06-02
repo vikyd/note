@@ -20,3 +20,5 @@
 - [PHP Composer 安装踩坑记（代理设置）](https://github.com/vikyd/note/blob/master/composer_install_suck.md)
 
 - [Maven 在代理环境下的使用方式](https://github.com/vikyd/note/blob/master/maven_proxy.md)
+
+- [Mac 系统的推荐软件](https://github.com/vikyd/note/blob/master/mac_recommend_soft.md)
