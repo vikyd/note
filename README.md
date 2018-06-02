@@ -16,3 +16,5 @@
 - [WebDriver、Selenium 进行 UI 界面测试的通讯过程简述](https://github.com/vikyd/note/blob/master/webdriver_selenium_communication.md)
 
 - [Google 地图 卫星云图 - puppeteer 和 ffmpeg](https://github.com/vikyd/note/blob/master/googlemaps_cloud_puppeteer.md)
+
+- [PHP Composer 安装踩坑记（代理设置）](https://github.com/vikyd/note/blob/master/composer_install_suck.md)
