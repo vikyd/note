@@ -12,5 +12,9 @@
 - 用 ffmpeg 视频转 gif
 
 
+# 视频下载
+https://github.com/vikyd/note/raw/master/video/googleearth_cloud_20180522_0601.mp4
+
+
 
 > google maps cloud animation
