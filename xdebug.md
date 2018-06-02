@@ -1,3 +1,6 @@
+# Xdebug 原理解释
+
+
 # 目的
 这里只说一个点：在 PhpStorm 中进行 PHP 断点调试时，Xdebug 与 PhpStorm、PHP 之间的大致协作方式。
 
