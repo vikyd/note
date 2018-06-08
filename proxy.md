@@ -365,6 +365,21 @@ apm config get
   * `curl https://www.baidu.com -o baidu.html -x yourProxyServer:port`
     > `-x` 小写 x 代表 `proxy` 的意思
 
+
+
+
+# Golang get 代理
+[Golang](https://golang.org/) 的 `go get` 使用系统的 `http_proxy`，但拉取代码时会使用 Git 的代理，
+所以两步都要做：
+- 设置系统代理（或说 CMD 代理）
+  ```cmd
+  set http_proxy=yourProxyServer:port
+  ```
+- 设置 Git 代理，参考前面的 `Git 代理设置`
+
+参考：https://stackoverflow.com/a/10385612/2752670
+
+
 # Navicat 连外网数据库
 
 [Navicat](https://www.navicat.com) 貌似必须同时配置 `通道地址` 和 `代理服务器`。
