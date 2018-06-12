@@ -233,6 +233,13 @@ TODO
 
 [Gradle](https://gradle.org/)
 
+- 若设置当前项目：
+  - 新建或编辑当前项目内的 `gradle.properties`
+- 若设置全局项目：
+  - 新建或编辑 `用户目录/.gradle/gradle.properties`
+
+
+
 在 `gradle.properties` 文件中增加以下设置：
 
 ```
@@ -241,6 +248,11 @@ systemProp.http.proxyPort=yourPort
 systemProp.https.proxyHost=yourProxyServer
 systemProp.https.proxyPort=yourPort
 ```
+
+
+参考：https://docs.gradle.org/current/userguide/build_environment.html
+
+
 
 # VSCode 代理设置
 
