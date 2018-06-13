@@ -187,7 +187,8 @@ nvm proxy "none"
 
 [Bower](https://bower.io/)
 
-在 `bower.json` 同级目录中新建文件 `.bowerrc`，填入 `proxy` 和 `https-proxy`：
+新建 `.bowerrc` 文件，
+填入 `proxy` 和 `https-proxy`：
 
 ```json
 {
@@ -196,6 +197,19 @@ nvm proxy "none"
   "https-proxy": "http://yourProxyServer:port/"
 }
 ```
+
+支持三种设置方式：
+
+- 当前项目：`当前目录（bower.json 的同级目录）`
+- 当前用户目录
+- 系统根目录（Linux 的 `/` 目录）
+
+
+
+
+参考：https://bower.io/docs/config/#placement--order
+
+
 
 # PHP Composer 代理设置
 
