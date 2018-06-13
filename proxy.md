@@ -215,7 +215,7 @@ nvm proxy "none"
 
 [Composer](https://getcomposer.org/)
 
-安装完 Composer 后，使用 Composer 时是直接使用 CMD 的代理，并无代理配置文件。
+安装完 Composer 后，使用 Composer 时是直接使用系统（如 Win 的 CMD）的代理，并无代理配置文件。
 
 也即：Windows 下需设置 CMD 的代理，类似
 
@@ -225,6 +225,9 @@ set https_proxy=yourProxyServer:port
 ```
 
 之后，才能进行 `composer require packageName`
+
+系统配置了这两个环境变量的话，就相当于 Composer 的全局代理
+
 
 # PhpStorm、IntelliJ IDEA、PyCharm、WebStorm、Android Studio（或 Jetbrains 系其他）代理设置
 
