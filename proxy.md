@@ -240,8 +240,10 @@ set https_proxy=yourProxyServer:port
 
 
 # Maven 代理、镜像设置
+[Maven](https://maven.apache.org/)
 
-TODO
+Maven 的代理、镜像设置内容较多，详细见 [这里](https://github.com/vikyd/note/blob/master/maven_proxy.md)
+
 
 # Gradle 代理设置
 
