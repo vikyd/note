@@ -19,7 +19,7 @@
 
 - 20180602 [Mac 系统的推荐软件](https://github.com/vikyd/note/blob/master/mac_recommend_soft.md)
 
-- 20180612 [Google 地图 卫星云图 - puppeteer 和 ffmpeg](https://github.com/vikyd/note/blob/master/googlemaps_cloud_puppeteer.md)
+- 20180612 [Google 动态卫星云图 - puppeteer 和 ffmpeg](https://github.com/vikyd/note/blob/master/googlemaps_cloud_puppeteer.md)
 
 - 20180613 [代理设置汇总：Win/Git/VSCode/npm/yarn/Composer/Maven/WebStorm/PhpStorm/IDEA 系/浏览器/Proxifier/Xshell/curl/wget/其他](https://github.com/vikyd/note/blob/master/proxy.md)
 
