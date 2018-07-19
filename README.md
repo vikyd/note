@@ -23,4 +23,4 @@
 
 - 20180613 [代理设置汇总：Win/Git/VSCode/npm/yarn/Composer/Maven/WebStorm/PhpStorm/IDEA 系/浏览器/Proxifier/Xshell/curl/wget/其他](https://github.com/vikyd/note/blob/master/proxy.md)
 
-- 20180628 [由 urlencode、content-type、嵌套数组想到的](https://github.com/vikyd/note/tree/master/content-type-urlencode)
+- 20180628 [由 urlencode、HTTP Content-Type、嵌套数组想到的](https://github.com/vikyd/note/tree/master/content-type-urlencode)
