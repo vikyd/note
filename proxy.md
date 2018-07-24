@@ -48,8 +48,36 @@ set https_proxy=
 略
 
 # Mac 代理设置
+这里只说命令行配置代理的方式
 
-略
+在 `~/.bash_profile` 或 `~/.zshrc` 中填入设置代理的快捷方式：
+```sh
+# shadowsocks 翻墙用，不翻墙可不用
+alias proxy_ss='export all_proxy=socks5://127.0.0.1:1086; export http_proxy=http://128.0.0.1:1087; export https_proxy=https://127.0.0.1:1087'
+
+# 其他代理
+alias proxy_dev='export http_proxy=http://yourProxyServer:port; export https_proxy=https://yourProxyServer:port'
+
+# 取消所有代理设置
+alias unproxy='unset all_proxy; unset http_proxy; unset https_proxy'
+```
+
+设置完，记得 source 一下配置文件。
+
+使用，shell 中执行（开发机为例）：
+```sh
+# 设置代理
+proxy_dev
+
+# 取消代理
+unproxy
+
+```
+
+
+
+
+
 
 # Git 代理设置
 
