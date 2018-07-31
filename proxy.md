@@ -301,6 +301,30 @@ systemProp.https.proxyPort=yourPort
 
 
 
+## Python 的 pip 代理设置
+pip 可用于安装 Python 的包。
+
+[pip](https://pypi.org/project/pip/) 的代理设置有 3 种方式（n 选 1）：
+ - 系统环境变量
+   - 就如 CMD 的代理设置，之后再 `pip install yourPackage`，Win ↓
+   ```cmd
+   set http_proxy=http://yourProxyServer:port
+   set https_proxy=http://yourProxyServer:port
+   ```
+ - `--proxy` 参数
+   - `pip install yourPackage --proxy http://yourProxyServer:port`
+ - `pip.ini` 配置文件（推荐，永久）
+   - 以 Win 为例，在用户目录新建目录和文件 ` %HOME%\pip\pip.ini`，填入：
+     ```ini
+	 [install]
+     proxy=http://yourProxyServer:port
+	 ```
+
+
+pip 设置代理的官方文档：https://pip.pypa.io/en/stable/user_guide/#using-a-proxy-server
+
+
+
 # VSCode 代理设置
 
 [VSCode](https://code.visualstudio.com/) 默认从 `http_proxy` 和 `https_proxy` 环境变量获取代理。
