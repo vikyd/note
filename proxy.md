@@ -316,10 +316,10 @@ pip 可用于安装 Python 的包。
  - `pip.ini` 配置文件（推荐，永久）
    - 以 Win 为例，在用户目录新建目录和文件 ` %HOME%\pip\pip.ini`，填入：
      ```ini
-	 [install]
+     [install]
      proxy=http://yourProxyServer:port
-	 ```
-
+     ```
+   - 查看设置是否成功：`pip config list`
 
 pip 设置代理的官方文档：https://pip.pypa.io/en/stable/user_guide/#using-a-proxy-server
 
