@@ -53,7 +53,7 @@ set https_proxy=
 在 `~/.bash_profile` 或 `~/.zshrc` 中填入设置代理的快捷方式：
 ```sh
 # shadowsocks 翻墙用，不翻墙可不用
-alias proxy_ss='export all_proxy=socks5://127.0.0.1:1086; export http_proxy=http://128.0.0.1:1087; export https_proxy=https://127.0.0.1:1087'
+alias proxy_ss='export all_proxy=socks5://127.0.0.1:1086; export http_proxy=http://127.0.0.1:1087; export https_proxy=https://127.0.0.1:1087'
 
 # 其他代理
 alias proxy_dev='export http_proxy=http://yourProxyServer:port; export https_proxy=https://yourProxyServer:port'
