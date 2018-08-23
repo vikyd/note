@@ -451,7 +451,7 @@ apm config get
 
 
 
-# Golang get 代理
+# Golang 的 go get 代理
 [Golang](https://golang.org/) 的 `go get` 使用系统的 `http_proxy`，但拉取代码时会使用 Git 的代理，
 所以两步都要做：
 1. 设置系统代理（或说 CMD 代理）
@@ -463,7 +463,9 @@ apm config get
   git config --global http.proxy http://yourProxyServer:port
   ```
 
-参考：https://stackoverflow.com/a/10385612/2752670
+参考：
+- https://stackoverflow.com/a/10385612/2752670
+- 官方参考：https://github.com/golang/go/wiki/GoGetProxyConfig
 
 
 # Navicat 连外网数据库
