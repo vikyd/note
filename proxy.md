@@ -468,6 +468,14 @@ apm config get
 - 官方参考：https://github.com/golang/go/wiki/GoGetProxyConfig
 
 
+若使用 VSCode，要想 VSCode 自动下载 Go 的依赖工具，则也应设置 VSCode 的 settings.json 中的代理：
+```json
+"http.proxy": "http://yourProxyServer:port",
+```
+
+
+
+
 # Navicat 连外网数据库
 
 [Navicat](https://www.navicat.com) 貌似必须同时配置 `通道地址` 和 `代理服务器`。
