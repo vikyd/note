@@ -56,7 +56,7 @@ set https_proxy=
 alias proxy_ss='export all_proxy=socks5://127.0.0.1:1086; export http_proxy=http://127.0.0.1:1087; export https_proxy=https://127.0.0.1:1087'
 
 # 其他代理
-alias proxy_dev='export http_proxy=http://yourProxyServer:port; export https_proxy=https://yourProxyServer:port'
+alias proxy_dev='export http_proxy=http://yourProxyServer:port; export https_proxy=http://yourProxyServer:port'
 
 # 取消所有代理设置
 alias unproxy='unset all_proxy; unset http_proxy; unset https_proxy'
