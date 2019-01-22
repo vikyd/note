@@ -45,7 +45,7 @@ set https_proxy=
 
 # Linux 代理设置
 
-略
+同下面 Mac 代理设置 ↓
 
 # Mac 代理设置
 这里只说命令行配置代理的方式
@@ -74,7 +74,22 @@ unproxy
 
 ```
 
+----
 
+单独命令：
+```sh
+# 临时设置代理
+export http_proxy=http://yourProxyServer:port
+export https_proxy=http://yourProxyServer:port
+
+# 查看代理
+echo $http_proxy
+echo $https_proxy
+
+# 取消代理
+unset http_proxy
+unset https_proxy
+```
 
 
 
