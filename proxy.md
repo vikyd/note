@@ -373,6 +373,16 @@ pip 设置代理的官方文档：https://pip.pypa.io/en/stable/user_guide/#usin
 "https_proxy": "http://yourProxyServer:port",
 ```
 
+
+
+# Eclipse 代理设置
+[Eclipse](https://www.eclipse.org/) 代理设置方式：
+
+- `Window` -> `Preferences` -> `General` -> `Network Connections` -> 右侧 `Active Provider` 选择 `Manual` -> `Proxy entries 表格` 中双击第 1 行的 `HTTP` -> `Host` 填 `yourProxyServer` -> `Port` 填 `yourPort` -> `OK`
+- `HTTPS`、`SOCKS` 同理设置
+
+
+
 # Atom 编辑器 代理设置
 
 [Atom](https://atom.io/)
