@@ -92,6 +92,12 @@ unset https_proxy
 ```
 
 
+# Mac Homebrew 代理设置
+同上面 Mac 命令行的代理设置。
+
+[Brew 官方参考](https://docs.brew.sh/Manpage#using-homebrew-behind-a-proxy)
+
+
 
 
 # Git 代理设置
