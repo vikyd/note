@@ -19,6 +19,8 @@ Chrome(Chromium) 历史旧版本离线安装包，官方下载地址。
 > 含 Mac、Linux、Windows、Android、ChromiumOS 等
 
 
+- 参考这里 https://chromium.googlesource.com/chromiumos/manifest-versions/+/master/paladin/buildspecs/ 来下载对应的离线版本包
+
 
 
 # Chrome 离线包 - 历史版本（非官方）
