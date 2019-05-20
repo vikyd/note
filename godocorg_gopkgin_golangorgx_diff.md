@@ -1,4 +1,4 @@
-# godoc.org 和 gopkg.in 和 golang.org/x 的区别
+# godoc.org 和 gopkg.in 和 golang.org/x 是什么
 
 # 概述
 
