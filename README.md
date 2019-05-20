@@ -24,6 +24,6 @@
 
 - 20180628 [由 urlencode、HTTP Content-Type、嵌套数组想到的](https://github.com/vikyd/note/tree/master/content-type-urlencode)
 
-- 20190519 [godoc.org 和 gopkg.in 和 golang.org/x 的区别](https://github.com/vikyd/note/tree/master/godocorg_gopkgin_golangorgx_diff.md)
+- 20190519 [godoc.org 和 gopkg.in 和 golang.org/x 是什么](https://github.com/vikyd/note/tree/master/godocorg_gopkgin_golangorgx_diff.md)
 
 - 20190519 [go get 在 go mod 项目与非 go mod 项目中的区别](https://github.com/vikyd/note/tree/master/goget_diff_gomod_gopath.md)
