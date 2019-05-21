@@ -264,6 +264,11 @@ Connection: keep-alive
   > 响应数据看起来乱码，实际是 git 能解析的数据，能最终转为源码
 - go get 从网络获取数据到此结束
 
+## Gopkg.lock 与 gopkg.in 并无关系
+`Gopkg.lock` 文件不是 gopkg.in 的东西，它是 `dep` 产生的：https://golang.github.io/dep/docs/Gopkg.lock.html 。
+
+所以 Gopkg.lock 与 gopkg.in 没有关系。
+
 ## gopkg.in 的优缺点
 
 ### 优点
