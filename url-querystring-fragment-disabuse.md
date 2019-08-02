@@ -4,7 +4,18 @@
 
 - `query string`：中文可叫 `查询字符串`，指 `?` 之后，且以 `&` 分隔多个键值对，且以 `=` 分隔键与值，的片断
 
-- `fragment`中文可叫。有时又被叫做 `Anchor` 或 `Hash`，意思一样，都是指 URL 中 `#` 之后的片断
+- `fragment`：未找到中文叫啥。有时又被叫做 `Anchor` 或 `Hash`，意思一样，都是指 URL 中 `#` 之后的片断
+
+# 测试验证
+
+具体可在浏览器中打开 F12 输入查看：
+
+- `window.location.search`
+  - 查询 `QueryString`
+  - 如 `https://www.baidu.com/?a=123` 则得 `?a=123`
+- `window.location.hash`
+  - 查询 `Fragment`
+  - 如 `https://www.baidu.com/#aaa` 则得 `#aaa`
 
 # 疑惑
 
@@ -60,6 +71,20 @@
 
 答：[并无规范对此进行定义](https://stackoverflow.com/a/1746566/2752670)，因此各软件的实现不一样。
 
+以 Chrome 76.0.3809.87 为例：
+
+1. 打开网址：`https://www.baidu.com/?a=1&a=2`
+2. 按 F12，在开发者界面的 Console 中输入以下内容：
+
+```js
+var urlParams = new URLSearchParams(window.location.search)
+console.log(urlParams.get('a'))
+```
+
+可得，输出是：`1`。
+
+结论：Chrome 是以第一个 key 的值作为最终值，但这只是 Chrome 的行为，并不代表其他软件也是这样。
+
 - TODO: 列举各语言的主要实现方式 Python、PHP、Go、Node、Java
 - 参考：
   - https://github.com/vikyd/note/tree/master/content-type-urlencode
@@ -73,7 +98,7 @@
 - `a`: `1`
 - `b`: `2`
 
-结论：QueryString 中多个连续 `&` 会被忽略。
+结论：QueryString 中多个连续 `&` 会被忽略（实例可参考前面 Chrome 验证方式）。
 
 ## 多个 `#` 时，最终的 Fragment 是什么？
 
@@ -82,6 +107,17 @@
 答：仅以第 1 个 `#` 之后直至 URL 结尾的全部内容作为 Hash，即：
 
 - `#`: `xx#yy#zz`
+
+以 Chrome 76.0.3809.87 为例：
+
+1. 打开网址：`https://www.baidu.com/#xx#yy#zz`
+2. 按 F12，在开发者界面的 Console 中输入以下内容：
+
+```js
+window.location.hash
+```
+
+可得，输出是：`#aa#bb#cc`。
 
 ## `?` 与 `#` 谁的优先级高？
 
@@ -103,6 +139,11 @@
 - QueryString: 无
 - Fragment：
   - `#`: `xx?b=2#yy`
+
+验证：
+
+- `window.location.search`
+- `window.location.hash`
 
 结论：`?` 为先，`#` 为后，且仅有效一次。
 
@@ -126,6 +167,7 @@
 
 本文暂不回答以下问题，请自行 Google：
 
+- URL 有哪些部分？
 - [urlencode 或 百分号编码 是什么？](https://aotu.io/notes/2017/06/15/The-mystery-of-URL-encoding/index.html)
 - 什么是 URL 保留字符？
 - HTTP Header 中 `Content-Type: application/x-www-form-urlencoded` 与 QueryString 的关系？
