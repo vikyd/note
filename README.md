@@ -29,3 +29,5 @@
 - 20190519 [go get 在 go mod 项目与非 go mod 项目中的区别](https://github.com/vikyd/note/tree/master/goget_diff_gomod_gopath.md)
 
 - 20190610 [翻译：我们的软件依赖问题 - Our Software Dependency Problem](https://github.com/vikyd/note/tree/master/our_software_dependency_problem.md)
+
+- 20190802 [URL 中 QueryString 与 Fragment 的困惑](https://github.com/vikyd/note/tree/master/url-querystring-fragment-disabuse.md)
