@@ -63,7 +63,27 @@
 - `a`: `1%261`
 - `b`: `2`
 
+## QueryString 中多个连续的 `&` 有没有什么用？
+
+例：`?a=1&&b=2&&`
+
+答：最终是
+
+- `a`: `1`
+- `b`: `2`
+
+结论：QueryString 中多个连续 `&` 会被忽略（实例可参考前面 Chrome 验证方式）。
 结论：其中 `%26` 是 `&` 经过 [urlencode](https://en.wikipedia.org/wiki/Percent-encoding) 得到的编码，若直接填 `&` 而非 `%26` 则会被忽略。
+
+## QueryString 中单独的 `&` 会发生什么？
+
+例：`?a=1&b=&2&`
+
+答：最终是
+
+- `a`: `1`
+- `b`: ``（空）
+- `2`: ``（空）
 
 ## QueryString 中有个多个同名 key，结果是什么？
 
@@ -88,17 +108,6 @@ console.log(urlParams.get('a'))
 - TODO: 列举各语言的主要实现方式 Python、PHP、Go、Node、Java
 - 参考：
   - https://github.com/vikyd/note/tree/master/content-type-urlencode
-
-## QueryString 中多个连续的 `&` 有没有什么用？
-
-例：`?a=1&&b=2&&`
-
-答：最终是
-
-- `a`: `1`
-- `b`: `2`
-
-结论：QueryString 中多个连续 `&` 会被忽略（实例可参考前面 Chrome 验证方式）。
 
 ## 多个 `#` 时，最终的 Fragment 是什么？
 
