@@ -31,3 +31,5 @@
 - 20190610 [翻译：我们的软件依赖问题 - Our Software Dependency Problem](https://github.com/vikyd/note/tree/master/our_software_dependency_problem.md)
 
 - 20190802 [URL 中 QueryString 与 Fragment 的困惑](https://github.com/vikyd/note/tree/master/url-querystring-fragment-disabuse.md)
+
+- 20190829 [Vim 使用感受](https://github.com/vikyd/note/tree/master/vim.md)
