@@ -30,8 +30,13 @@
 
 - 20190519 [go get 在 go mod 项目与非 go mod 项目中的区别](https://github.com/vikyd/note/tree/master/goget_diff_gomod_gopath.md)
 
-- 20190610 [翻译：我们的软件依赖问题 - Our Software Dependency Problem](https://github.com/vikyd/note/tree/master/our_software_dependency_problem.md)
+- 20190610 [译：我们的软件依赖问题 - Our Software Dependency Problem](https://github.com/vikyd/note/tree/master/our_software_dependency_problem.md)
 
 - 20190802 [URL 中 QueryString 与 Fragment 的困惑](https://github.com/vikyd/note/tree/master/url-querystring-fragment-disabuse.md)
 
 - 20190829 [Vim 使用感受](https://github.com/vikyd/note/tree/master/vim.md)
+
+- 20191014 [Golang 的 go module 校验值计算方式](https://github.com/vikyd/note/blob/master/golang-checksum.md)
+
+
+
