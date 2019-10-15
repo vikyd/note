@@ -207,7 +207,7 @@ validate(bits B as record R):
 
 而实现的复杂性只会稍有增加。该优化方法将哈希树拆分为多个瓦片，就像 [Google Maps 将全球拆分为瓦片那样](https://medium.com/google-design/google-maps-cb0326d165f5#ccfa)。
 
-一个二叉树可被分割为固定的高为 H * 宽为 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;2^{H}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;2^{H}" title="2^{H}" /></a> 个瓦片。例如，下面是一棵拥有 27 个记录的永久哈希树，被分割为高为 2（译注：从 0 起算） 的瓦片：
+一个二叉树可被分割为固定的高为 H * 宽为 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;2^{H}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;2^{H}" title="2^{H}" /></a> 个瓦片。例如，下面是一棵拥有 27 个记录的永久哈希树，被分割为高为 2（译注：即 1 个瓦片横跨 2 个原始树的 level） 的瓦片：
 
 ![](https://research.swtch.com/tlog-tile-27@2x.png)
 
