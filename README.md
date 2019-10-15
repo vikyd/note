@@ -38,5 +38,6 @@
 
 - 20191014 [Golang 的 go module 校验值计算方式](https://github.com/vikyd/note/blob/master/golang-checksum.md)
 
+- 20191015 [译：为持怀疑态度的客户端设计的透明日志 - Transparent Logs for Skeptical Clients](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md)
 
 
