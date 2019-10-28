@@ -1,4 +1,4 @@
-# 译：Transparent Logs for Skeptical Clients
+# Golang，译：Transparent Logs for Skeptical Clients
 
 原文：https://research.swtch.com/tlog
 
