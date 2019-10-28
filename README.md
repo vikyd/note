@@ -38,7 +38,7 @@
 
 - 20191014 [Golang 的 go module 校验值计算方式](https://github.com/vikyd/note/blob/master/golang-checksum.md)
 
-- 20191015 [译：为持怀疑态度的客户端设计的透明日志 - Transparent Logs for Skeptical Clients](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md)
+- 20191015 [Golang，译：为持怀疑态度的客户端设计的透明日志 - Transparent Logs for Skeptical Clients](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md)
 
-- 20191027 [译：为 Go 语言的公共模块生态建立安全机制 - Proposal：Secure the Public Go Module Ecosystem](https://github.com/vikyd/note/blob/master/secure_the_public_go_module_ecosystem.md)
+- 20191027 [Golang，译：为 Go 语言的公共模块生态建立安全机制 - Proposal：Secure the Public Go Module Ecosystem](https://github.com/vikyd/note/blob/master/secure_the_public_go_module_ecosystem.md)
 
