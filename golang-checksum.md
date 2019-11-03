@@ -168,6 +168,8 @@ module version/go.mod hashMethod:checksumBase64Text
 ## 为何既要整个模块的哈希值，还要 go.mod 哈希值？
 答：[The go.mod-only hash allows downloading and authenticating a module version's go.mod file, which is needed to compute the dependency graph, without also downloading all the module's source code.](https://golang.org/cmd/go/#hdr-Module_authentication_using_go_sum)
 
+已有模块哈希，还需 go.mod 哈希的原因：可无需下载整个模块内容即可找到子依赖，使得可以并行下载多个依赖。
+
 ## 为何 Golang 模块哈希计算如此奇怪？
 答：
 - 确实，拼接字符串的方式有点奇怪，看着不太优雅，但能起作用
