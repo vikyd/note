@@ -42,3 +42,8 @@
 
 - 20191027 [Golang，译：为 Go 语言的公共模块生态建立安全机制 - Proposal：Secure the Public Go Module Ecosystem](https://github.com/vikyd/note/blob/master/secure_the_public_go_module_ecosystem.md)
 
+- 20191113 [Golang Module 验证模块安全背后的细节](https://github.com/vikyd/note/blob/master/go_mod_secure_detail.md)
+
+
+
+
