@@ -46,7 +46,10 @@
 
 - 20191116 [Golang，译：什么是软件工程？ - What is Software Engineering?](https://github.com/vikyd/note/blob/master/what_is_software_engineering.md)
 
-- 20191116 [Golang，译：vgo 提案被接受了，然后呢？ - The vgo proposal is accepted. Now what??](https://github.com/vikyd/note/blob/master/vgo_accepted.md)
+- 20191116 [Golang，译：vgo 提案被接受了，然后呢？ - The vgo proposal is accepted. Now what?](https://github.com/vikyd/note/blob/master/vgo_accepted.md)
+
+- 20191116 [Golang，译：为什么要为 Go 添加版本管理功能？ - Why Add Versions To Go?](https://github.com/vikyd/note/blob/master/vgo_accepted.md)
+
 
 
 
