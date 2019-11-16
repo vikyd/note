@@ -44,6 +44,9 @@
 
 - 20191113 [Golang Module 验证模块安全背后的细节](https://github.com/vikyd/note/blob/master/go_mod_secure_detail.md)
 
+- 20191116 [什么是软件工程？ - What is Software Engineering?](https://github.com/vikyd/note/blob/master/what_is_software_engineering.md)
+
+
 
 
 
