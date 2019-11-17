@@ -50,6 +50,9 @@
 
 - 20191116 [Golang，译：为什么要为 Go 添加版本管理功能？ - Why Add Versions To Go?](https://github.com/vikyd/note/blob/master/vgo_accepted.md)
 
+- 20191117 [Golang，译：可复现、可验证、可证明的构建 - Reproducible, Verifiable, Verified Builds](https://github.com/vikyd/note/blob/master/vgo_repro.md)
+
+
 
 
 
