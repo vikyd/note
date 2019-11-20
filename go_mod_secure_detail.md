@@ -12,6 +12,11 @@ Golang Module 为何要验证模块安全？又是如何验证模块哈希安全
 
 > Golang 计划在 1.14 版本确定 [Modules 的最终方案](https://github.com/golang/go/wiki/Modules#go-111-modules)
 
+本文用到的实验：
+
+- https://github.com/vikyd/sumdbtest
+- https://github.com/vikyd/go-checksum
+
 
 # 目录
 [TOC]
