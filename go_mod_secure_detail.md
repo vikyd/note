@@ -575,6 +575,10 @@ jEFFy4AtYgBBNTSZTiNnQrgQqMbcH0mfO2oP2FxR9VU=
   - 此接口未返回 HTTP Status 200：https://mirrors.aliyun.com/goproxy/sumdb/sum.golang.org/supported
   
 
+### 百度：goproxy.baidu.com
+- 推荐：★★★
+- 同时支持 [模块源码代理](https://golang.org/cmd/go/#hdr-Module_proxy_protocol)，和 [sumdb 代理](https://go.googlesource.com/proposal/+/master/design/25530-sumdb.md#proxying-a-checksum-database)，比较省心
+  
 
 # 分析 `sum.golang.org`
 `sum.golang.org`：校验下载到的模块内容是否被篡改过。
