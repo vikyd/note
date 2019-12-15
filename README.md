@@ -54,6 +54,7 @@
 
 - 20191128 [Golang，译：基于语义的 import 版本化 - Semantic Import Versioning](https://github.com/vikyd/note/blob/master/semantic_import_versioning.md)
 
+- 20191215 [Golang，译：软件版本的 SAT 问题 - Version SAT](https://github.com/vikyd/note/blob/master/version_sat.md)
 
 
 
