@@ -7,7 +7,7 @@
 翻译时间：2019-12-15
 
 
-# 版本的 SAT 问题
+# 软件版本的 SAT 问题
 发表时间：2016-12-13 周二
 
 
@@ -185,4 +185,6 @@ Jaroslav Tulach 在 [2009 年](http://wiki.apidesign.org/wiki/LibraryReExportIsN
 在 Tulach [关于 LtU 的证明的讨论](http://lambda-the-ultimate.org/node/3588) 中提到了 Daniel Burrow 在 2005 年发表的文章 [软件依赖关系的建模与解决](https://people.debian.org/~dburrows/model.pdf)，但此文章的证明比 Tulach（前面提到的）的更像 EDOS 的证明。
 
 很多读者向我发了不少引用链接和包管理器的 SAT 求解器，再次感谢大家。
+
+
 
