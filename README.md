@@ -56,6 +56,7 @@
 
 - 20191215 [Golang，译：软件版本的 SAT 问题 - Version SAT](https://github.com/vikyd/note/blob/master/version_sat.md)
 
+- 20191229 [Golang，译：最小版本选择 - Minimal Version Selection](https://github.com/vikyd/note/blob/master/minimal_version_selection.md)
 
 
 
