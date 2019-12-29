@@ -3,7 +3,7 @@
 
 作者：[Russ Cox](https://swtch.com/~rsc/)
 
-翻译时间：2019-12-28
+翻译时间：2019-12-29
 
 # 最小版本选择
 （[Go 与版本](https://research.swtch.com/vgo)，第 4 部分）
