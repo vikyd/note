@@ -38,25 +38,25 @@
 
 - 20191014 [Golang 的 go module 校验值计算方式](https://github.com/vikyd/note/blob/master/golang-checksum.md)
 
-- 20191015 [Golang，译：为持怀疑态度的客户端设计的透明日志 - Transparent Logs for Skeptical Clients](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md)
+- 20191015 [Golang，20190301，译：为持怀疑态度的客户端设计的透明日志 - Transparent Logs for Skeptical Clients](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md)
 
-- 20191027 [Golang，译：为 Go 语言的公共模块生态建立安全机制 - Proposal：Secure the Public Go Module Ecosystem](https://github.com/vikyd/note/blob/master/secure_the_public_go_module_ecosystem.md)
+- 20191027 [Golang，20190424，译：为 Go 语言的公共模块生态建立安全机制 - Proposal：Secure the Public Go Module Ecosystem](https://github.com/vikyd/note/blob/master/secure_the_public_go_module_ecosystem.md)
 
 - 20191113 [Golang Module 验证模块安全背后的细节](https://github.com/vikyd/note/blob/master/go_mod_secure_detail.md)
 
-- 20191116 [Golang，译：什么是软件工程？ - What is Software Engineering?](https://github.com/vikyd/note/blob/master/what_is_software_engineering.md)
+- 20191116 [Golang，20180530，Part 09，译：什么是软件工程？ - What is Software Engineering?](https://github.com/vikyd/note/blob/master/what_is_software_engineering.md)
 
-- 20191116 [Golang，译：vgo 提案被接受了，然后呢？ - The vgo proposal is accepted. Now what?](https://github.com/vikyd/note/blob/master/vgo_accepted.md)
+- 20191116 [Golang，20180529，Part 08，译：vgo 提案被接受了，然后呢？ - The vgo proposal is accepted. Now what?](https://github.com/vikyd/note/blob/master/vgo_accepted.md)
 
-- 20191116 [Golang，译：为什么要为 Go 添加版本管理功能？ - Why Add Versions To Go?](https://github.com/vikyd/note/blob/master/vgo_accepted.md)
+- 20191116 [Golang，20180607，Part 10，译：为什么要为 Go 添加版本管理功能？ - Why Add Versions To Go?](https://github.com/vikyd/note/blob/master/vgo_accepted.md)
 
-- 20191117 [Golang，译：可复现、可验证、可证明的构建 - Reproducible, Verifiable, Verified Builds](https://github.com/vikyd/note/blob/master/vgo_repro.md)
+- 20191117 [Golang，20180221，Part 05，译：可复现、可验证、可证明的构建 - Reproducible, Verifiable, Verified Builds](https://github.com/vikyd/note/blob/master/vgo_repro.md)
 
-- 20191128 [Golang，译：基于语义的 import 版本化 - Semantic Import Versioning](https://github.com/vikyd/note/blob/master/semantic_import_versioning.md)
+- 20191128 [Golang，20180221，Part 03，译：基于语义的 import 版本化 - Semantic Import Versioning](https://github.com/vikyd/note/blob/master/semantic_import_versioning.md)
 
-- 20191215 [Golang，译：软件版本的 SAT 问题 - Version SAT](https://github.com/vikyd/note/blob/master/version_sat.md)
+- 20191215 [Golang，20161213，译：软件版本的 SAT 问题 - Version SAT](https://github.com/vikyd/note/blob/master/version_sat.md)
 
-- 20191229 [Golang，译：最小版本选择 - Minimal Version Selection](https://github.com/vikyd/note/blob/master/minimal_version_selection.md)
+- 20191229 [Golang，20180221，Part 04，译：最小版本选择 - Minimal Version Selection](https://github.com/vikyd/note/blob/master/minimal_version_selection.md)
 
 
 
