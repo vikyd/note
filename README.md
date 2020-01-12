@@ -58,6 +58,9 @@
 
 - 20191229 [Golang 20180221 Part04 译：最小版本选择 - Minimal Version Selection](https://github.com/vikyd/note/blob/master/minimal_version_selection.md)
 
+- 20200112 [Golang 20180220 Part01 译：Go += 包版本管理 - Go += Package Versioning](https://github.com/vikyd/note/blob/master/go_add_package_versioning.md)
+
+
 
 
 
