@@ -5,8 +5,8 @@
 
 翻译时间：2019-11-28
 
-# 基于语义的 import 版本化
-（[Go 与版本](https://research.swtch.com/vgo)，第 3 部分）
+# 基于语义的 import 版本管理
+（[Go 与管理](https://research.swtch.com/vgo)，第 3 部分）
 
 发表时间：2018-02-21 周三 [PDF](https://research.swtch.com/vgo-repro.pdf)
 
