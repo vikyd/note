@@ -62,5 +62,6 @@
 
 - 20200117 [Golang 20180222 Part06 译：定义 Go 语言的模块 - Defining Go Modules](https://github.com/vikyd/note/blob/master/defining_go_modules.md)
 
+- 20200117 [Golang 20180220 Part02 译：Go 语言的版本管理教程（vgo） - A Tour of Versioned Go (vgo)](https://github.com/vikyd/note/blob/master/a_tour_of_versioned_go.md)
 
 
