@@ -64,4 +64,8 @@
 
 - 20200117 [Golang 20180220 Part02 译：Go 语言的版本管理教程（vgo） - A Tour of Versioned Go (vgo)](https://github.com/vikyd/note/blob/master/a_tour_of_versioned_go.md)
 
+- 20200120 [Golang 20180223 Part07 译：Go 语言的版本管理命令 - Versioned Go Commands](https://github.com/vikyd/note/blob/master/versioned_go_commands.md)
+
+
+
 
