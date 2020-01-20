@@ -5,7 +5,7 @@
 
 翻译时间：2020-01-20
 
-# Go 的版本管理命令
+# Go 语言的版本管理命令
 （[Go 与版本管理](https://research.swtch.com/vgo)，第 7 部分）
 
 发表时间：2018-02-23 周五 [PDF](hhttps://research.swtch.com/vgo-cmd.pdf)
