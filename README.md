@@ -52,7 +52,7 @@
 
 - 20191117 [Golang 20180221 Part05 译：可复现、可验证、可证明的构建 - Reproducible, Verifiable, Verified Builds](https://github.com/vikyd/note/blob/master/vgo_repro.md)
 
-- 20191128 [Golang 20180221 Part03 译：基于语义的 import 版本化 - Semantic Import Versioning](https://github.com/vikyd/note/blob/master/semantic_import_versioning.md)
+- 20191128 [Golang 20180221 Part03 译：基于语义的 import 版本管理 - Semantic Import Versioning](https://github.com/vikyd/note/blob/master/semantic_import_versioning.md)
 
 - 20191215 [Golang 20161213 译：软件版本的 SAT 问题 - Version SAT](https://github.com/vikyd/note/blob/master/version_sat.md)
 
