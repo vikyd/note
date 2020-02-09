@@ -113,7 +113,7 @@ console.log(urlParams.get('a'))
 
 - TODO: 列举各语言的主要实现方式 Python、PHP、Go、Node、Java
 - 参考：
-  - https://github.com/vikyd/note/tree/master/content-type-urlencode
+  - https://github.com/vikyd/note/tree/master/content-type-urlencode.md
 
 ## 多个 `#` 时，最终的 Fragment 是什么？
 

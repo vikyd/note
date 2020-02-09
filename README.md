@@ -24,7 +24,7 @@
 
 - 20180613 [代理设置汇总：Win/Git/VSCode/npm/yarn/Composer/Maven/WebStorm/PhpStorm/IDEA 系/浏览器/Proxifier/Xshell/curl/wget/其他](https://github.com/vikyd/note/blob/master/proxy.md)
 
-- 20180628 [由 urlencode、HTTP Content-Type、嵌套数组想到的](https://github.com/vikyd/note/tree/master/content-type-urlencode)
+- 20180628 [由 urlencode、HTTP Content-Type、嵌套数组想到的](https://github.com/vikyd/note/tree/master/content-type-urlencode.md)
 
 - 20190519 [godoc.org 和 gopkg.in 和 golang.org/x 是什么](https://github.com/vikyd/note/tree/master/godocorg_gopkgin_golangorgx_diff.md)
 
