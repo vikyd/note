@@ -1,4 +1,5 @@
 # Versioned Go Commands
+
 原文：https://research.swtch.com/vgo-cmd
 
 作者：[Russ Cox](https://swtch.com/~rsc/)
@@ -6,17 +7,18 @@
 翻译时间：2020-01-20
 
 # Go 语言的版本管理命令
+
 （[Go 与版本管理](https://research.swtch.com/vgo)，第 7 部分）
 
 发表时间：2018-02-23 周五 [PDF](hhttps://research.swtch.com/vgo-cmd.pdf)
 
-
 # 目录
+
 [TOC]
 
-
 # 正文
-为 go 命令添加模块版本管理功能意味着什么？这篇 [综述](https://github.com/vikyd/note/blob/master/go_add_package_versioning.md) 介绍了版本管理的整个框架，后面的文章是对每个点的细化介绍：[import 兼容性规则](https://github.com/vikyd/note/blob/master/semantic_import_versioning.md)、[最小版本选择](https://github.com/vikyd/note/blob/master/minimal_version_selection.md)、[定义 Go 语言的模块](https://github.com/vikyd/note/blob/master/defining_go_modules.md) 等。这些文章可有助于理解 Go 语言的版本管理机制，而本文则主要介绍版本管理对 go 命令的影响，及其原因。
+
+为 go 命令添加模块版本管理功能意味着什么？这篇 [综述](https://github.com/vikyd/note/blob/master/go_and_versioning/go_add_package_versioning.md) 介绍了版本管理的整个框架，后面的文章是对每个点的细化介绍：[import 兼容性规则](https://github.com/vikyd/note/blob/master/go_and_versioning/semantic_import_versioning.md)、[最小版本选择](https://github.com/vikyd/note/blob/master/go_and_versioning/minimal_version_selection.md)、[定义 Go 语言的模块](https://github.com/vikyd/note/blob/master/go_and_versioning/defining_go_modules.md) 等。这些文章可有助于理解 Go 语言的版本管理机制，而本文则主要介绍版本管理对 go 命令的影响，及其原因。
 
 以下是主要的变化：
 
@@ -38,8 +40,8 @@
 
 为了说明此原则的好处，我想先讲一个古老的构建故事，之后再解释隔离原则的具体作用。
 
-
 # 一个古老的构建故事
+
 很久很久以前，那时编译器和计算机都还很慢，开发者需要用脚本来重头构建整个程序。但有时开发者只修改了一个源文件，为节省编译时间，只重新编译被修改过的源文件，然后再连接整个程序（因全量重新编译很耗时）。这种手动增量构建的方式速度快，但易出错：若你忘记编译某个已修改的源文件，则连接时会依然使用旧 obj 文件，导致最终的可执行程序有 bug。最痛苦的是，你可能需要花很多时间检查那个已修改过的源码来定位 bug，而问题是那个源码文件其实已是正确的，出问题的只是编译过程。
 
 [Stu Feldman 曾解释过](https://www.princeton.edu/~hos/mike/transcripts/feldman.htm)（译注：[Stuart Feldman](https://zh.wikipedia.org/wiki/%E6%96%AF%E5%9C%96%E4%BA%9E%E7%89%B9%C2%B7%E8%B2%BB%E7%88%BE%E5%BE%B7%E6%9B%BC) 是 [make](https://zh.wikipedia.org/wiki/Make) 的作者）上述情况与他当年的情况很像，他在 1970 年代曾耗费几个月时间调试只有几千行的 Ratfor（译注：[Rational Fortran](https://en.wikipedia.org/wiki/Ratfor) 的缩写） 程序解决类似问题：
@@ -72,8 +74,8 @@ Feldman 还说：
 
 但是，隔离原则也不是绝对的，它总会有一个区域，我将其称之为：抽象的区域。当你踏出此区域，你就会回到那种依赖于人工记忆的状态。对于 `make` 来说，其抽象区域对应的是一个目录。若需处理由多个目录的库组成的程序，则传统的 `make` 无能为力。1970 年代，大部分的 Unix 程序都只对应一个目录，所以 `make` 不提供支持多目录隔离构建的功能也无大碍。
 
-
 # Go 语言的构建和隔离原则
+
 在 go 命令设计上的 bug 修复历史，实质是不断迎合开发者的预期、扩展抽象区域的一系列步骤。
 
 go 命令的其中一个进步是可正确处理分布在多个目录的源码，扩展了 `make` 没做到的区域。Go 的程序几乎总是分布在多个目录中，而使用 `make` 的时，在另一个目录使用某个软件包时，经常会忘了应预先安装该软件包。我们太熟悉 `调试正确程序的经典错误` 了。但是，即使修复了那样的问题，仍有很多方法会跳出 go 命令的抽象区域，导致意外的结果。
@@ -115,8 +117,8 @@ $ go build -gcflags=-N hello.go
 
 在向 go 命令添加版本管理功能时，隔离原则同样有助于理清楚各种设计上的疑惑。类似 flag 参数中的决策，其他的命令也需要变得更能干。所有曾经有多重含义的命令，现在都应被削减为只有 1 种含义。
 
-
 # 自动下载依赖
+
 隔离原则目前最重要的实现是：类似 `go build`、`go install`、`go test` 等命令会按需下载对应版本的依赖包（若未下载或缓存的话）。
 
 假设我有一个新安装的 Go 1.10，并写了一个 hello.go：
@@ -139,7 +141,7 @@ func main() {
 ```sh
 $ go run hello.go
 hello.go:5: import "rsc.io/quote": import not found
-$ 
+$
 ```
 
 这样会成功：
@@ -148,12 +150,12 @@ $
 $ go get rsc.io/quote
 $ go run hello.go
 Hello, world.
-$ 
+$
 ```
 
 我来解释一下。经过 8 年时间对 `goinstall` 和 `go get` 的使用和调整，上述行为貌似没错：`go get` 负责下载 `rsc.io/quote`，并应在 `go run` 之前运行。但我也可解释前面小结中 flag 例子的优化行为。但直至几个月前，这些想法都似乎没什么问题。但后来我思考了一下，我还是认为 go 命令应按需自动下载所需的依赖包版本。我思想发生改变有以下几个原因。
 
-原因 1，隔离原则。我在 go 命令中所犯的其他设计错误都违反了隔离原则，这一事实强烈表明 
+原因 1，隔离原则。我在 go 命令中所犯的其他设计错误都违反了隔离原则，这一事实强烈表明
 `go run` 前额外的 `go get` 也是一个错误设计。
 
 原因 2，我发现自动下载依赖包到本地缓存很有帮助，开发者根本无需关心这些事。缓存丢失不应导致运行失败。
@@ -179,15 +181,15 @@ $
 
 我知道肯定会有开发者不希望在构建时自动下载依赖包。所以，我们可能会提供基于环境变量禁用自动下载行为的选择，但是，默认应总是自动下载。
 
-
 # 修改模块版本（go get）
+
 不带 `-u` 参数的普通 `go get` 命令违反了隔离原则，必须被修正。目前：
 
 - 若 GOPATH 为空，`go get rsc.io/quote` 会下载并构建最新版本的 `rsc.io/quote` 及其依赖包（如 `rsc.io/sampler`）。
 - 若 GOPATH 中存在 `rsc.io/quote`（之前的 `go get` 命令下载的），则再次运行 `go get` 命令时，会使用 GOPATH 中已存在的旧包。
 - 若 GOPATH 中存在 `rsc.io/sampler`，但没有 `rsc.io/quote`，则 `go get` 会下载最新的 `rsc.io/quote`，但会基于 GOPATH 中的旧 `rsc.io/sampler` 进行构建。
 
-综合来看，`go get` 依赖了 GOPATH 的状态，也即违反了隔离原则，我们需要解决此问题。由于目前的 `go get` 命令至少包含 3 层含义，因此我们在定义新行为时有一定的选择自由。目前，`vgo get` 命令会自动下载指定名称的最新版依赖模块，同时，对于依赖了该模块的其他模块都可能相应被更新，更新时遵循 [最小版本选择原则](https://github.com/vikyd/note/blob/master/minimal_version_selection.md)。例如，`vgo get rsc.io/quote` 总会下载最新版本的 `rsc.io/quote`，并根据下载到的 `rsc.io/quote` 所指定的 `rsc.io/sampler` 版本进行构建。
+综合来看，`go get` 依赖了 GOPATH 的状态，也即违反了隔离原则，我们需要解决此问题。由于目前的 `go get` 命令至少包含 3 层含义，因此我们在定义新行为时有一定的选择自由。目前，`vgo get` 命令会自动下载指定名称的最新版依赖模块，同时，对于依赖了该模块的其他模块都可能相应被更新，更新时遵循 [最小版本选择原则](https://github.com/vikyd/note/blob/master/go_and_versioning/minimal_version_selection.md)。例如，`vgo get rsc.io/quote` 总会下载最新版本的 `rsc.io/quote`，并根据下载到的 `rsc.io/quote` 所指定的 `rsc.io/sampler` 版本进行构建。
 
 vgo 允许在命令行中指定模块版本：
 
@@ -197,7 +199,7 @@ $ vgo get rsc.io/quote@v1.3.0
 $ vgo get rsc.io/quote@'<v1.6' # finds v1.5.2
 ```
 
-所有这些命令，都会根据不同版本 `rsc.io/quote` 中 go.mod，分别下载（缓存中不存的话）对应的 `rsc.io/sampler` 版本。这些命令都会修改当前模块的 go.mod 文件中的 `rsc.io/sampler` 为对应的版本，也即会影响后续其他命令的结果。但这种影响是是通过显式的文件表达出来的，而非隐式的缓存状态，用户本来就会经常查看、编辑 go.mod，所以没问题。注意，若 `vgo get` 命令中所请求的模块版本比 go.mod 中对应的版本低，则 vgo 会检测是否有依赖该模块的其他模块，若有则会根据 [最小版本选择原则](https://github.com/vikyd/note/blob/master/minimal_version_selection.md) 进行降级。
+所有这些命令，都会根据不同版本 `rsc.io/quote` 中 go.mod，分别下载（缓存中不存的话）对应的 `rsc.io/sampler` 版本。这些命令都会修改当前模块的 go.mod 文件中的 `rsc.io/sampler` 为对应的版本，也即会影响后续其他命令的结果。但这种影响是是通过显式的文件表达出来的，而非隐式的缓存状态，用户本来就会经常查看、编辑 go.mod，所以没问题。注意，若 `vgo get` 命令中所请求的模块版本比 go.mod 中对应的版本低，则 vgo 会检测是否有依赖该模块的其他模块，若有则会根据 [最小版本选择原则](https://github.com/vikyd/note/blob/master/go_and_versioning/minimal_version_selection.md) 进行降级。
 
 与普通的 `go get` 相反，`go get -u` 命令会无视 GOPATH 源码缓存的状态：它会下载指定模块的最新版本，及其对应的所有依赖模块。由于 `go get -u` 已遵循隔离原则，我们应保持同样的行为：`vgo get -u` 会升级指定模块的最新版本，及其对应的所有依赖模块。
 
@@ -205,8 +207,8 @@ $ vgo get rsc.io/quote@'<v1.6' # finds v1.5.2
 
 当然，所有的 `vgo get` 命令都会将依赖模块的增、删、改写到 go.mod 文件中。从某种意义上讲，我们通过显式引入 go.mod 文件替代之前的隐式状态（依赖整个 GOPATH 的状态），让这些命令遵循了隔离原则。
 
-
 # 模块信息（go list）
+
 在修改正在使用的模块版本为其他版本之前，我们需要提供获取当前使用版本信息的方式。`go list` 命令本身已经能输出一些有用信息：
 
 ```sh
@@ -241,7 +243,7 @@ rsc.io/quote
 	v1.5.0
 	v1.5.1
 	v1.5.2
-$ 
+$
 ```
 
 其次，`vgo list -m` 可列出当前模块名，及其依赖模块：
@@ -253,7 +255,7 @@ github.com/you/hello  -
 golang.org/x/text     v0.0.0-20170915032832-14c0d48ead0c
 rsc.io/quote          v1.5.2
 rsc.io/sampler        v1.3.0
-$ 
+$
 ```
 
 最后，`vgo list -m -u` 可增加一列显示每个模块的最新版本：
@@ -270,8 +272,8 @@ $
 
 从长远来看，这些简短版命令的输出信息应更通用，其他程序才能以其他形式获取。目前，这些输出只是特殊情况。
 
-
 # 准备新的模块版本（go release）
+
 我们希望鼓励作者用以 tag 方式发布他们的模块版本，所以我们应将发布动作设计得更简单。我们想添加一个新的命令 `go release` 来处理所有依赖人记忆的工作。例如，可能是：
 
 - 对比之前的版本，根据类型变化检查其向后兼容性。我们在开发 Go 标准库时就会这么检查，很有用。
@@ -280,8 +282,8 @@ $
 
 若后面发现更多关于发布版本的最佳实践，我们会将其添加到 `go release` 中，作者就可只需一个步骤，即能检查他们的模块是否已可发布。
 
-
 # 模式匹配
+
 大部分的 go 命令支持指定一些包名作为参数，并可使用一些模式，如：
 
 - `rsc.io/...`：指所以以 `rsc.io` 作为 import 路径前缀的包
@@ -302,8 +304,8 @@ $
 
 `all` 的新含义代表了开发者的需求：只精确测试指定包的内容及其依赖，以检查某些依赖包组合一起时能否正常工作，并完全不管模块中的其他包。例如，在这篇 [概述](https://research.swtch.com/vgo1) 文章中，我们的 hello 程序只 import 了 `rsc.io/quote`，没有 import 任何其他包，也没有 import 有 bug 的包 `rsc.io/quote/buggy`。在 hello 模块中执行 `go test all`，既会测试模块中的所有包，也会测试 `rsc.io/quote`。但不会测试 `rsc.io/quote/buggy`，因为模块并未用到此包，甚至间接用到也不会测试，因为不相关。这样的 `all` 才恢复了可复现性，并在 Go 1.10 中可与测试缓存结合，`go test all` 终于再次变得有用了。
 
-
 # 别再把项目代码放 GOPATH 里
+
 若相同 import 路径的包有不同的版本，则没必要将这些不同版本的包塞到同一个目录中。如果我需同时对 v1.3 和 v1.4 进行修复 bug，该怎么办？很明显，只有把不同版本放到不同目录才行。实际上，这种情况完全不能在 GOPATH 中进行（译注：因为 GOPATH 不区分包的版本）。
 
 GOPATH 做了 3 件事：
@@ -320,7 +322,7 @@ module "rsc.io/quote"
 
 则 buggy 目录的 import 路径必须是：`rsc.io/quote/buggy`。
 
-正如这篇 [综述文章](https://github.com/vikyd/note/blob/master/go_add_package_versioning.md) 所介绍的，现在的 vgo 原型允许把项目代码放在 GOPATH 之外。实际上，在从 go.mod 获取依赖包信息时，vgo 也会从当前目录或子目录的 import 注释中获取相关信息（译注：[参考](https://golang.org/cmd/go/#hdr-Import_path_checking)）。例如，下面例子可让 upspin 包能在不引入 go.mod 文件时正常工作：
+正如这篇 [综述文章](https://github.com/vikyd/note/blob/master/go_and_versioning/go_add_package_versioning.md) 所介绍的，现在的 vgo 原型允许把项目代码放在 GOPATH 之外。实际上，在从 go.mod 获取依赖包信息时，vgo 也会从当前目录或子目录的 import 注释中获取相关信息（译注：[参考](https://golang.org/cmd/go/#hdr-Import_path_checking)）。例如，下面例子可让 upspin 包能在不引入 go.mod 文件时正常工作：
 
 ```sh
 $ cd $HOME
@@ -331,12 +333,12 @@ $ vgo test -short ./...
 
 vgo 命令会从 import 注释中推导出：此模块名为 `upspin.io`，并且会从 Gopkg.lock 文件中推导出：所需的依赖版本。
 
-
 # 下一步？
+
 本文是我关于 vgo 设计和原型的初版系列文章的最后一篇。还有很多想说的，但这些文章合计已达 67 页，应足够大家看一周了。
 
 我原计划在今天发表一篇 FAQ，在周一提交 Go 提案，但下周一之后我会离开一段时间。为了避免在正式讨论提案的最初 4 天我不在，所以想了下还是等我回来后再提交 Go 提案。请继续在邮件列表或本系列文章中发表评论、提出你的问题，并体验下 vgo 原型。
 
 感谢一直以来你们感兴趣并提供反馈。对于我来说，大家共同协作很重要，能让开发者更易于迁移到新的模块版本管理机制。
 
-**更新**：2018 年 03 月 20号：正式的 Go 提案已发出：https://golang.org/issue/24301 ，并且里面的第 2 个评论就是 FAQ。
+**更新**：2018 年 03 月 20 号：正式的 Go 提案已发出：https://golang.org/issue/24301 ，并且里面的第 2 个评论就是 FAQ。

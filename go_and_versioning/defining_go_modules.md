@@ -12,7 +12,7 @@
 
 
 # 正文
-正如前面 [综述文章](https://github.com/vikyd/note/blob/master/go_add_package_versioning.md) 所说的，一个 Go 模块（module）表示一系列包组成的一个版本单元，其中包含一个 go.mod 文件，用于指定所依赖的其他模块。趁此迁移到模块机制之际，正好可让我们回首看看原来的 go 命令是如何管理源码的，里面涉及很多细节问题，可借此机会进行修复。此时此刻，`go get` 命令已经快 10 岁了。我们需要确保新的模块机制能满足接下来 10 年的需求。
+正如前面 [综述文章](https://github.com/vikyd/note/blob/master/go_and_versioning/go_add_package_versioning.md) 所说的，一个 Go 模块（module）表示一系列包组成的一个版本单元，其中包含一个 go.mod 文件，用于指定所依赖的其他模块。趁此迁移到模块机制之际，正好可让我们回首看看原来的 go 命令是如何管理源码的，里面涉及很多细节问题，可借此机会进行修复。此时此刻，`go get` 命令已经快 10 岁了。我们需要确保新的模块机制能满足接下来 10 年的需求。
 
 具体来说：
 
@@ -73,7 +73,7 @@ require (
 # go.mod 文件
 一个模块版本由源码树组成。go.mod 文件描述了当前模块的名称，也指明了当前目录就是项目的根目录。当 vgo 进入一个目录时，会从当前目录开始寻找 go.mod 文件，若无再往上级目录找，如此类推，直到找到 go.mod 文件，并将 go.mod 所在目录认定为项目根目录。
 
-go.mod 文件格式是基于行的，并用 `//` 表示注释。每行开头包含一个指令，每个指令都是一个单词（module、require、exclude、replace，详细可见 [最小版本选择](https://github.com/vikyd/note/blob/master/minimal_version_selection.md)），指令的后面是参数：
+go.mod 文件格式是基于行的，并用 `//` 表示注释。每行开头包含一个指令，每个指令都是一个单词（module、require、exclude、replace，详细可见 [最小版本选择](https://github.com/vikyd/note/blob/master/go_and_versioning/minimal_version_selection.md)），指令的后面是参数：
 
 ```
 module "my/thing"
@@ -119,7 +119,7 @@ require (
 
 首先，创建一个仓库，并为一个 commit 打个语义版本格式的 tag。如 v0.1.0，开头的 `v` 是必须的，跟随其后的 3 个数字也是必须的。尽管 vgo 在命令行中接受类似 v0.1 的简单版本号，但为了避免歧义，代码仓库的 tag 依然必须使用完整的 v0.1.0。发布一个语义版本只需打一个 tag。若不使用 vgo 时，则也能使用 commit 版本，此时 go.mod 文件不是必须的。创建新的 tag 就表示创建了一个新的模块版本，很简单。
 
-当开发者开发到 v2 版本时，若遵循基于语义的 import 版本管理，则 `/v2/` 应被追加到 import 路径的模块路径之后，如：`my/thing/v2/sub/pkg`。正如 [之前文章所说的](https://github.com/vikyd/note/blob/master/semantic_import_versioning.md)，此约定能带来一些好处，但同时也与现有工具有些不协调。因此，当一个模块的源码仓库的 v2 或更新的 tag 中没包含 go.mod 文件或 go.mod 中没有声明模块路径时（如 `module "my/thing/v2"`），vgo 不会将这些 tag 当成新的版本。仅在使用此方式声明时，vgo 才会认为作者使用了基于语义的 import 版本管理来命名模块中的包。这对于包含多个包的模块来说尤其重要，因为模块中的 import 路径必须包含 `/v2/` 来避免与 v1 模块的歧义。
+当开发者开发到 v2 版本时，若遵循基于语义的 import 版本管理，则 `/v2/` 应被追加到 import 路径的模块路径之后，如：`my/thing/v2/sub/pkg`。正如 [之前文章所说的](https://github.com/vikyd/note/blob/master/go_and_versioning/semantic_import_versioning.md)，此约定能带来一些好处，但同时也与现有工具有些不协调。因此，当一个模块的源码仓库的 v2 或更新的 tag 中没包含 go.mod 文件或 go.mod 中没有声明模块路径时（如 `module "my/thing/v2"`），vgo 不会将这些 tag 当成新的版本。仅在使用此方式声明时，vgo 才会认为作者使用了基于语义的 import 版本管理来命名模块中的包。这对于包含多个包的模块来说尤其重要，因为模块中的 import 路径必须包含 `/v2/` 来避免与 v1 模块的歧义。
 
 我们希望大部分开发者都优先遵循通用的 `主版本分支` 约定，每个不同的主版本在不同的代码分支中进行开发。此时，v2 分支的根目录中应存在一个包含 v2 声明的 go.mod 文件，类似：
 

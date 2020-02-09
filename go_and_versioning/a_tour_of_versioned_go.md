@@ -16,7 +16,7 @@
 
 
 # 正文
-对于我来说，所谓设计，就不断构建、拆散、再构建的过程。为了写 [一个新的版本提案](https://github.com/vikyd/note/blob/master/go_add_package_versioning.md)，我创建了一个名为 vgo 的原型工具，用于验证提案的各种细节。本文将详细介绍如何一步步使用 vgo。
+对于我来说，所谓设计，就不断构建、拆散、再构建的过程。为了写 [一个新的版本提案](https://github.com/vikyd/note/blob/master/go_and_versioning/go_add_package_versioning.md)，我创建了一个名为 vgo 的原型工具，用于验证提案的各种细节。本文将详细介绍如何一步步使用 vgo。
 
 你现在可通过 `go get golang.org/x/vgo` 来获取 vgo。vgo 是 go 命令的一个即插即用的替代品（vgo fork 自 go）。你可用 vgo 替代 go 命令，vgo 会自动使用 $GOROOT（Go 1.10beat1 或更新版本）所指定的标准编译器和标准库来编译程序。
 
