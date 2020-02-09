@@ -1,4 +1,5 @@
 # Reproducible, Verifiable, Verified Builds
+
 原文：https://research.swtch.com/vgo-repro
 
 作者：[Russ Cox](https://swtch.com/~rsc/)
@@ -6,12 +7,13 @@
 翻译时间：2019-11-17
 
 # 可复现、可验证、可证明的构建
-（[Go 与版本](https://research.swtch.com/vgo)，第 5 部分）
+
+（[Go 与版本管理](https://research.swtch.com/vgo)，第 5 部分）
 
 发表时间：2018-02-21 周三 [PDF](https://research.swtch.com/vgo-repro.pdf)
 
-
 # 正文
+
 Go 开发者们和相关工具若使用统一的包版本描述方式，就可简化工具链中添加对可复现、可验证、可证明的构建支持。实际上，vgo 原型已包含这些基础要点。
 
 为了避免歧义，我们在本文约定以下含义：
@@ -22,8 +24,8 @@ Go 开发者们和相关工具若使用统一的包版本描述方式，就可�
 
 Vgo 默认具有可复现构建结果的能力。构建得到的二进制文件是可验证的，因为 Vgo 在二进制文件中记录了构建时所使用的精确源码版本。也可以配置这样一个验证仓库，当用户重新构建你的源码时，他们可通过此仓库验证他们的构建是否与你的一致。无论从何处获取到这些依赖，都可以使用密码学上的哈希值来进行验证。
 
-
 # 可复现的构建
+
 不管怎样，我们至少希望当你构建我的源码时，构建系统能使用完全一致的代码来构建。[最小版本选择（Minimal version selection）](https://research.swtch.com/vgo-mvs) 机制默认具有这种能力。只需 `go.mod` 文件就已足够唯一描述构建所使用的依赖模块版本，并且即使依赖模块出现新的版本时，也能保持稳定的构建。这就与大部分其他包管理器不一样了，因为它们通常会自动使用新版本的依赖包，需要一些额外的限制才能维持可复现的构建。我在另一篇名为 `最小版本选择` 的文章中详细介绍了这个方面，但本文不会细说，只提一些简短的要点。
 
 具体来说，我们可以从现有的包管理工具开始，譬如 Rust 语言的 Cargo。我认为 Cargo 算是目前众多包管理工具里最具代表性的例子了，里面有很多值得借鉴的地方。如果我们能为 Go 做出一个类似 Cargo 那么好用的包管理工具，那也算不错了。但我想知道的是，对于版本选择，不同的默认值是否还会有更好的效果。
@@ -32,9 +34,8 @@ Cargo 喜欢使用最大版本，下面将具体介绍。我写本文时，crate
 
 相反，最小版本选择喜欢最小的允许版本，也即项目中 `go.mod` 文件里所指定的精确版本。在此情况下，即使依赖包发布了新版本也不会改变。假设 vgo 也面临前面与 Cargo 例子中同样的选项时，vgo 会选择 `toml` 0.4.1（你的项目所依赖的）和 `serde` 1.0（`toml` 所依赖的）。这些选择都是稳定的，而且无需 lock 文件。这就是我所说的：vgo 的构建默认是可重现的。
 
-
-
 # 可验证的构建
+
 Go 语言构建的二进制文件一直都包含着一个字符串，这个字符串就是构建时所使用的 Go 版本。去年，我写了一个工具 `rsc.io/goversion`，用于从指定可执行文件或文件树中找出所包含 Go 的版本信息。譬如，在我的 Ubuntu Linux 笔记本上，我可执行下面命令来查找本机系统工具哪些是基于 Go 开发的：
 
 ```sh
@@ -50,7 +51,7 @@ $ goversion /usr/bin
 /usr/bin/keybase go1.8.3
 /usr/bin/snap go1.8.3
 /usr/bin/snapctl go1.8.3
-$ 
+$
 ```
 
 现在的 vgo 原型已经能理解模块的版本了，它将版本信息放进了最终的二进制文件中。新命令 `goversion -m` 可以将这些信息打印出来。这里有一个现成的 `hello, world` 程序 [例子](https://research.swtch.com/vgo-tour)：
@@ -66,7 +67,7 @@ $ goversion -m hello
 	dep   golang.org/x/text     v0.0.0-20170915032832-14c0d48ead0c
 	dep   rsc.io/quote          v1.5.2
 	dep   rsc.io/sampler        v1.3.0
-$ 
+$
 ```
 
 主模块（如 `github.com/you/hello`）没有版本信息，是因为这只是一份本地的副本，而不是我们下载的某个版本。一旦我们从一个有版本的模块进行构建，就可以看到其中包含所有的模块版本信息：
@@ -86,7 +87,7 @@ $ goversion -m ./hello2
 	dep   golang.org/x/text  v0.0.0-20170915032832-14c0d48ead0c
 	dep   rsc.io/quote       v1.5.2
 	dep   rsc.io/sampler     v1.3.0
-$ 
+$
 ```
 
 当我们将版本整合到 Go 的主工具链中时，我们将提供在运行过程中可访问二进制文件中版本模块信息的 API。如 [runtime.Version](https://golang.org/pkg/runtime/#Version) 接口提供了获取 Go 语言版本之外的模块版本信息的功能。
@@ -110,16 +111,15 @@ hello go1.10
 	dep   golang.org/x/text  v0.0.0-20170915032832-14c0d48ead0c  h1:qgOY6WgZOaTkIIMiVjBQcw93ERBE4m30iBm00nkL0i8=
 	dep   rsc.io/quote       v1.5.2                              h1:w5fcysjrx7yqtD/aO+QwRjYZOKnaM9Uh2b40tElTs3Y=
 	dep   rsc.io/sampler     v1.3.0                              h1:7uVkIFmeBqHfdjD+gZwtXXI+RODJ2Wc4O7MPEh/QiW4=
-$ 
+$
 ```
 
 `h1`：这个前缀表示哈希值所用的算法。目前来说，只用到了 `hash 1`，也即代表 SHA-256。这里的哈希值表示模块文件树每个文件分别计算出 SHA-256 值后的综合哈希值（译注：可参考 [这个计算工具](https://github.com/vikyd/go-checksum)）。如果我们将此哈希值修改一下，此前缀所代表的算法可帮我们分辨出新、旧哈希值。
 
 但必须指出的是，这些哈希值都是构建系统自己得出的。如果有人想给你发送了一个包含一些哈希值的二进制文件，你无法确保这些哈希值是可信的。这时就需要更进一步的验证了，而非盲信对方的信息。
 
-
-
 # 可证明的构建
+
 一个作者以源代码形式发布一个程序，其目的是想告诉用户他们所构建的程序都是基于想要的依赖包的精确版本。我们知道 vgo 会使用一致的依赖包版本来构建，但依然存在一个问题，譬如 v1.5.2 对应的文件树是否就真的是那些文件。如果作者突然将 v1.5.2 这个版本号指向了另一个不同的文件的话，该怎么办？又或者受到中间人攻击时，下载的信息被解译了，并被替换成一些恶意文件，又该怎么办？又或者用户突然修改了本地的 v1.5.2 模块源文件，又该怎么办？vgo 的原型也支持这些问题的验证。
 
 最终可能不是下面描述的形式。如果你在 `go.mod` 的旁边创建一个新的文件 `go.modverify`，并在其中持续保持下载过的模块版本对应的哈希值：
@@ -131,7 +131,7 @@ $ tcat go.modverify  # go get rsc.io/tcat, or use cat
 golang.org/x/text  v0.0.0-20170915032832-14c0d48ead0c  h1:qgOY6WgZOaTkIIMiVjBQcw93ERBE4m30iBm00nkL0i8=
 rsc.io/quote       v1.5.2                              h1:w5fcysjrx7yqtD/aO+QwRjYZOKnaM9Uh2b40tElTs3Y=
 rsc.io/sampler     v1.3.0                              h1:7uVkIFmeBqHfdjD+gZwtXXI+RODJ2Wc4O7MPEh/QiW4=
-$ 
+$
 ```
 
 `go.modverify` 文件中保存了所有曾经下载过的模块版本的哈希值：每行都只添加，永不删除。如果我们更新 `rsc.io/sampler` 到 v1.3.1，则此文件会同时包含两个版本的哈希值：
@@ -143,7 +143,7 @@ golang.org/x/text  v0.0.0-20170915032832-14c0d48ead0c  h1:qgOY6WgZOaTkIIMiVjBQcw
 rsc.io/quote       v1.5.2                              h1:w5fcysjrx7yqtD/aO+QwRjYZOKnaM9Uh2b40tElTs3Y=
 rsc.io/sampler     v1.3.0                              h1:7uVkIFmeBqHfdjD+gZwtXXI+RODJ2Wc4O7MPEh/QiW4=
 rsc.io/sampler     v1.3.1                              h1:F0c3J2nQCdk9ODsNhU3sElnvPIxM/xV1c/qZuAeZmac=
-$ 
+$
 ```
 
 当 `go.modverify` 文件存在时，vgo 会检查下载到的所有依赖包，与 `go.modverify` 文件中对应模块版本的哈希值进行对比。例如，如果我们将 `rsc.io/quote` 的哈希值前面的 `w` 修改为 `v`，则：
@@ -153,7 +153,7 @@ $ vgo build
 vgo: verifying rsc.io/quote v1.5.2: module hash mismatch
 	downloaded:   h1:w5fcysjrx7yqtD/aO+QwRjYZOKnaM9Uh2b40tElTs3Y=
 	go.modverify: h1:v5fcysjrx7yqtD/aO+QwRjYZOKnaM9Uh2b40tElTs3Y=
-$ 
+$
 ```
 
 或者，我们不修改上述哈希值，转而修改 `go.modverify` 中 v1.3.0 对应的哈希值。此时，再次构建应能成功，因为构建没有用到 v1.3.0，所以该行被（正确地）忽略了。但如果我们降级到 v1.3.0，则再次验证构建结果是将会提示失败：
@@ -164,7 +164,7 @@ $ vgo get rsc.io/sampler@v1.3.0
 vgo: verifying rsc.io/sampler v1.3.0: module hash mismatch
 	downloaded:   h1:7uVkIFmeBqHfdjD+gZwtXXI+RODJ2Wc4O7MPEh/QiW4=
 	go.modverify: h1:8uVkIFmeBqHfdjD+gZwtXXI+RODJ2Wc4O7MPEh/QiW4=
-$ 
+$
 ```
 
 开发者若想保证他们的程序每次构建都能用到精确一致的依赖源码，可以在仓库中保存 `go.modverify` 文件。之后，其他人使用同一个仓库进行构建时，就能根据 `go.modverify` 文件对依赖的模块源码进行验证了。到此为止，我们依然只说了 `go.modverify` 会验证顶层的直接依赖。不过好在，`go.modverify` 还会保存所有间接的依赖模块哈希值，所以整个构建所依赖的模块都是可验证的。
@@ -175,7 +175,7 @@ $
 $ go get -u golang.org/x/vgo  # fixed a bug, sorry! :-)
 $ vgo verify
 all modules verified
-$ 
+$
 ```
 
 如果一个源文件被修改过，`vgo verify` 会提示：
@@ -184,7 +184,7 @@ $
 $ echo >>$GOPATH/src/v/rsc.io/quote@v1.5.2/quote.go
 $ vgo verify
 rsc.io/quote v1.5.2: dir has been modified (/Users/rsc/src/v/rsc.io/quote@v1.5.2)
-$ 
+$
 ```
 
 如果将被修改的文件恢复原状，就不会出现提示了：
@@ -193,7 +193,7 @@ $
 $ gofmt -w $GOPATH/src/v/rsc.io/quote@v1.5.2/quote.go
 $ vgo verify
 all modules verified
-$ 
+$
 ```
 
 如果缓存的 zip 文件在下载后被修改过，`vgo verify` 命令也会发出提示（其中细节可暂不用管）：
@@ -203,14 +203,13 @@ $ zip $GOPATH/src/v/cache/rsc.io/quote/@v/v1.5.2.zip /etc/resolv.conf
   adding: etc/resolv.conf (deflated 36%)
 $ vgo verify
 rsc.io/quote v1.5.2: zip has been modified (/Users/rsc/src/v/cache/rsc.io/quote/@v/v1.5.2.zip)
-$ 
+$
 ```
 
 因为 vgo 会在解压后保留原始的 zip 文件，所以如果 `vgo verify` 发现其中的 zip 文件与目录树的不一致，就会打印出其中不一致的地方。
 
-
-
 # 下一步
+
 上述这些都已在 vgo 中实现了，你现在就可以尝试使用一下。vgo 接下来将持续接受用户的使用反馈进行改进。
 
 本文中展示的功能只是一个开始，还远不是最终的样子。文件树的哈希值是此机制的基石。`go.modverify` 基于此来校验开发者所使用的依赖包是否一致。但此机制目前无法在新增（除非用户手动在 `go.modverify` 中添加哈希值）一个依赖包或更新依赖包到新版本时进行验证，因为此时本地没有可对比的哈希值。

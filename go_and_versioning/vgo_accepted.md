@@ -7,7 +7,7 @@
 翻译时间：2019-11-16
 
 # vgo 提案被接受了，然后呢？
-（[Go 与版本](https://research.swtch.com/vgo)，第 8 部分）
+（[Go 与版本管理](https://research.swtch.com/vgo)，第 8 部分）
 
 发表时间：2018-05-29 周二 [PDF](https://research.swtch.com/vgo-accepted.pdf)
 

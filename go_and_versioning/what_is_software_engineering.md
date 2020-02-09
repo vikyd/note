@@ -6,7 +6,7 @@
 翻译时间：2019-11-16
 
 # 什么是软件工程？
-（[Go 与版本](https://research.swtch.com/vgo)，第 9 部分）
+（[Go 与版本管理](https://research.swtch.com/vgo)，第 9 部分）
 
 发表时间：2018-03-30 周三 [PDF](https://research.swtch.com/vgo-eng.pdf)
 

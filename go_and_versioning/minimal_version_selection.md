@@ -8,7 +8,7 @@
 
 # 最小版本选择
 
-（[Go 与版本](https://research.swtch.com/vgo)，第 4 部分）
+（[Go 与版本管理](https://research.swtch.com/vgo)，第 4 部分）
 
 发表时间：2018-02-21 周三 [PDF](https://research.swtch.com/vgo-mvs.pdf)
 

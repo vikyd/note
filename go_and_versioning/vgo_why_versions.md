@@ -7,7 +7,7 @@
 翻译时间：2019-11-16
 
 # 为什么要为 Go 添加版本管理功能？
-（[Go 与版本](https://research.swtch.com/vgo)，第 10 部分）
+（[Go 与版本管理](https://research.swtch.com/vgo)，第 10 部分）
 
 发表时间：2018-06-07 周四 [PDF](https://research.swtch.com/vgo-why-versions.pdf)
 
