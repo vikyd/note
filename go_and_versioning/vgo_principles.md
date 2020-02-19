@@ -439,7 +439,7 @@ Dep 构建时会自动选择 D 1.6，并且不能正常工作。Go 模块构建�
 
 又或者可能构建没失败。准确来说，Dep 没有做这样的选择。当 Dep 发现不能同时使用最新版的 B 和最新版的 C 时，Dep 还有很多可能的处理方式。之前是假设 Dep 使用最新版本的 B，但这次 Dep 改为使用最新版本的 C，则会使用更旧版本的 D 和更旧版本的 B，得到成功的构建，如上图第 3 列所示。
 
-所以，Dep 的构建可能会失败，也可能会成功，这有点随机，取决于 [基于 SAT 求解器的版本选择](https://research.swtch.com/version-sat)。
+所以，Dep 的构建可能会失败，也可能会成功，这有点随机，取决于 [基于 SAT 求解器的版本选择](https://github.com/vikyd/note/blob/master/go_and_versioning/version_sat.md)。
 
 > 最近我试了一下，当遇到需要从两个包的最新版本中选择其中一个的情况时，Dep 会优先选择 import 路径字母顺序靠前的那个。
 

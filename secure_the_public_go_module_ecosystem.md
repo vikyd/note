@@ -2,8 +2,6 @@
 
 原文：https://go.googlesource.com/proposal/+/master/design/25530-sumdb.md
 
-
-
 # 提案：为 Go 语言的公共模块生态建立安全机制
 
 作者：
@@ -17,24 +15,19 @@ golang.org/design/25530-sumdb
 
 参与讨论：golang.org/issue/25530.
 
-
 # 译前名词解释
 
 - checksum database：译作校验数据库
 - Golang 或 Go：本文统一称为 Go
 - module：译作模块
 
-
 此外，建议先看 [此文](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md) 和 [此文](https://github.com/vikyd/note/blob/master/our_software_dependency_problem.md)。然后再看本文，否则本文可能会有很多莫名其妙的概念。
-
 
 # 摘要
 
 我们提出引入一个新的服务来为 Go 的模块生态提供安全保障。这个服务就是 Go 的 checksum database（校验数据库），它实质是一个包含了所有公开 Go 模块的 `go.sum` 文件。`go` 命令可使用此服务来填充本地的 `go.sum`，譬如 `go get -u`。此方法用于保证初次引入或更新依赖时，依赖包中的代码不会被异常修改。
 
 Go 的校验数据库（checksum database）原起名叫 `the Go notary`（Go 的公证人），但我们后来改名了，避免与 Apple Notary 或基于 Go 写成的 CNCF Notary 项目搞混。
-
-
 
 # 背景
 
@@ -43,7 +36,8 @@ Go 的校验数据库（checksum database）原起名叫 `the Go notary`（Go �
 ```html
 <meta
   name="go-import"
-  content="rsc.io/quote git https://github.com/rsc/quote">
+  content="rsc.io/quote git https://github.com/rsc/quote"
+/>
 ```
 
 从上面可知，代码来自 `github.com`。下一步会执行 `git clone https://github.com/rsc/quote` 从 Git 仓库拉取代码，并提取 `v1.5.2` tag 中的文件树，最终得到真正的模块内容。
@@ -79,7 +73,7 @@ Go 1.11 的预览版 Go 模块方案引入了 `go.sum` 文件，此文件：
 
 也就是说，不应信任日志服务器能正确存储日志，也不应信任日志服务器能将正确的内容存到日志中。相反，客户端和检查者与服务器通讯时应保持怀疑，并验证每次与服务器的通讯是否正确。
 
-关于该数据结构的详细细节可见 Russ Cox 的博客文章 [为持怀疑态度的客户端设计的透明日志（Transparent Logs for Skeptical Clients）](https://research.swtch.com/tlog)。若想从更高层次了解 Certificate Transparency（证书透明度）及其动机、背景，可见 Ben Laurie 在 ACM Queue 发布的文章 [证书透明度：公开、可验证、仅追加的日志（Certificate Transparency: Public, verifiable, append-only logs）](https://queue.acm.org/detail.cfm?id=2668154)。
+关于该数据结构的详细细节可见 Russ Cox 的博客文章 [为持怀疑态度的客户端设计的透明日志（Transparent Logs for Skeptical Clients）](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md)。若想从更高层次了解 Certificate Transparency（证书透明度）及其动机、背景，可见 Ben Laurie 在 ACM Queue 发布的文章 [证书透明度：公开、可验证、仅追加的日志（Certificate Transparency: Public, verifiable, append-only logs）](https://queue.acm.org/detail.cfm?id=2668154)。
 
 使用透明日志检测部分信任系统的异常行为已是一个普遍的趋势，使用透明日志作为模块哈希的保障也算是顺势而为。Trillian 团队将这种行为称之为 [通用透明度（General Transparency）](https://github.com/google/trillian/#trillian-general-transparency)。
 
@@ -90,6 +84,7 @@ Go 1.11 的预览版 Go 模块方案引入了 `go.sum` 文件，此文件：
 我们提议基于透明日志发布一个包含所有公共 Go 模块的 `go.sum` 服务。这是一个新的服务，我们将其称之为 Go checksum database（Go 的校验数据库）。当开发者准备使用一个新的公共模块时，若其本地 `go.sum` 文件没有该模块的信息，`go` 命令将先从 Go 校验数据库服务中拉取对应信息以验证模块内容的正确性，而非不经过验证就直接信任。
 
 ## 校验数据库（Checksum Database）
+
 Go 校验数据库是：`https://sum.golang.org/`，提供以下功能：
 
 - `/latest`（[链接](https://sum.golang.org/latest)）：
@@ -99,13 +94,13 @@ Go 校验数据库是：`https://sum.golang.org/`，提供以下功能：
     - 验证：初次验证 vs 已签名的树根哈希
     - 验证：已签名的树根哈希值 vs 客户端中已签名的树根哈希
 - `/tile/H/L/K[.p/W`：
-  - 提供一个日志瓦片（[log tile](https://research.swtch.com/tlog#serving_tiles)）。`.p/W` 是可选的，此后缀表示只有 `W` 个哈希值的不完整日志瓦片。若不完整的瓦片不存在，则客户端必须去获取完整瓦片。叶子哈希值 `/tile/H/0/K[.p/W]` 对应的数据记录可在此处找到 `/tile/H/data/K[.p/W]`（`data` 就是四个字母 `data`，而不是其他）。
+  - 提供一个日志瓦片（[log tile](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md#%E6%8F%90%E4%BE%9B%E7%93%A6%E7%89%87%E6%9C%8D%E5%8A%A1)）。`.p/W` 是可选的，此后缀表示只有 `W` 个哈希值的不完整日志瓦片。若不完整的瓦片不存在，则客户端必须去获取完整瓦片。叶子哈希值 `/tile/H/0/K[.p/W]` 对应的数据记录可在此处找到 `/tile/H/data/K[.p/W]`（`data` 就是四个字母 `data`，而不是其他）。
   - > 译注：一些实例：[完整瓦片](https://sum.golang.org/tile/8/0/003)、[不完整瓦片](https://sum.golang.org/tile/8/1/006.p/189) 、[前面完整瓦片对应的记录数据](https://sum.golang.org/tile/8/data/003)
 
 客户端的日常操作会使用 `/lookup` 和 `/tile/H/L/...`。检查者会使用 `/latest` 和 `/tile/H/data/...`。还有一个特别的 `go` 命令用于从 `/latest` 获取已签名的树根哈希，并强制整合进本地缓存。
 
-
 ## 代理一个校验数据库
+
 一个模块代理也可代理到校验数据库的请求。通常代理的 URL 格式是 `<proxyURL>/sumdb/databaseURL`。如果 `GOPROXY=https://proxy.site`，则最新的已签名树的地址是 `https://proxy.site/sumdb/sum.golang.org/latest`。包含完整数据库的 URL 以后可转换到新的数据库日志，如 `sum.golang.org/v2`。
 
 在通过代理访问任何校验数据库的 URL 前，代理客户端应首先获取 `<proxyURL>/sumdb/<sumdb-name>/supported`。若得到成功的响应（HTTP 200），则表明此代理支持代理校验数据库的请求。此时，客户端应仅使用代理，不要退回到直连数据库。若 `/sumdb/<sumdb-name>/supported` 得到失败的响应（如 `not found（找不到）` HTTP 404，`gone（已不存在）` HTTP 410），则表明此代理不代理校验数据库，此时客户端应直连数据库。此外的任何其他响应结果，都将被视为数据库不可用。
@@ -114,7 +109,7 @@ Go 校验数据库是：`https://sum.golang.org/`，提供以下功能：
 
 ## `go` 命令客户端
 
-`go` 命令是数据库日志的主要使用者。`go` 命令在使用数据库时会去 [验证其日志](https://research.swtch.com/tlog#verifying_a_log)，以保证每个数据记录都是在日志中存在的，并且日志没有删除任何之前的数据记录。
+`go` 命令是数据库日志的主要使用者。`go` 命令在使用数据库时会去 [验证其日志](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md#%E9%AA%8C%E8%AF%81%E7%93%A6%E7%89%87)，以保证每个数据记录都是在日志中存在的，并且日志没有删除任何之前的数据记录。
 
 `go` 命令会从环境变量 `$GOSUMDB` 中找到数据库的名字以及 Go 校验数据库的公钥。此变量的默认服务器是 `sum.golang.org`。
 
@@ -169,7 +164,7 @@ Google 的 Go 团队负责发布运行 Go 验证数据库，类似 `godoc.org`�
 
 解决上述问题的办法之一是增加服务器的数量。例如，有个 N=3 或 N=5 个组织分别发布了自己的服务器，用户收集所有这些服务器的证书。当 (N+1)/2 个服务器中（译注：即过半数服务器）的证书一致，则认为该模块版本是有效可信的。此方法又有 2 个缺点：使用成本更高、且无检测真正攻击的方法。由于替换源码所得的回报可能会很高（译注：即做坏事的收益很高），所以可能会有人不择手段地对超过 (N+1)/2 的服务器进行攻击，并对证书做些不可告人的目的的事。因此，我们将重点转移到了对攻击的检测上。
 
-若在被攻击前使用验证数据库来记录 `go.sum` 的条目到 [透明日志（transparent log）](https://research.swtch.com/tlog)，则：
+若在被攻击前使用验证数据库来记录 `go.sum` 的条目到 [透明日志（transparent log）](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md)，则：
 
 - 若被篡改过的 `go.sum` 条蜜被存储进真正的日志，则检测者可发现此问题
 - 若被篡改过的 `go.sum` 条目被存储在一个被攻击过的副本服务器，则此服务器必须一直提供有问题的副本给受害使用者，并且只提供给该使用者。否则，`go` 命令的一致性检查将会严重报错，并能提供足够密码学证据来证明该服务器被篡改过。
@@ -265,15 +260,9 @@ SHA256 + `go notify` 的模式并非本提议的一部分，我们目前考虑�
 
 其次，支持模块的 CI/CD 系统应已使用 `-mod=readonly` 参数。若 `go.mod` 不是最新的，则应抛出错误，而不是静静的去更新 `go.mod`。我们还会保证 `-mod=readonly` 参数能在 `go.sum` 文件不是最新时抛出错误（[#30667](https://golang.org/issue/30667)）。
 
-
-
-
 # 兼容性
 
 验证数据库的引入并不会在命令、语言层面有任何兼容性问题。但是修改过公共模块内容的代理将会在新的检查中变得不兼容，并导致该代理不可用。这正是我们设计的：不然这些被中间人攻击过代理将会混淆视听。
-
-
-
 
 # 实现
 

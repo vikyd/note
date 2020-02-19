@@ -1003,7 +1003,7 @@ gCGotQKRpCpTloDkBuQHaEaIfNvKFRiwWgilbJLPPm0=
 
 ### 瓦片 URL 推算
 
-瓦片本质是一堆哈希值，是从默克尔树中按 [一定规则](https://research.swtch.com/tlog#tiling_a_log) 切割出来的。
+瓦片本质是一堆哈希值，是从默克尔树中按 [一定规则](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md#%E5%AF%B9%E6%97%A5%E5%BF%97%E8%BF%9B%E8%A1%8C%E7%93%A6%E7%89%87%E5%8C%96) 切割出来的。
 
 ![](https://raw.githubusercontent.com/vikyd/note/master/img/go_mod_security/whistle-pure-go-get.png)
 
@@ -1307,7 +1307,7 @@ Golang 官方认为：
 
 不过，[这里](https://github.com/golang/mod/blob/master/sumdb/server.go) 可以看到部分逻辑。
 
-[据说](https://research.swtch.com/tlog#further_reading)（里面搜索 `trillian`）用到了 Google 的开源项目 [Trillian](https://github.com/google/trillian)。但此项目的文档并不好操作，所以可参考 [这篇文章](https://medium.com/google-cloud/google-trillian-for-noobs-9b81547e9c4a) 来跑起一个简单的透明日志服务（此篇文章的一些坑可参考 [这里](https://github.com/vikyd/note/blob/master/trillian_docker_issues.md)）。
+[据说](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md#%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB)（里面搜索 `trillian`）用到了 Google 的开源项目 [Trillian](https://github.com/google/trillian)。但此项目的文档并不好操作，所以可参考 [这篇文章](https://medium.com/google-cloud/google-trillian-for-noobs-9b81547e9c4a) 来跑起一个简单的透明日志服务（此篇文章的一些坑可参考 [这里](https://github.com/vikyd/note/blob/master/trillian_docker_issues.md)）。
 
 # 分析 `index.golang.org`
 
