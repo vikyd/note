@@ -1,4 +1,4 @@
-# Golang go mod 的几种伪版本号与产生方式
+# Golang go mod 伪版本号的几种形式与产生方式
 go mod 遵循语义版本，即 [semver](https://semver.org/)，项目的各种依赖包版本都记录在 go.mod 文件中。
 
 go.mod 中有时会记录到一些伪版本号，这些伪版本号看起来很奇怪，到底是在什么场景下产生的？
