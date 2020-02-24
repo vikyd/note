@@ -16,14 +16,6 @@
 - 20190519 [godoc.org 和 gopkg.in 和 golang.org/x 是什么](https://github.com/vikyd/note/tree/master/godocorg_gopkgin_golangorgx_diff.md)
 - 20190802 [URL 中 QueryString 与 Fragment 的困惑](https://github.com/vikyd/note/tree/master/url-querystring-fragment-disabuse.md)
 - 20190829 [Vim 使用感受](https://github.com/vikyd/note/tree/master/vim.md)
-- Golang 版本管理相关文章
-  - 20190519 [go get 在 go mod 项目与非 go mod 项目中的区别](https://github.com/vikyd/note/tree/master/goget_diff_gomod_gopath.md)
-  - 20190610 [译：我们的软件依赖问题 - Our Software Dependency Problem](https://github.com/vikyd/note/tree/master/our_software_dependency_problem.md)
-  - 20191015 [Golang 20190301 译：为持怀疑态度的客户端设计的透明日志 - Transparent Logs for Skeptical Clients](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md)
-  - 20191014 [Golang 的 go module 校验值计算方式](https://github.com/vikyd/note/blob/master/golang-checksum.md)
-  - 20191027 [Golang 20190424 译：为 Go 语言的公共模块生态建立安全机制 - Proposal：Secure the Public Go Module Ecosystem](https://github.com/vikyd/note/blob/master/secure_the_public_go_module_ecosystem.md)
-  - 20191113 [Golang Module 验证模块安全背后的细节 - go mod、GOPROXY、GOSUMDB、GOPRIVATE](https://github.com/vikyd/note/blob/master/go_mod_secure_detail.md)
-  - 20200225 [Golang go mod 伪版本号的几种形式与产生方式](https://github.com/vikyd/note/blob/master/go_pseudo_version.md)
 - Golang 版本管理系列 `翻译`
   - 20200112 [Golang 20180220 Part01 译：Go += 包版本管理 - Go += Package Versioning](https://github.com/vikyd/note/blob/master/go_and_versioning/go_add_package_versioning.md)
   - 20200117 [Golang 20180220 Part02 译：Go 语言的版本管理教程（vgo） - A Tour of Versioned Go (vgo)](https://github.com/vikyd/note/blob/master/go_and_versioning/a_tour_of_versioned_go.md)
@@ -37,3 +29,11 @@
   - 20191116 [Golang 20180530 Part09 译：什么是软件工程？ - What is Software Engineering?](https://github.com/vikyd/note/blob/master/go_and_versioning/what_is_software_engineering.md)
   - 20191116 [Golang 20180607 Part10 译：为什么要为 Go 添加版本管理功能？ - Why Add Versions To Go?](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_why_versions.md)
   - 20200209 [Golang 20191203 Part11 译：Go 语言的模块版本管理原则 - The Principles of Versioning in Go](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_principles.md)
+- Golang 版本管理相关
+  - 20190519 [go get 在 go mod 项目与非 go mod 项目中的区别](https://github.com/vikyd/note/tree/master/goget_diff_gomod_gopath.md)
+  - 20190610 [译：我们的软件依赖问题 - Our Software Dependency Problem](https://github.com/vikyd/note/tree/master/our_software_dependency_problem.md)
+  - 20191015 [Golang 20190301 译：为持怀疑态度的客户端设计的透明日志 - Transparent Logs for Skeptical Clients](https://github.com/vikyd/note/blob/master/translate-transparent_logs_for_skeptical_clients.md)
+  - 20191014 [Golang 的 go module 校验值计算方式](https://github.com/vikyd/note/blob/master/golang-checksum.md)
+  - 20191027 [Golang 20190424 译：为 Go 语言的公共模块生态建立安全机制 - Proposal：Secure the Public Go Module Ecosystem](https://github.com/vikyd/note/blob/master/secure_the_public_go_module_ecosystem.md)
+  - 20191113 [Golang Module 验证模块安全背后的细节 - go mod、GOPROXY、GOSUMDB、GOPRIVATE](https://github.com/vikyd/note/blob/master/go_mod_secure_detail.md)
+  - 20200225 [Golang go mod 伪版本号的几种形式与产生方式](https://github.com/vikyd/note/blob/master/go_pseudo_version.md)
