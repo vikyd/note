@@ -23,6 +23,7 @@
   - 20191014 [Golang 的 go module 校验值计算方式](https://github.com/vikyd/note/blob/master/golang-checksum.md)
   - 20191027 [Golang 20190424 译：为 Go 语言的公共模块生态建立安全机制 - Proposal：Secure the Public Go Module Ecosystem](https://github.com/vikyd/note/blob/master/secure_the_public_go_module_ecosystem.md)
   - 20191113 [Golang Module 验证模块安全背后的细节 - go mod、GOPROXY、GOSUMDB、GOPRIVATE](https://github.com/vikyd/note/blob/master/go_mod_secure_detail.md)
+  - 20200225 [Golang go mod 伪版本号的几种形式与产生方式](https://github.com/vikyd/note/blob/master/go_pseudo_version.md)
 - Golang 版本管理系列 `翻译`
   - 20200112 [Golang 20180220 Part01 译：Go += 包版本管理 - Go += Package Versioning](https://github.com/vikyd/note/blob/master/go_and_versioning/go_add_package_versioning.md)
   - 20200117 [Golang 20180220 Part02 译：Go 语言的版本管理教程（vgo） - A Tour of Versioned Go (vgo)](https://github.com/vikyd/note/blob/master/go_and_versioning/a_tour_of_versioned_go.md)
