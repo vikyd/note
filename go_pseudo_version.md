@@ -1,4 +1,4 @@
-# Golang go mod 伪版本号的几种形式与产生方式
+# Golang go mod 伪版本号的几种形式、产生原因
 go mod 遵循语义版本，即 [semver](https://semver.org/)，项目的各种依赖包版本都记录在 go.mod 文件中。
 
 go.mod 中有时会记录到一些伪版本号（pseudo version），这些伪版本号看起来很奇怪，到底是在什么场景下产生的？
@@ -19,7 +19,7 @@ go.mod 中有时会记录到一些伪版本号（pseudo version），这些伪�
 1. `vX.Y.Z-pre.0.yyyymmddhhmmss-abcdefabcdef`
 1. `vX.Y.(Z+1)-0.yyyymmddhhmmss-abcdefabcdef`
 
-先不说前面的版本号，先说说后面几节的含义）：
+先不说前面的版本号，先说说后面几节的含义：
 
 > 以 Git 为例
 
@@ -44,6 +44,8 @@ github.com/vikyd/go-pseudo-version-v3/v3 v3.0.0-20200223162350-28befbc6632e
 github.com/vikyd/go-pseudo-version-precommit v1.2.3-abc.0.20200224083453-edee0fbb7b85
 
 github.com/vikyd/go-pseudo-version-precommit v1.2.4-pre.0.20200224083546-e188359d5696
+
+github.com/vikyd/go-pseudo-version-normal-tag v1.1.2-0.20200224165638-e6ffd0534483
 ```
 
 这些伪版本号分别代表什么意思？
