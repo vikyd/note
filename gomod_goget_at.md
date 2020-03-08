@@ -1,4 +1,4 @@
-# Golang module 模式下 go get 使用 `@` 的各种姿势、实例
+# Golang module 模式下 go get 使用 `@` 的潜规则和实例
 go module 的版本号基于 [semver](https://semver.org/)，允许类似 `go get github.com/google/uuid@v1.1.0` 的形式获取指定版本依赖包，即 `@` 后跟 `v` 再跟 `语义数字版本号`。
 
 但从 Golang 官方文档看 [1](https://golang.org/cmd/go/#hdr-Module_queries)、[2](https://golang.org/cmd/go/#hdr-Add_dependencies_to_current_module_and_install_them)，在字符 `@` 后面还支持更多的形式，包括但不限 `"@>v1.1.0"`、 `@latest`、`@commitHash`、`@patch` 等。
