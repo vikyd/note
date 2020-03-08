@@ -38,4 +38,5 @@
   - 20191113 [Golang Module 验证模块安全背后的细节 - go mod、GOPROXY、GOSUMDB、GOPRIVATE](https://github.com/vikyd/note/blob/master/go_mod_secure_detail.md)
   - 20200224 [Golang go mod 伪版本号的几种形式与产生方式](https://github.com/vikyd/note/blob/master/go_pseudo_version.md)
   - 20200225 [实例演示：Golang go mod 同一仓库多模块、多主版本并存](https://github.com/vikyd/note/blob/master/go_mod_submodule.md)
+  - 20200308 [Golang module 模式下 go get 使用 `@` 的潜规则和实例](https://github.com/vikyd/note/edit/master/gomod_goget_at.md)
 
