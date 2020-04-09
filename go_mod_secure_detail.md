@@ -575,12 +575,10 @@ jEFFy4AtYgBBNTSZTiNnQrgQqMbcH0mfO2oP2FxR9VU=
 
 可见本地只与代理 `goproxy.io` 通讯，并无与 `proxy.golang.org`、`sum.golang.org` 通讯。
 
+
 ### 腾讯云：mirrors.tencent.com/go
-
-- 推荐：★★★
-- 仅支持 [模块源码代理](https://golang.org/cmd/go/#hdr-Module_proxy_protocol)，不支持 [sumdb 代理](https://go.googlesource.com/proposal/+/master/design/25530-sumdb.md#proxying-a-checksum-database)
-
-  - 即此接口未返回 HTTP Status 200：https://mirrors.tencent.com/go/sumdb/sum.golang.org/supported
+- 推荐：★★★★
+- 同时支持 [模块源码代理](https://golang.org/cmd/go/#hdr-Module_proxy_protocol) 和 [sumdb 代理](https://go.googlesource.com/proposal/+/master/design/25530-sumdb.md#proxying-a-checksum-database)，比较省心
 
 ### 阿里云：mirrors.aliyun.com/goproxy
 
