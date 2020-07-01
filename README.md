@@ -40,3 +40,12 @@
   - 20200225 [实例演示：Golang go mod 同一仓库多模块、多主版本并存](https://github.com/vikyd/note/blob/master/go_mod_submodule.md)
   - 20200308 [Golang module 模式下 go get 使用 `@` 的潜规则和实例](https://github.com/vikyd/note/blob/master/gomod_goget_at.md)
   - 20200311 [技巧：VSCode 调试 Golang 自身源码](https://github.com/vikyd/note/blob/master/vscode_debug_go_self.md)
+  - 20200701 [Golang 的 import path 与根目录 package name 不匹配的处理方式](https://github.com/vikyd/note/blob/master/go_package_not_match_importpath.md)
+
+  
+
+  
+  
+  
+  
+  
