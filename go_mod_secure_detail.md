@@ -1,4 +1,4 @@
-# Golang Module 验证模块安全背后的细节
+# Golang Module 背后的安全与代理机制
 
 > 本文很啰嗦，因为有不少细节、实验
 
