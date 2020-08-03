@@ -123,7 +123,7 @@
 
 此委员会的背景可见于 Sam 的文章：
 
-- 2016 年 02 月：[所以你想写一个包管理器（So you want to write a package manager）](https://medium.com/@sdboyer/so-you-want-to-write-a-package-manager-4ae9c17d9527)
+- 2016 年 02 月：[所以你想写一个包管理器（So you want to write a package manager）](https://github.com/vikyd/note/blob/master/so_you_want_to_write_a_package_manager.md)
 - 2016 年 12 月：[Go 的依赖管理传奇（The Saga of Go Dependency Management）](https://blog.gopheracademy.com/advent-2016/saga-go-dependency-management/)
 - 2017 年 07 月：GopherCon 会议上的演讲 [Go 包管理的新时代（The New Era of Go Package Management）](https://www.youtube.com/watch?v=5LtMb090AZI)
 
