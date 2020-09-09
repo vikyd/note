@@ -15,3 +15,6 @@
 - 20191116 [Golang 20180530 Part09 译：什么是软件工程？ - What is Software Engineering?](https://github.com/vikyd/note/blob/master/go_and_versioning/what_is_software_engineering.md)
 - 20191116 [Golang 20180607 Part10 译：为什么要为 Go 添加版本管理功能？ - Why Add Versions To Go?](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_why_versions.md)
 - 20200209 [Golang 20191203 Part11 译：Go 语言的模块版本管理原则 - The Principles of Versioning in Go](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_principles.md)
+
+
+想看翻译之外的 Golang 文章，见 [这里](https://github.com/vikyd/note)。
