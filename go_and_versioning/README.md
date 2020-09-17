@@ -1,5 +1,5 @@
 # Golang 版本管理系列 `翻译` 11 篇全
-翻译自 Golang 总舵主之一的 [Russ Cox](https://swtch.com/~rsc/) 大神的 Golang Module 系列文章：https://research.swtch.com/vgo 。
+翻译自 [Russ Cox](https://swtch.com/~rsc/) 大神（Golang 总舵主之一）的 Golang Module 系列文章 [Go & Versioning](https://research.swtch.com/vgo) 。
 
 翻译时间 ↓ 原文发表时间 ↓
 
