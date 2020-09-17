@@ -11,7 +11,7 @@
 - [20180221 Part05 译：可复现、可验证、可证明的构建 - Reproducible, Verifiable, Verified Builds](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_repro.md)
 - [20180222 Part06 译：定义 Go 语言的模块 - Defining Go Modules](https://github.com/vikyd/note/blob/master/go_and_versioning/defining_go_modules.md)
 - [20180223 Part07 译：Go 语言的版本管理命令 - Versioned Go Commands](https://github.com/vikyd/note/blob/master/go_and_versioning/versioned_go_commands.md)
-- [Golang 20180529 Part08 译：vgo 提案被接受了，然后呢？ - The vgo proposal is accepted. Now what?](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_accepted.md)
+- [20180529 Part08 译：vgo 提案被接受了，然后呢？ - The vgo proposal is accepted. Now what?](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_accepted.md)
 - [20180530 Part09 译：什么是软件工程？ - What is Software Engineering?](https://github.com/vikyd/note/blob/master/go_and_versioning/what_is_software_engineering.md)
 - [20180607 Part10 译：为什么要为 Go 添加版本管理功能？ - Why Add Versions To Go?](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_why_versions.md)
 - [20191203 Part11 译：Go 语言的模块版本管理原则 - The Principles of Versioning in Go](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_principles.md)
