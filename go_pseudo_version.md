@@ -239,7 +239,7 @@ commits: |  1d608fd  |   e6ffd05
 
 
 
-## 第 4 中伪版本号：`vX.0.0-00010101000000-000000000000`
+## 第 4 种伪版本号：`vX.0.0-00010101000000-000000000000`
 
 下载或 git clone 此仓库：https://github.com/vikyd/gomod-replace-pseudo 。
 
