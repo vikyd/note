@@ -1,3 +1,14 @@
+
+# Chromium 历史版本离线安装包 - 下载方法
+https://vikyd.github.io/download-chromium-history-version/
+
+
+----------
+
+↓ 下面内容已过时，最新下载方式请见上面内容 ↑
+
+
+
 # 概述
 Chrome(Chromium) 历史旧版本离线安装包，官方下载地址。
 
