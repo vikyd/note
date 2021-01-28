@@ -44,7 +44,7 @@
   - 20200311 [技巧：VSCode 调试 Golang 自身源码](https://github.com/vikyd/note/blob/master/vscode_debug_go_self.md)
   - 20200926 [几种姿势：调试 go mod、go build 命令等 Golang 自身源码（VSCode、GoLand）](https://github.com/vikyd/note/blob/master/vscode_goland_debug_go_mod_go_build_go_get.md)
 - 20201025 [原来 ifconfig 的字段是这样的含义](https://github.com/vikyd/note/blob/master/ifconfig.md)
-- 20200120 [Chromium 最新、历史版本离线安装包 - 下载方法](https://github.com/vikyd/note/blob/master/chrome_offline_download.md)
+- 20200120 [Chromium/Chrome 最新、历史版本离线安装包 - 下载方法](https://vikyd.github.io/download-chromium-history-version/)
 
   
   
