@@ -17,6 +17,7 @@ jobs:
       #     TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Update Markdown TOC
         run: |
+          mkdir -p ~/.local/bin
           curl https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc -o ~/.local/bin/gh-md-toc
           chmod a+x ~/.local/bin/gh-md-toc
           ./toc-generator.sh
