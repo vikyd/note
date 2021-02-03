@@ -25,7 +25,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
       # The resulting commit will not trigger another GitHub Actions Workflow run
         with:
-          file_pattern: './\*.md'
+          file_pattern: ./\*.md
           commit_message: 'doc: update md toc'
           commit_user_name: vikyd
           commit_user_email: zwj_fhys@qq.com
