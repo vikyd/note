@@ -5,16 +5,16 @@ on:
     branches:
       - master
 jobs:
-  crawler:
+  MainJob:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Write Github Token for gh-md-toc
-        run: 'echo $TOKEN > /usr/local/bin/token.txt'
-        shell: bash
-        env:
-          TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      # - name: Write Github Token for gh-md-toc
+      #   run: 'echo $TOKEN > /usr/local/bin/token.txt'
+      #   shell: bash
+      #   env:
+      #     TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Update Markdown TOC
         run: |
           curl https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc -o gh-md-toc
