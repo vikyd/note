@@ -48,4 +48,4 @@
 
 ---
 
-> 各文中的 `目录` 由 [ekalinin/github-markdown-toc](https://github.com/ekalinin/github-markdown-toc) + [Github Actions](https://github.com/features/actions) 自动生成。
+> 各文中的 `目录` 由 [ekalinin/github-markdown-toc](https://github.com/ekalinin/github-markdown-toc) + [Github Actions](https://github.com/features/actions) 自动 [生成](https://github.com/vikyd/note/blob/master/.github/workflows/update-md-toc.yml) 。

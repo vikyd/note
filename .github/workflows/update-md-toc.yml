@@ -10,11 +10,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      # - name: Write Github Token for gh-md-toc
-      #   run: 'echo $TOKEN > /usr/local/bin/token.txt'
-      #   shell: bash
-      #   env:
-      #     TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Update Markdown TOC
         run: |
           mkdir -p ~/.local/bin
@@ -26,11 +21,4 @@ jobs:
         with:
           add: '*.md'    
           message: 'doc: update md TOC'
-      # - uses: stefanzweifel/git-auto-commit-action@v4
-      # # The resulting commit will not trigger another GitHub Actions Workflow run
-      #   with:
-      #     file_pattern: ./\*.md
-      #     commit_message: 'doc: update md toc'
-      #     commit_user_name: vikyd
-      #     commit_user_email: zwj_fhys@qq.com
 
