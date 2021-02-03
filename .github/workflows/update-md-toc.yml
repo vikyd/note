@@ -1,0 +1,31 @@
+name: 'Update Markdown TOC'
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  crawler:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Write Github Token for gh-md-toc
+        run: 'echo $TOKEN > /usr/local/bin/token.txt'
+        shell: bash
+        env:
+          TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Update Markdown TOC
+        run: |
+          curl https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc -o gh-md-toc
+          chmod a+x gh-md-toc
+          export PATH=$PATH:./gh-md-toc
+          ./toc-generator.sh
+          rm gh-md-toc
+      - uses: stefanzweifel/git-auto-commit-action@v4
+      # The resulting commit will not trigger another GitHub Actions Workflow run
+        with:
+          file_pattern: '*.md'
+          commit_message: 'doc: update md toc'
+          commit_user_name: vikyd
+          commit_user_email: zwj_fhys@qq.com
