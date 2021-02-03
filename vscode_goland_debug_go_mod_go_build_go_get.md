@@ -23,6 +23,32 @@
 # 目录
 
 <!--ts-->
+   * [几种姿势：调试 go mod、go build 命令等 Golang 自身源码（VSCode、GoLand）](#几种姿势调试-go-modgo-build-命令等-golang-自身源码vscodegoland)
+   * [目录](#目录)
+   * [实例项目](#实例项目)
+   * [实验环境](#实验环境)
+   * [VSCode 调试项目源码、第三方依赖库、Go 标准库](#vscode-调试项目源码第三方依赖库go-标准库)
+      * [步骤](#步骤)
+      * [说明](#说明)
+   * [VSCode 已打开项目源码情况下，如何再打开标准库或第三方依赖包的源码文件？](#vscode-已打开项目源码情况下如何再打开标准库或第三方依赖包的源码文件)
+   * [GoLand 调试项目源码、第三方依赖库、Go 标准库](#goland-调试项目源码第三方依赖库go-标准库)
+      * [步骤](#步骤-1)
+      * [说明](#说明-1)
+   * [VSCode 调试 go build 编译器本身](#vscode-调试-go-build-编译器本身)
+      * [步骤](#步骤-2)
+      * [说明](#说明-2)
+   * [GoLand 调试 go build 编译器本身](#goland-调试-go-build-编译器本身)
+      * [步骤](#步骤-3)
+      * [说明](#说明-3)
+   * [VSCode 调试 go mod 命令](#vscode-调试-go-mod-命令)
+   * [GoLand 调试 go mod 命令](#goland-调试-go-mod-命令)
+   * [调试 go get 命令](#调试-go-get-命令)
+   * [VSCode 调试 Golang 自身单元测试源码](#vscode-调试-golang-自身单元测试源码)
+      * [步骤](#步骤-4)
+   * [GoLand 调试 Golang 自身单元测试源码](#goland-调试-golang-自身单元测试源码)
+   * [小结](#小结)
+
+
 <!--te-->
 
 # 实例项目

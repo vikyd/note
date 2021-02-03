@@ -5,6 +5,15 @@
 # 目录
 
 <!--ts-->
+   * [Golang 的 import path 与根目录 package name 不匹配的处理方式](#golang-的-import-path-与根目录-package-name-不匹配的处理方式)
+   * [目录](#目录)
+   * [不匹配的案例](#不匹配的案例)
+   * [如何 import 不匹配的库](#如何-import-不匹配的库)
+      * [案例](#案例)
+      * [案例解释](#案例解释)
+   * [go mod 版的例子](#go-mod-版的例子)
+
+
 <!--te-->
 
 # 不匹配的案例

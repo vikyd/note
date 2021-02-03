@@ -3,6 +3,32 @@
 # 目录
 
 <!--ts-->
+   * [godoc.org 和 gopkg.in 和 golang.org/x 是什么](#godocorg-和-gopkgin-和-golangorgx-是什么)
+   * [目录](#目录)
+   * [概述](#概述)
+   * [示例](#示例)
+   * [总的来说](#总的来说)
+   * [前提知识点](#前提知识点)
+   * [名词约定](#名词约定)
+   * [gopkg.in 简述](#gopkgin-简述)
+   * [golang.org/x 简述](#golangorgx-简述)
+   * [godoc.org 简述](#godocorg-简述)
+   * [后面将详解每个服务的细节](#后面将详解每个服务的细节)
+   * [gopkg.in 详述](#gopkgin-详述)
+      * [gopkg.in 的具体流程](#gopkgin-的具体流程)
+         * [简单版](#简单版)
+         * [详细版](#详细版)
+      * [Gopkg.lock 与 gopkg.in 并无关系](#gopkglock-与-gopkgin-并无关系)
+      * [gopkg.in 的优缺点](#gopkgin-的优缺点)
+         * [优点](#优点)
+         * [缺点](#缺点)
+   * [golang.org/x 详述](#golangorgx-详述)
+         * [简单版](#简单版-1)
+         * [详细版](#详细版-1)
+   * [godoc.org 详述](#godocorg-详述)
+   * [总结](#总结)
+
+
 <!--te-->
 
 # 概述
