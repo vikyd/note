@@ -3,6 +3,12 @@
 # 目录
 
 <!--ts-->
+   * [go get 在 go mod 项目与非 go mod 项目中的区别](#go-get-在-go-mod-项目与非-go-mod-项目中的区别)
+   * [目录](#目录)
+   * [在 go mod 项目中](#在-go-mod-项目中)
+   * [在非 go mod 项目中](#在非-go-mod-项目中)
+
+
 <!--te-->
 
 # 在 go mod 项目中

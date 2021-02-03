@@ -5,6 +5,14 @@ https://vikyd.github.io/download-chromium-history-version/
 # 目录
 
 <!--ts-->
+   * [Chromium 历史版本离线安装包 - 下载方法](#chromium-历史版本离线安装包---下载方法)
+   * [目录](#目录)
+   * [概述](#概述)
+   * [Chrome 离线包 - 最新版（官方）](#chrome-离线包---最新版官方)
+   * [Chrome 离线包 - 历史版本（官方）](#chrome-离线包---历史版本官方)
+   * [Chrome 离线包 - 历史版本（非官方）](#chrome-离线包---历史版本非官方)
+
+
 <!--te-->
 
 ---

@@ -7,6 +7,14 @@ https://medium.com/google-cloud/google-trillian-for-noobs-9b81547e9c4a
 # 目录
 
 <!--ts-->
+   * [Trillian Docker 安装记录](#trillian-docker-安装记录)
+   * [目录](#目录)
+   * [坑：执行 docker-compose 前应先停止之前启动的 database](#坑执行-docker-compose-前应先停止之前启动的-database)
+   * [坑：adminer 应使用 server：db、user：test、password：zaphod](#坑adminer-应使用-serverdbusertestpasswordzaphod)
+   * [坑：LOGID 生成问题](#坑logid-生成问题)
+   * [坑：demo 启动问题](#坑demo-启动问题)
+
+
 <!--te-->
 
 # 坑：执行 docker-compose 前应先停止之前启动的 database

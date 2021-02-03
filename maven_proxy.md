@@ -10,6 +10,20 @@
 # 目录
 
 <!--ts-->
+   * [Maven 在代理环境下的使用方式](#maven-在代理环境下的使用方式)
+   * [目录](#目录)
+   * [使用方式 TL;DR](#使用方式-tldr)
+   * [省事的使用方式](#省事的使用方式)
+   * [方法 1：使用 repo1.maven.org/maven2 （中央仓库 + 代理）](#方法-1使用-repo1mavenorgmaven2-中央仓库--代理)
+   * [方法 2：使用镜像 yourMavenMirror.com（推荐！）](#方法-2使用镜像-yourmavenmirrorcom推荐)
+   * [上传自己的包](#上传自己的包)
+   * [常见问题](#常见问题)
+         * [IntelliJ IDEA 中 settings.xml 不生效](#intellij-idea-中-settingsxml-不生效)
+         * [部分 jar 从 yourMavenMirror.com 下载，部分从外网下载](#部分-jar-从-yourmavenmirrorcom-下载部分从外网下载)
+   * [参考](#参考)
+   * [文件](#文件)
+
+
 <!--te-->
 
 # 使用方式 TL;DR
