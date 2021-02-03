@@ -22,10 +22,15 @@ jobs:
           chmod a+x ~/.local/bin/gh-md-toc
           export PATH=$PATH:~/.local/bin
           ./toc-generator.sh
-      - uses: stefanzweifel/git-auto-commit-action@v4
-      # The resulting commit will not trigger another GitHub Actions Workflow run
+      - uses: EndBug/add-and-commit@v7
         with:
-          file_pattern: ./\*.md
-          commit_message: 'doc: update md toc'
-          commit_user_name: vikyd
-          commit_user_email: zwj_fhys@qq.com
+          add: './\.md'    
+          message: 'doc: update md toc'
+      # - uses: stefanzweifel/git-auto-commit-action@v4
+      # # The resulting commit will not trigger another GitHub Actions Workflow run
+      #   with:
+      #     file_pattern: ./\*.md
+      #     commit_message: 'doc: update md toc'
+      #     commit_user_name: vikyd
+      #     commit_user_email: zwj_fhys@qq.com
+
