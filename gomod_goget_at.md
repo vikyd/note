@@ -1,4 +1,5 @@
 # Golang module 模式下 go get 使用 `@` 的潜规则和实例
+
 go module 的版本号基于 [semver](https://semver.org/)，允许类似 `go get github.com/google/uuid@v1.1.0` 的形式获取指定版本依赖包，即 `@` 后跟 `v` 再跟 `语义数字版本号`。
 
 但从 Golang 官方文档看 [1](https://golang.org/cmd/go/#hdr-Module_queries)、[2](https://golang.org/cmd/go/#hdr-Add_dependencies_to_current_module_and_install_them)，在字符 `@` 后面还支持更多的形式，包括但不限 `"@>v1.1.0"`、 `@latest`、`@commitHash`、`@patch` 等。
@@ -12,18 +13,16 @@ Golang 官方文档貌似没清晰地列出 `@` 的所有可能情况。
 
 本文尝试以可操作实例形式，汇总 Golang 官方文档曾列出过的可用方式，列出注意事项。
 
-
-
-
 # 目录
-[TOC]
 
+<!--ts-->
+<!--te-->
 
 # 名词约定
 
 - semver：语义版本
 - tag：指 git 的 tag
-- branch：指  git 的分支
+- branch：指 git 的分支
 - commit：指 git 的提交
 - hash：指 git 的 commit 哈希
 - release：指符合 [semver](https://semver.org/#spec-item-9) 的正式发布版本，如 `v1.2.3`
@@ -34,7 +33,6 @@ Golang 官方文档貌似没清晰地列出 `@` 的所有可能情况。
 - patch：补丁版本号，即 `v1.2.3` 中的 `3`
 - modulePath：代指一个 go 模块的名称
 
-
 # 伪版本号
 
 本文实例会出现一些伪版本号，但这里暂不做详解。
@@ -43,10 +41,8 @@ Golang 官方文档貌似没清晰地列出 `@` 的所有可能情况。
 
 Golang 更多伪版本号的格式、来源，可见 [这里](https://github.com/vikyd/note/blob/master/go_pseudo_version.md)。
 
-
-
-
 # 实验环境
+
 - OS：MacBook Pro 10.14
 - Go：1.14
 - go env（即 Golang 默认）
@@ -56,9 +52,6 @@ GOPROXY="https://proxy.golang.org,direct"
 GOSUMDB="sum.golang.org"
 ```
 
-
-
-
 # 实例 github 仓库
 
 实验仓库：https://github.com/vikyd/gomod-goget-at
@@ -67,12 +60,11 @@ GOSUMDB="sum.golang.org"
 
 下面是仓库的 commit、tag、branch 流程图：
 
-
 ```
 * 760713c    (dev 分支)        commit 12
 | \
 |  * a3735a8 (master 分支)     commit 13
-| /  
+| /
 * a72dc08                      commit 11
 |
 * e1fe73f    (tag: v1.3.2-pre) commit 10
@@ -97,8 +89,7 @@ GOSUMDB="sum.golang.org"
 ↑
 ```
 
-> ↑ 打印类似上面 flow 小技巧：`alias gl='git log --oneline --graph --decorate --all'`，或 `gitk --all` 
-
+> ↑ 打印类似上面 flow 小技巧：`alias gl='git log --oneline --graph --decorate --all'`，或 `gitk --all`
 
 # 实验准备
 
@@ -117,13 +108,12 @@ ls -lah
 cat go.mod
 ```
 
-
-
 # 实验：go get `@` 模式、实例
 
 下面将列举每种 go get 的 `@` 模式，及其可操作实例。
 
 ## 类型：不带任何 `@`
+
 说明：
 
 - 获取当前主版本号的最新 release 版本
@@ -146,8 +136,6 @@ go get -v modulePath
 go get -v github.com/vikyd/gomod-goget-at
 ```
 
-
-
 ## 类型：`@semverTag`
 
 例子：`v0.1.2`、`v1.2.3`、`v2.3.4`
@@ -169,10 +157,8 @@ go get -v modulePath@semverTag
 go get -v github.com/vikyd/gomod-goget-at@v1.2.3
 ```
 
-
-
-
 ## 类型：`@semverTagPrefix`
+
 例子：`v1`、`v1.2`、`v2`
 
 说明：
@@ -195,9 +181,8 @@ go get -v github.com/vikyd/gomod-goget-at@v1
 go get -v github.com/vikyd/gomod-goget-at@v1.2
 ```
 
-
-
 ## 类型：`@"运算符semverTag"`
+
 例子：`"@>1.1.0"`、`"<=1.5.3"`
 
 说明：
@@ -240,9 +225,8 @@ go get -v github.com/vikyd/gomod-goget-at@v1.2.3-pre
 go get -v github.com/vikyd/gomod-goget-at@"<=v1.2.3-pre"
 ```
 
-
-
 ## 类型：`@commitHash`
+
 例子：`81e4ea7`
 
 说明：
@@ -273,9 +257,8 @@ go get -v github.com/vikyd/gomod-goget-at@a3735a8
 go get -v github.com/vikyd/gomod-goget-at@9624374
 ```
 
-
-
 ## 类型：`@branchName`
+
 例子：`master`、`dev`、`abc`
 
 说明：
@@ -301,9 +284,8 @@ go get -v github.com/vikyd/gomod-goget-at@master
 go get -v github.com/vikyd/gomod-goget-at@dev
 ```
 
-
-
 ## 类型：固定字符串 `@latest`
+
 说明：
 
 - 获取当前主版本号的最新 release 版本
@@ -326,9 +308,8 @@ go get -v github.com/vikyd/gomod-goget-at@v1.3.2-pre
 go get -v github.com/vikyd/gomod-goget-at@latest
 ```
 
-
-
 ## 类型：固定字符串 `@HEAD`
+
 说明：
 
 - 默认分支 master 的最新 commit
@@ -348,10 +329,8 @@ go get -v modulePath@HEAD
 go get -v github.com/vikyd/gomod-goget-at@HEAD
 ```
 
-
-
-
 ## 类型：固定字符串 `@upgrade`
+
 说明：
 
 - 获取当前主版本号的最版本
@@ -374,10 +353,8 @@ go get -v github.com/vikyd/gomod-goget-at@v1.3.2-pre
 go get -v github.com/vikyd/gomod-goget-at@upgrade
 ```
 
-
-
-
 ## 类型：固定字符串 `@patch`
+
 说明：
 
 - 若 go.mod 中已依赖此模块，则获取此模块的最新补丁版本
@@ -398,10 +375,8 @@ go get -v github.com/vikyd/gomod-goget-at@v1.2.3
 go get -v github.com/vikyd/gomod-goget-at@patch
 ```
 
-
-
-
 ## 类型：固定字符串 `@none`
+
 说明：
 
 - 从 go.mod 中删除指定模块（称为 A 模块）
@@ -428,11 +403,10 @@ go get -v github.com/vikyd/gomod-goget-at@none
 cat go.mod
 ```
 
-
-
-
 # 版本优先级
+
 ## 优先级
+
 下面列表，越往下，优先级越低：
 
 - release 版本（如 `v0.1.2`、`v1.2.3`、`v2.3.4`）
@@ -440,9 +414,7 @@ cat go.mod
 - commit（如 `81e4ea7`、`1f1ba6f`）
   - 若刚某个 tag 匹配指向此 commit，则记录为该 tag
 
-
 > 若主版本号与 go.mod 中的主版本号不对应，则直接报错，不会修改 go.mod
-
 
 ## 优先级实验
 
@@ -464,6 +436,7 @@ commits:  db27517 |   6599569  | |  f8244b4   | 14c4ca9
 ```
 
 任意位置新建目录 `mymodule`：
+
 ```sh
 mkdir mymodule
 
@@ -484,9 +457,6 @@ cat go.mod
 
 - release 版本（`v0.1.2`）总比预发布版本（`v1.2.3-pre`）优先级更高，与发布时间无关，与 release 版本是否低于 `v1.0.0` 无关
 
-
-
-
 # 其他
 
 - go 模块版本号 [均应](https://github.com/golang/mod/blob/master/semver/semver.go#L20) 以 `v` 开头，如 `@v1.2.3`，而非 `1.2.3`
@@ -498,7 +468,7 @@ cat go.mod
   - 例如 `go get -v modulePath@latest` 之后，再有新发布的 tag 时，再次 go get `@latest` 都无法获取刚发布的 tag
   - 原因：猜是 `proxy.golang.org` 有延迟
   - 解决：
-    - 若是外网模块，直接 `@tag`，即可，会立即发现对应的 tag 
+    - 若是外网模块，直接 `@tag`，即可，会立即发现对应的 tag
     - 若是内网模块，无此问题，因为不会经过 `proxy.golang.org`
 - 调试 Golang 自身源码测试用例的方式之一，可便于断点 Golang 本身的源码：
   - VSCode 打开 `$GOROOT/src`
@@ -508,21 +478,20 @@ cat go.mod
     - 按 `F5`
     - 等待一会，就会自动暂停在刚才的断点处
 
-
-
 # 自建验证 git 仓库
+
 本文的实验仓库 https://github.com/vikyd/gomod-goget-at 是通过执行下面的文件 `init_git_repo.sh` 进行快速创建的。
 
 若想自行创建类似此 git 仓库进行更多验证，可参考下面步骤：
 
 1. 本地执行下面的 `init_git_repo.sh`
    - 会自动创建空目录，并创建、提交，在本地得到一个与本文实验类似的 git 仓库（未 push）
-1. 手动去 https://github.com/new 创建新的空仓库 
+1. 手动去 https://github.com/new 创建新的空仓库
 1. 在本地 git 仓库目录内执行下面命令，即可 push 所有 commit、branch、tag 到 github（请把下面路径，修改为你的新仓库路径）。
    ```sh
    # 请把下面路径，修改为你的新仓库路径
    git remote add origin git@github.com:vikyd/gomod-goget-at.git
-   git push origin --mirror   
+   git push origin --mirror
    ```
 
 文件 `init_git_repo.sh` ↓：
@@ -534,7 +503,7 @@ cat go.mod
 L=$'\n'
 # https://askubuntu.com/a/385532/1042664
 i=0
-# datetimestamp as dir name 
+# datetimestamp as dir name
 dt=$(date +"%Y%m%d_%H%M%S")
 
 # ----------------------
@@ -552,11 +521,11 @@ touch README.md
 modify_and_commit()
 {
   msg="commit $((++i))"
-  
+
   echo "${msg}${L}" >> README.md
-  
+
   git add -A
-  
+
   git commit -m "${msg}"
 }
 
@@ -600,8 +569,6 @@ modify_and_commit
 
 ```
 
-
-
 # 参考
 
 - Golang 官方文档，关于 `@` 的使用：[文档 1](https://golang.org/cmd/go/#hdr-Module_queries)、[文档 2](https://golang.org/cmd/go/#hdr-Add_dependencies_to_current_module_and_install_them)
@@ -610,4 +577,3 @@ modify_and_commit
 - Golang 官方文章翻译：
   - [Semantic Import Versioning（基于语义的 import 版本管理）](https://github.com/vikyd/note/blob/master/go_and_versioning/semantic_import_versioning.md)
   - [Minimal Version Selection（最小版本选择）](https://github.com/vikyd/note/blob/master/go_and_versioning/minimal_version_selection.md)
-

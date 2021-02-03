@@ -1,23 +1,26 @@
 # Xdebug 原理解释
 
+# 目录
+
+<!--ts-->
+<!--te-->
 
 # 目的
+
 这里只说一个点：在 PhpStorm 中进行 PHP 断点调试时，Xdebug 与 PhpStorm、PHP 之间的大致协作方式。
 
-
-
 # 名称解释
+
 - 后面 `PhpStorm` 也可理解为其他 `IDE`
 
-
 # 主要流程
+
 ![Image of Yaktocat](https://github.com/vikyd/note-bigfile/blob/master/img/xdebug_php_phpstorm.png?raw=true)
 
-
-
 # 准备工作（可跳过直接看后面）
+
 - 安装：PHP、PhpStorm、Xdebug、Wireshark
-- 打开 2 个 PhpStorm 项目：项目A、项目B
+- 打开 2 个 PhpStorm 项目：项目 A、项目 B
 - 用 PHP 内置 Server 在 A、B 中分别以不同端口启动 Web 服务，如：
   - Win：
     - A：`php -S 127.0.0.1:6666`
@@ -32,13 +35,10 @@
   - 过滤框填：`tcp.port == 9000`
 - A、B 分别启动调试（会自动打开浏览器）
 
-
-
 # 调试过程的细节可跳过直接看后面结论
 
-
-
 # Xdebug 简单调试过程描述（无断点）
+
 ```php
 <?php
 
@@ -56,6 +56,7 @@ echo $b;
 - 开始：TCP 3 次握手建立连接
 
 - 请求 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     512
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -70,6 +71,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `feature_set -i 1 -n show_hidden -v 1`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     218
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -79,6 +81,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `feature_set -i 2 -n max_depth -v 1`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     216
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -88,6 +91,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `feature_set -i 3 -n max_children -v 100`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     219
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -97,6 +101,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `feature_set -i 4 -n extended_properties -v 1`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     295
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -106,6 +111,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `status -i 5`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     209
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -115,6 +121,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `step_into -i 6`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     322
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -126,6 +133,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `stack_get -i 7`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     314
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -137,6 +145,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `run -i 8`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     206
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -149,11 +158,8 @@ echo $b;
 
 - 结束：TCP 4 次分手，结束连接
 
-
-
-
-
 # Xdebug 简单调试过程描述（含断点）
+
 ```php
 <?php
 
@@ -166,11 +172,9 @@ echo $b;
 ```
 
 调试过程：
+
 - 同样的代码，在第 4 行打个断点
 - 运行到第 6 行（按 1 次 F8），恢复运行（按 1 次 F9）
-
-
-
 
 - 假设有上述 7 行代码，不打任何断点，仅用 WireShark 看看 Xdebug 与 PhpStorm 之间发送了什么通信
 - 以下开始：
@@ -178,6 +182,7 @@ echo $b;
 - 开始：TCP 3 次握手建立连接
 
 - 请求 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     512
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -192,6 +197,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `feature_set -i 1 -n show_hidden -v 1`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     77218
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -201,6 +207,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `feature_set -i 2 -n max_depth -v 1`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     <?xml version="1.0" encoding="iso-8859-1"?>
     <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="2" feature="max_depth" success="1"></response>
@@ -209,6 +216,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `feature_set -i 3 -n max_children -v 100`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     <?xml version="1.0" encoding="iso-8859-1"?>
     <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="3" feature="max_children" success="1"></response>
@@ -217,6 +225,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `feature_set -i 4 -n extended_properties -v 1`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     <?xml version="1.0" encoding="iso-8859-1"?>
     <response xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" command="feature_set" transaction_id="4" status="starting" reason="ok">
@@ -229,6 +238,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `status -i 5`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     209
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -238,6 +248,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `step_into -i 6`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     322
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -249,6 +260,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `breakpoint_set -i 7 -t line -f file:///Users/viky/PhpstormProjects/test-php/xdebug/x.php -n 4`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     201
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -258,6 +270,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `stack_get -i 8`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     314
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -269,6 +282,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `run -i 9`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     316
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -277,10 +291,10 @@ echo $b;
     </response>
     ```
 
-
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `stack_get -i 10`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     315
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -292,6 +306,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `context_names -i 11`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     329
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -305,6 +320,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `context_get -i 12 -d 0 -c 0`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     335
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -317,6 +333,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `context_get -i 13 -d 0 -c 1`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     5809
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -366,6 +383,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `context_get -i 14 -d 0 -c 2`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     197
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -375,6 +393,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `step_over -i 15`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     323
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -386,6 +405,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `stack_get -i 16`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     315
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -395,8 +415,9 @@ echo $b;
     ```
 
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
-  - `context_get -i 17 -d 0 -c 0`
+  - ` context_get -i 17 -d 0 -c 0`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     335
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -409,6 +430,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `context_get -i 18 -d 0 -c 1`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     5809
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -457,8 +479,9 @@ echo $b;
     ```
 
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
-  - `context_get -i 19 -d 0 -c 2`
+  - ` context_get -i 19 -d 0 -c 2`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     197
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -468,6 +491,7 @@ echo $b;
 - 请求 PhpStorm -- 字符串命令 --> Xdebug：
   - `run -i 20`
 - 响应 Xdebug -- XML --> PhpStorm：
+
   - ```xml
     207
     <?xml version="1.0" encoding="iso-8859-1"?>
@@ -480,10 +504,8 @@ echo $b;
 
 - 结束：TCP 4 次分手，结束连接
 
-
-
-
 # Xdebug 调试流程解释
+
 - PhpStorm 在启动调试后会监听 `9000` 端口
 
 - 浏览器请求到 Web 服务器，最终到达 PHP
@@ -491,13 +513,16 @@ echo $b;
 - PHP 启用 Xdebug 后，每个浏览器的请求都会告诉 Xdebug
 
 - Xdebug 默认会向本地的 `9000` 端口（php.ini 中配置）询问：有没有谁需要进行 PHP 调试？
+
   - 若有 PhpStorm 监听，则建立 TCP 连接
   - 若无 PhpStorm 监听，则 TCP 连接建立失败，当作什么事都没发生
 
 - 以上，PhpStorm 相当于 [DBGP](https://xdebug.org/docs-dbgp.php) 协议的服务端，Xdebug 相当于 DBGP 的客户端
+
   - DBGP 每次与 PhpStorm 建立连接都会采用新的随机端口
 
 - PhpStorm 与 Xdebug 之间的通信是基于 TCP 之上的 DBGP 协议
+
   - DBGP 与 HTTP 无关，共同点：都在 TCP 之上的协议
   - DBGP 协议的 TCP 连接建立后会一直维持，所以期间：
     - Xdebug 可发消息给 PhpStorm，
@@ -508,6 +533,7 @@ echo $b;
   - Xdebug 官方解释是构建 XML 容易，解释 XML 难，故 Xdebug 内部不解释 XML
 
 - PhpStorm 如何支持多个项目同时分别调试？
+
   - 浏览器的 HTTP 请求中带以下任一东西：
     - QueryString 中含：`XDEBUG_SESSION_START=someVal`
     - Cookie 中含：`XDEBUG_SESSION=someVal`
@@ -518,26 +544,29 @@ echo $b;
       可能是因为 PhpStorm 没使用 DBGP 推荐的代理机制
 
 - PhpStorm 与 Xdebug 的 TCP 连接是每次浏览器请求时才建立，并结束的
+
   - PhpStorm 中的断点是 TCP 建立后才告诉 Xdebug 的
 
 - 虽然是 Xdebug 发起的 TCP 连接，但建立连接后大部分情况下都是 PhpStorm 主动向 Xdebug 发送请求
 
-
-
-
 # 个人曾经的误解
+
 - 误以为 Xdebug 与 PhpStorm 间是 HTTP 通信
+
   - 解答：不是 HTTP，而是基于 TCP 的 DBGP 协议
 
 - 误以为 PhpStorm 多个项目同时调试是采用了 DBGP 的远程模式
+
   - 解答：不是 DBGP 的远程模式，而是 PhpStorm 内部的区分机制
 
 - 误以为 Xdebug 本身也监听一个固定端口
+
   - 解答：Xdebug 不监听任何端口。
     - 监听端口的是 PhpStorm，即 DBGP 协议的服务端
     - Xdebug 本身是 DBGP 协议的客户端
 
 - 误以为 PHP 代码断点位置是 PhpStorm 在某个未知特殊时期主动告诉 Xdebug 的
+
   - 解答：实际 Xdebug 主动向 PhpStorm 建立 TCP 连接，在此 TCP 连接中 PhpStorm 才向 Xdebug 报告自己有哪些断点。
     - 第一个断点：
       - 任何 PHP 第一句代码运行前，PhpStorm 都会告诉 Xdebug 进行 `step_into`，并紧接着向 Xdebug 报告自己的断点
@@ -548,14 +577,14 @@ echo $b;
   - 图来源：https://xdebug.org/docs/all
   - 解答：见上一解答
 
-
-
-
 # 简单总结
+
 ## 为什么 PHP 的调试器（如 Xdebug）需要额外安装？其他语言（如 Python、Java、NodeJs）就自带调试器
+
 未知，求解答
 
 ## PHP debugger 列举
+
 PhpStorm、Eclipse 都支持 Xdebug、Zend Debugger
 
 - Xdebug（常用）

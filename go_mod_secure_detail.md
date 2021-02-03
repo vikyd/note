@@ -19,7 +19,8 @@ Golang Module 为何要验证模块安全？又是如何验证模块哈希安全
 
 # 目录
 
-[TOC]
+<!--ts-->
+<!--te-->
 
 # 安全是指什么？
 
@@ -575,8 +576,8 @@ jEFFy4AtYgBBNTSZTiNnQrgQqMbcH0mfO2oP2FxR9VU=
 
 可见本地只与代理 `goproxy.io` 通讯，并无与 `proxy.golang.org`、`sum.golang.org` 通讯。
 
-
 ### 腾讯云：mirrors.tencent.com/go
+
 - 推荐：★★★★
 - 同时支持 [模块源码代理](https://golang.org/cmd/go/#hdr-Module_proxy_protocol) 和 [sumdb 代理](https://go.googlesource.com/proposal/+/master/design/25530-sumdb.md#proxying-a-checksum-database)，比较省心
 

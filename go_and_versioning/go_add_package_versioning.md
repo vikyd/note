@@ -12,6 +12,11 @@
 
 发表时间：2018-02-20 周二 [PDF](https://research.swtch.com/vgo-intro.pdf)
 
+# 目录
+
+<!--ts-->
+<!--te-->
+
 # 译前名词解释
 
 可暂时跳过本小节。

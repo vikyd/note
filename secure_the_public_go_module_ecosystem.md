@@ -15,6 +15,11 @@ golang.org/design/25530-sumdb
 
 参与讨论：golang.org/issue/25530.
 
+# 目录
+
+<!--ts-->
+<!--te-->
+
 # 译前名词解释
 
 - checksum database：译作校验数据库

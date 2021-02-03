@@ -16,7 +16,8 @@ PDF：https://research.swtch.com/vgo-principles.pdf
 
 # 目录
 
-[TOC]
+<!--ts-->
+<!--te-->
 
 # 正文
 

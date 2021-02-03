@@ -1,18 +1,21 @@
 # Trillian Docker 安装记录
+
 文章：
 
 https://medium.com/google-cloud/google-trillian-for-noobs-9b81547e9c4a
 
+# 目录
 
+<!--ts-->
+<!--te-->
 
 # 坑：执行 docker-compose 前应先停止之前启动的 database
+
 ```sh
 docker stop database
 ```
 
 # 坑：adminer 应使用 server：db、user：test、password：zaphod
-
-
 
 # 坑：LOGID 生成问题
 
@@ -35,6 +38,7 @@ LOGID=$(\
 ```
 
 # 坑：demo 启动问题
+
 ```
 go run github.com/DazWilkin/simple-trillian-log-1 \
 --tlog_endpoint=:8090 \
@@ -50,4 +54,3 @@ go run github.com/DazWilkin/simple-trillian-log-1 \
 ```
 
 此外，demo 内有一处简单问题，根据报错提示简单修改下即可。
-

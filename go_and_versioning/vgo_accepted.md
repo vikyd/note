@@ -1,18 +1,24 @@
 # The vgo proposal is accepted. Now what?
-原文：https://research.swtch.com/vgo-accepted
 
+原文：https://research.swtch.com/vgo-accepted
 
 作者：[Russ Cox](https://swtch.com/~rsc/)
 
 翻译时间：2019-11-16
 
 # vgo 提案被接受了，然后呢？
+
 （[Go 与版本管理](https://research.swtch.com/vgo)，第 8 部分）
 
 发表时间：2018-05-29 周二 [PDF](https://research.swtch.com/vgo-accepted.pdf)
 
+# 目录
+
+<!--ts-->
+<!--te-->
 
 # 正文
+
 上周，提案委员会接受了 2 月份在本博客中描述的 `vgo 方法`，并总结为 [proposal #24301](https://golang.org/issue/24301)。大家可能会疑惑这一举动具体是指什么？下一步将会发生什么？
 
 通常，[一个 Go 提案](https://golang.org/s/proposal) 是关于是否接受某种方法的讨论，一旦接受将会编写代码、审核、发布为生产版本。接受一个提案并不代表已实现此提案（有时甚至可以连一点实现都还没开始）。接受一个提案仅仅表示我们相信该设计方案是适合的，并且可在生产版本中处理、提交和发布。在此过程中，必然会有一些细节需要调整。

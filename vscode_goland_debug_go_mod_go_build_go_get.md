@@ -11,7 +11,6 @@
 - debug：Golang 自身的单元测试源码
 - 基于 VSCode、GoLand 的 debug
 
-
 本文暂不讨论：
 
 - 命令行调试
@@ -21,25 +20,20 @@
 
 > 曾经，想了解 `go mod` 命令的内部运作机制，若当时知道如何断点调试 `go mod`，进度应可快不少。
 
-
-
 # 目录
-[TOC]
 
-
+<!--ts-->
+<!--te-->
 
 # 实例项目
 
-本文所有调试均以此项目为例：https://github.com/vikyd/go-example 
+本文所有调试均以此项目为例：https://github.com/vikyd/go-example
 
 - 此项目引用了 time 标准库、uuid 第三方库，只打印基础信息，足够简单
 - 此项目的 `.vscode/launch.json` 包含了 VSCode 中各类型的调试配置
 - 此项目的 `.idea` 包含了 GoLand 中各类型的调试配置
 
-
 本文以 `~/tpm/go-example/` 作为实验目录，以 `~/tmp/debuggo/` 作为新编译 `go` 命令的存放目录。
-
-
 
 # 实验环境
 
@@ -50,8 +44,6 @@
 - GoLand：2020.2
 
 > Windows 的同学注意修改下 debug 配置的相关路径
-
-
 
 # VSCode 调试项目源码、第三方依赖库、Go 标准库
 
@@ -73,27 +65,23 @@
   - debug 已开始
 - over
 
-
-
 ## 说明
 
 - VSCode 调试 Go 标准库、第三方依赖包，其实与调试项目源码没区别，步骤一样
 
-
 # VSCode 已打开项目源码情况下，如何再打开标准库或第三方依赖包的源码文件？
-**方法01：**
+
+**方法 01：**
 
 项目源码中按 F12 跳转到引用的源码（但若想打开非直接引用的文件就不如 GoLand 方便，见 `方法02`）
 
-**方法02：**
+**方法 02：**
 
 另开一个 VSCode 实例打开引用的源码（标准库：`$GOROOT/src`，第三方库：`$GOPATH/pkg/mod`），打开想要的文件，顶部文件名右键 `Copy Path`，再回到项目源码窗口 `Command + p` 粘贴打开该文件
 
-**方法03：**
+**方法 03：**
 
 同前面 `Copy Path`，再回到项目源码的 Terminal 窗口执行命令 `code 该文件路径` 即可打开该文件
-
-
 
 # GoLand 调试项目源码、第三方依赖库、Go 标准库
 
@@ -109,7 +97,6 @@
   - debug 已开始
 - over
 
-
 ## 说明
 
 - `debug: main.go` 对应配置的查看与说明：
@@ -120,11 +107,9 @@
 - GoLand 调试 Go 标准库、第三方依赖包其实与调试项目源码没区别，步骤一样
 - GoLand 打开标准库、第三方依赖包源码很方便，右侧窗口展开 `External Libraries` 就能看到（此功能值得 VSCode 学习）
 
-
-
 # VSCode 调试 `go build` 编译器本身
-调试 `go build` 编译器本身，是指调试 `go build` 这个命令背后编译流程的代码，如：[$GOROOT/src/cmd/go/internal/work/build.go](https://github.com/golang/go/blob/master/src/cmd/go/internal/work/build.go)。
 
+调试 `go build` 编译器本身，是指调试 `go build` 这个命令背后编译流程的代码，如：[$GOROOT/src/cmd/go/internal/work/build.go](https://github.com/golang/go/blob/master/src/cmd/go/internal/work/build.go)。
 
 本小节要调试的命令：`go build -v`
 
@@ -153,8 +138,6 @@
   - 一个 `go.sum` 文件
 - over
 
-
-
 ## 说明
 
 - 本 debug 与 `go-example/main.go` 无关，此文件在这里是被编译，而非被执行
@@ -164,31 +147,32 @@
 // debug $GOROOT/src/cmd/go/main.go + `go build -v` command
 {
   "name": "debug: go build -v",
-  
+
   "type": "go",
-  
+
   "request": "launch",
-  
+
   // 调试一个现成的二进制文件
   "mode": "exec",
-  
+
   // 指定工作目录（go build 输出的文件会存放到此目录）
   // cwd 全称: current working directory
   "cwd": "${workspaceFolder}",
-  
+
   // 被调试的 go 命令二进制文件
   // 此文件来自于前面的构建命令对 `$GOROOT/src/cmd/go` 这个 package 的构建
   // 请修改为你的二进制文件所在位置（绝对路径或下面格式引用环境变量）
   "program": "${env:HOME}/tmp/debuggo/debuggo",
-  
+
   // 让更多日志输出 `DEBUG CONSOLE`，调试不成功时便于定位问题
   "trace": "log",
-  
+
   // `go build -v` 命令的参数
   // 各参数需拆分为多项，而非 `build -v` 写到同一项
   "args": ["build", "-v"],
 },
 ```
+
 - VSCode 调试 `go build` 命令前，为什么要预先编译一个 `go` 命令的二进制文件？下面解答
   - 此时留意底部 `DEBUG CONSOLE` 窗口内容的前面部分：
 
@@ -205,19 +189,23 @@ Running: /Users/viky/go/bin/dlv exec /Users/viky/tmp/debuggo/debuggo --headless=
 API server listening at: 127.0.0.1:12311
 ......
 ```
+
 留意其中一行：
+
 ```
 Running: /Users/viky/go/bin/dlv exec /Users/viky/tmp/debuggo/debuggo --headless=true --listen=127.0.0.1:12311 --api-version=2 --wd=/Users/viky/tmp/go-example -- build -v
 ```
+
 为方便理解，将此行简化为：
+
 ```sh
 dlv exec goDebugBinaryFile --listen=127.0.0.1:12311 -- build -v
 ```
+
 可知：VSCode 本质是基于开源的 [Delve](https://github.com/go-delve/delve) 进行 debug，`dlv` 的全部参数见 [这里](https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md)。
 
-
-
 # GoLand 调试 `go build` 编译器本身
+
 前面 VSCode 已介绍被调试内容，直接上步骤。
 
 ## 步骤
@@ -231,7 +219,6 @@ dlv exec goDebugBinaryFile --listen=127.0.0.1:12311 -- build -v
   - debug 已开始
 - over
 
-
 ## 说明
 
 - 本调试与 `go-example/main.go` 无关，此文件在这里是被编译，而非被执行
@@ -244,6 +231,7 @@ dlv exec goDebugBinaryFile --listen=127.0.0.1:12311 -- build -v
   - Program arguments：`build -v`
 - GoLand 调试 `go build` 命令时，无需手动预先编译一个 `go` 命令文件出来，原因往下看：
   - 观察下方的 Debug 栏里 Console 窗口的内容：
+
 ```sh
 GOROOT=/usr/local/go #gosetup
 GOPATH=/Users/viky/go #gosetup
@@ -259,31 +247,39 @@ Exiting.
 Debugger finished with exit code 0
 
 ```
+
 留意其中一行：
+
 ```sh
 /usr/local/go/bin/go build -o /private/var/folders/0t/yzb0gynd37q_6tkyj87td4h80000gn/T/___debug__go_build__v -gcflags all=-N -l cmd/go #gosetup
 ```
+
 为方便理解，将此行简化为：
+
 ```sh
 go build -o outputFile -gcflags all=-N -l cmd/go
 # 在 mac 相当于
 # go build -o outputFile -gcflags="all=-N -l" cmd/go
 ```
+
 可理解为：GoLand 其实也是需要预编译含调试信息的 `go` 命令二进制文件，区别在于 GoLand 帮我们做了这一步，而 VSCode 并没有自动做这一步。
 
 再往下看一行：
+
 ```sh
 /Applications/GoLand.app/Contents/plugins/go/lib/dlv/mac/dlv --listen=0.0.0.0:54162 --headless=true --api-version=2 --check-go-version=false --only-same-user=false exec /private/var/folders/0t/yzb0gynd37q_6tkyj87td4h80000gn/T/___debug__go_build__v -- build -v
 ```
+
 为便于理解，将此行简化为：
+
 ```sh
 dlv --listen=0.0.0.0:54162 exec goDebugBinaryFile -- build -v
 ```
+
 GoLand 本质也是基于开源的 [Delve](https://github.com/go-delve/delve) 进行 debug，`dlv` 的全部参数见 [这里](https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv.md)。
 
-
-
 # VSCode 调试 `go mod` 命令
+
 go mod 有很多命令 `go mod init`、`go mod download`、`go mod tidy` 等，更多可见 `go help mod`。
 
 本小节介绍如何 debug 这些命令，以 `go mod tidy` 为例。
@@ -306,25 +302,22 @@ go mod 有很多命令 `go mod init`、`go mod download`、`go mod tidy` 等，�
   - `go-example/go.sum` 又重新出现了
   - `$GOROOT/pkg/mod` 里又重新出现了依赖包的源码（如 `$GOROOT/pkg/mod/github.com/google/uuid@v1.1.2` 目录）
 
-
-
 # GoLand 调试 `go mod` 命令
+
 与前面类似。
 
-
-
 # 调试 `go get` 命令
+
 类似于前面 `go build`、`go mod` 的调试，[示例项目](https://github.com/vikyd/go-example) 里已包含 `go get` 命令的调试配置。
 
 建议打断点位置：
+
 - `$GOROOT/src/cmd/go/main.go` → 约第 86 行 `flag.Parse()`
 - `$GOROOT/src/cmd/go/internal/modget.go`
-  - `func runGet` 函数内部约第 263 行 
-
-
-
+  - `func runGet` 函数内部约第 263 行
 
 # VSCode 调试 Golang 自身单元测试源码
+
 若需单独调试 Golang 自身源码的单元测试，则可单独打开 `$GOROOT/src`。
 
 ## 步骤
@@ -333,21 +326,18 @@ go mod 有很多命令 `go mod init`、`go mod download`、`go mod tidy` 等，�
 - 打开单元测试用例
   - 如：`$GOROOT/src/path/filepath/path_test.go`
 - 设置断点（以 [path_test.go](https://github.com/golang/go/blob/master/src/path/path_test.go) 为例）：
-  - `func TestClean(t *testing.T)` 内的这行 `	for _, test := range tests`
-- debug 方式01：点击 `func TestClean` 函数名上一行的 `debug test` 灰色小字 即开始 debug
-- debug 方式02：鼠标聚焦到 `path_test.go` 文件，按下 F5，然后选择 `Go`，即开始 debug
+  - `func TestClean(t *testing.T)` 内的这行 ` for _, test := range tests`
+- debug 方式 01：点击 `func TestClean` 函数名上一行的 `debug test` 灰色小字 即开始 debug
+- debug 方式 02：鼠标聚焦到 `path_test.go` 文件，按下 F5，然后选择 `Go`，即开始 debug
 - over
 
-
-
 # GoLand 调试 Golang 自身单元测试源码
+
 暂未找到调试 Golang 自身单元测试源码的快速方法。
 
-
-
 # 小结
-说了那么多，都是为了方便 debug Golang 自身源码。
 
+说了那么多，都是为了方便 debug Golang 自身源码。
 
 VSCode：
 

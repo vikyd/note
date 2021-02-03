@@ -1,4 +1,5 @@
 # What is Software Engineering?
+
 原文：https://research.swtch.com/vgo-eng
 
 作者：[Russ Cox](https://swtch.com/~rsc/)
@@ -6,12 +7,18 @@
 翻译时间：2019-11-16
 
 # 什么是软件工程？
+
 （[Go 与版本管理](https://research.swtch.com/vgo)，第 9 部分）
 
 发表时间：2018-03-30 周三 [PDF](https://research.swtch.com/vgo-eng.pdf)
 
+# 目录
+
+<!--ts-->
+<!--te-->
 
 # 正文
+
 我们经常说，Go 语言几乎所有与众不同的设计都是为了使软件工程变得更简单、更容易。关于这点的权威参考可见 Rob Pike 在 2012 年发表的文章：[Google 中的 Go 语言：软件工程服务中的语言设计（Go at Google: Language Design in the Service of Software Engineering）](https://talks.golang.org/2012/splash.article)。但问题是，软件工程到底是什么？
 
 > 软件工程是指当你增加更多时间、开发者时，编程中所需做的事情。
@@ -38,5 +45,3 @@
 继续上面这个例子，Go 的 `import` 路径是是直接写在 Go 的源码中的，而不是一个独立的配置文件中。这样做的好处是 Go 的源码自包含了对引用的描述，理解、修改、复制这些源码都会变得更简单。这些决策设计，都是源于对简化软件工程的追求。
 
 在后面的文章中，我将会专门讲讲为什么版本对于软件工程至关重要，以及软件工程是如何影响了 Go 将版本管理工具从 `dep` 切换到了 `vgo`。
-
-

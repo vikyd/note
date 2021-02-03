@@ -1,5 +1,10 @@
 # godoc.org 和 gopkg.in 和 golang.org/x 是什么
 
+# 目录
+
+<!--ts-->
+<!--te-->
+
 # 概述
 
 Golang 编程中，经常会碰到这几个网站：
@@ -265,6 +270,7 @@ Connection: keep-alive
 - go get 从网络获取数据到此结束
 
 ## Gopkg.lock 与 gopkg.in 并无关系
+
 `Gopkg.lock` 文件不是 gopkg.in 的东西，它是 `dep` 产生的：https://golang.github.io/dep/docs/Gopkg.lock.html 。
 
 所以 Gopkg.lock 与 gopkg.in 没有关系。

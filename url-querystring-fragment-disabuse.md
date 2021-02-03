@@ -1,5 +1,10 @@
 # URL 中 QueryString 与 Fragment 的困惑
 
+# 目录
+
+<!--ts-->
+<!--te-->
+
 # 名词约定
 
 - `query string`：中文可叫 `查询字符串`，指 `?` 之后，且以 `&` 分隔多个键值对，且以 `=` 分隔键与值，的片断
@@ -103,8 +108,8 @@
 2. 按 F12，在开发者界面的 Console 中输入以下内容：
 
 ```js
-var urlParams = new URLSearchParams(window.location.search)
-console.log(urlParams.get('a'))
+var urlParams = new URLSearchParams(window.location.search);
+console.log(urlParams.get("a"));
 ```
 
 可得，输出是：`1`。
@@ -129,7 +134,7 @@ console.log(urlParams.get('a'))
 2. 按 F12，在开发者界面的 Console 中输入以下内容：
 
 ```js
-window.location.hash
+window.location.hash;
 ```
 
 可得，输出是：`#aa#bb#cc`。

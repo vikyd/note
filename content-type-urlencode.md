@@ -1,5 +1,10 @@
 # 由 urlencode、HTTP Content-Type、嵌套数组想到的
 
+# 目录
+
+<!--ts-->
+<!--te-->
+
 # 起因
 
 Python [requests](http://python-requests.org) POST 一个嵌套数据到 PHP Server 时丢失了部分数据。
@@ -575,6 +580,7 @@ s2 = urllib.unquote(s1).decode('utf8')
 - `MIME` 起源于 Email，后来 HTTP 借用过来叫 `Content-Type`
 
 # 杂
+
 - GET 的请求数据应尽量少，因 URL 有长度限制（不同浏览器、服务器不一样）
 - URL 的长度限制，[参考](https://stackoverflow.com/a/417184/2752670)：
   - 建议不超过 2000 字节

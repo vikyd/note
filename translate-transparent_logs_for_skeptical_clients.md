@@ -3,11 +3,17 @@
 原文：https://research.swtch.com/tlog
 
 作者：[Russ Cox](https://swtch.com/~rsc/)
+
 - Go 语言代码贡献量 [第一](https://github.com/golang/go/graphs/contributors) 的大神
 
 # 标题：为持怀疑态度的客户端设计的透明日志
+
 发布于：2019-03-01 周五
 
+# 目录
+
+<!--ts-->
+<!--te-->
 
 # 译前名词解释
 
@@ -20,12 +26,13 @@
 - tree size：译作树的大小，在本文中特指树的叶子节点数
 - top-level hash：译作 根哈希，即树的根节点（节点值是一个哈希值）。
 
-
 # 正文
+
 假设我们想发布并维护一个仅追加数据的公共日志服务，并且客户端对我们的实现、操作不信任：为了对我们（译注：服务提供者）有利，我们可能随时增加、删除部分日志。我们该如何向客户端证明我们是没问题的（译注：即如何证明我们没改过日志）？
 
 本文将介绍一个优雅的数据结构，我们可基于该结构发布一个包含 N 个数据记录的日志服务。该数据结构有 3 个特性：
-1. 对于长度为 N 的日志中的某个记录 R，我们可构建一个长度为 O(lg N) 的证据，以供客户端验证 R 确实存在于日志中。  
+
+1. 对于长度为 N 的日志中的某个记录 R，我们可构建一个长度为 O(lg N) 的证据，以供客户端验证 R 确实存在于日志中。
 1. 对于客户端早期保存过的日志记录，我们可构建一个长度为 O(lg N) 的证据，以供客户端验证当前日志（译注：服务端的日志）确实包含早期的日志（译注：客户端保存的旧日志）。
 1. 检查者可高效地遍历日志中的记录。
 
@@ -35,8 +42,8 @@
 
 本文将介绍这种可验证日志（也称透明日志）的设计与实现。开始之前，我们需要先介绍一些密码学基础。
 
-
 # 密码学中的哈希、验证和承诺
+
 一个密码学的散列函数（译注：散列也可称为哈希）是一个确定的函数 H（译注：可理解为 hash 的首字母），可将任意大小的信息 M 映射到一个很小的固定大小的值 H(M)。H 有一个特性：实际应用中不可能生成一个 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;M_{1}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;M_{1}" title="M_{1}" /></a> ≠ <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;M_{2}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;M_{2}" title="M_{2}" /></a>，且其哈希值 H(<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;M_{1}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;M_{1}" title="M_{1}" /></a>) = H(<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;M_{2}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;M_{2}" title="M_{2}" /></a>)。当然也有一些例外，在 1995 年，当时 SHA-1 是一个不可破解的哈希函数。然而到了 2017 年，SHA-1 被破解了，有研究者发现并演示了 [一个实际可行的产生哈希碰撞的方法](https://shattered.io/)。今天，SHA-256 依然是一个不可破解的密码散列函数（译注：即在目前条件下不可能产生碰撞）。但未来有一天 SHA-256 也会最终被破解。
 
 一个未被破解的哈希函数可将非常大的数据转化为很小的可信任数据。假设我想分享一个大文件给你，却担心文件在传输过程中存在丢失（无论是随机的丢失，还是 [中间人攻击](https://research.swtch.com/TODO)）。我可以当面把 SHA-256 写到一张纸上，并亲手交到你手上。这样，不管文件数据是从何种不可靠途径获取而来，你只需对下载到的数据进行 SHA-256 校验，得到哈希值，并与我给你的哈希值进行对比。若哈希值一致（且此时 SHA-256 还未被破解），则可认为下载到的数据与我给你的文件完全一致。尽管哈希值只有 256 bit（译注：相当于 32 字节），原始文件很大，SHA-256 哈希值依然可以证明下载到的文件的每个字节都与我想给你的文件一致。
@@ -45,8 +52,8 @@
 
 哈希值可用于验证一个很大的数据，保证其未被篡改过。但每次求哈希值都需对整个原始数据进行哈希运算（译注：过多哈希运算会有性能问题）。为了可以选择性的只验证部分数据，我们不一定只用单一个哈希值，我们可以构建一个哈希值的平衡二叉树，也即著名的默克尔树（Merkle tree）。
 
-
 # 默克尔树（Merkle Trees）
+
 一棵默克尔树由 N 个记录组成，N 是 2 的某次方值（译注：例如 N = <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;2^4" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;2^4" title="2^4" /></a> = 16）。首先，对每个数据记录分别算出其哈希值，即产生 N 个哈希值。然后对每两两哈希值再次算出其哈希值（译注：可大致理解为将这两个哈希值拼在一起作为数据再次求新哈希值），又产生 N/2 个哈希值。继续两两进行哈希，可得 N/4 个哈希值，如此类推，直到只剩 1 个哈希值。下图展示了一棵 N = 16 的默克尔树（译注：注意 level 从 0 起算）。
 
 ![](https://research.swtch.com/tlog-16@2x.png)
@@ -83,11 +90,12 @@ T = h(4, 0)
 一般的，一个证据的所需组成部分：树中的一个记录数据，以及 lg N 个哈希值，也即根节点下的每层都需额外 1 个哈希值（译注：每次需 2 个哈希值，1 个是从日志服务端获取，1 个是由下层计算而得）。
 
 将一堆数据记录的哈希值构建为默克尔树，可帮助我们高效地提供一个证据（证据的长度为 `lg N` 个哈希）证明某个数据记录确实存在于日志中。但还有两个问题需解决：
+
 - 我们的日志是任意长度的，不一定刚好是 2 的次方
 - 我们需提供高效的证据证明：某日志确实包含其他日志
 
-
 # 基于默克尔树结构的日志
+
 为了将默克尔树一般化为非 2 次方的大小（译注：大小是指叶子数），我们可将 N 分解为多个递减的 `2 的次方` 组成的和。然后对这些分解数分别构建完整的默克尔树。子树个数不大于 lg N 个，最终将这些子树再合并为一棵大树，产生一个总的根哈希值。例如，13 = 8 + 4 + 1：
 
 ![](https://research.swtch.com/tlog-13@2x.png)
@@ -126,8 +134,8 @@ T = h(4, 0)
 
 注意，那些顶层的哈希，包括 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;T_{7}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;T_{7}" title="T_{7}" /></a> 和 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;T_{13}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;T_{13}" title="T_{13}" /></a>，本身都是临时哈希，需要 lg N 个永久哈希才能计算得到。但以下情况除外：大小刚好是 2 的次方的树 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;T_{1}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;T_{1}" title="T_{1}" /></a>、<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;T_{2}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;T_{2}" title="T_{2}" /></a>、<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;T_{4}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;T_{4}" title="T_{4}" /></a>、<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;T_{8}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;T_{8}" title="T_{8}" /></a> 等等。
 
-
 # 存储日志
+
 存储日志需要一些仅追加（append-only）的文件。第 1 个文件存储日志数据记录，然后，第 2 个文件存储第 1 个文件的每个数据记录的索引（即一系列 int64 的值，表示第 1 个文件中每个记录的起始偏移量）。此索引可用于根据数据记录的数字编号对数据记录进行高效的随机访问。尽管我们可以从所有数据记录重新计算树中的任何哈希，但若一棵树的叶子数为 N，则需要 N-1 个哈希计算操作。因此，需要以某种更易于访问的形式预先计算并存储这些哈希树。
 
 正如我们前面小节提到的，这些树之间存在一些明显的共同部分。例如，最新的哈希树包含了更早的哈希树的全部永久哈希值，所以 `只存储` 最新的哈希树即可。一个直接的方法是维护 lg N 个只追加的文件，每个文件保存 1 棵树的 1 个层级的哈希值。由于哈希值都是固定大小，所以通过适当的偏移即可高效从文件读取这些哈希值。
@@ -142,16 +150,17 @@ T = h(4, 0)
 
 当然，仅存储日志还不够，我们还需让客户端可获取这些日志。
 
-
-
 # 提供日志服务
+
 由于每个客户端都会对日志的正确性进行怀疑，所以日志服务必须让客户端很容易验证两个东西：
+
 - 任何特定数据记录都确实存在于日志中
 - 当前的日志总是曾访问过的旧日志的追加（译注：就小树属于大树）
 
 为实现可用，日志服务必须使得：根据某些查找关键字可很容易找到想要的数据记录，并且允许检查者遍历整个日志，以检查是否存在异常的日志记录。
 
 为此，日志服务必须响应以下 5 个查询：
+
 - `Latest()` 返回:
   - 当前日志的大小（即叶子数）
   - 树的根哈希
@@ -167,8 +176,8 @@ T = h(4, 0)
 - `Data(R)`：
   - 返回记录 R 对应的数据
 
-
 # 验证日志
+
 客户端使用前面 3 个查询来维护它最近使用过的本地日志缓存副本，并确保服务器从未删除日志中的任何内容。要做这一点，客户端应缓存最近查询过的日志大小 N 以及根哈希 T。然后，在信任记录编号 R 确实对应数据 B 之前，客户端应先验证 R 是否存在于日志中。若 R ≥ 本地缓存 N，则客户端应将缓存 N、T 更新为最新日志的编号与根哈希，前提是已验证当前最新日志确实包含了本地缓存日志。写成伪代码：
 
 ```
@@ -184,19 +193,20 @@ validate(bits B as record R):
 ```
 
 翻译为中文：
+
 ```
 验证(数据B 是 记录R):
     如果 R ≥ 缓存.N:
         N, T = 服务器.Latest()
-        
+
         如果 服务器.TreeProof(缓存.N, N) 验证不通过:
             验证失败
-            
+
         缓存.N, 缓存.T = N, T
-        
+
     如果 服务器.RecordProof(R, 缓存.N) 验证没使用 B:
         验证失败
-        
+
     信任 B 是 记录R
 ```
 
@@ -204,9 +214,10 @@ validate(bits B as record R):
 
 客户端侧的验证有点像 Git 客户端：本地维护远程仓库的副本，并在 `git pull` 接收更新前，先验证远程仓库确实包含了本地所有的提交（commit）。但透明日志（transparent log）客户端只需下载 lg N 个哈希值即可完成验证，而 Git 需下载所有的 cached.N 个哈希值（N 为新数据记录的数量）。更一般的，透明日志可选择性地读取和验证某些条目，而无需下载、存储整个日志。
 
-
 # 对日志进行瓦片化
+
 如上所述，日志的存储需要简单的、总大小线性增加的、仅追加的存储方式。并且日志的服务和访问只需日志总大小的对数的网络流量。到这，已经可以停止继续探索了（在 [RFC 6962](https://tools.ietf.org/html/rfc6962) 中定义的证书透明度（Certificate Transparency）也只描述到此）。但是，有一个更优的方法可以在稍微增加实现的复杂度后，使得：
+
 - 哈希存储空间减半
 - 网络传输对缓存更友好
 
@@ -220,27 +231,26 @@ validate(bits B as record R):
 
 > 译注：`tile(L, K)/W` 只是一个表示方式，不是做除法。从上图右下角的 `title(0, 6)/3` 可知，里面的 `3` 是指该瓦片底层行中包含的哈希数量（即 24、25、26 这三个）
 
-
 # 存储瓦片
-只有每个瓦片的最底行需要存储，因为更上层的行可通过根据其下层重新计算出来（译注：每层瓦片都会存储，且仅存储其最底下一行，而非仅存储叶子节点的瓦片）。在我们的例子中，高度为 2 的瓦片存储了 4 个哈希值，而非 6 个，减少了 33% 的存储。对于高度更高的瓦片，存储减少量逐渐趋于 50%。瓦片化后的代价是原本读取 1 个哈希，现需读半个瓦片，增加了 I/O 需求。对于一个实际的系统，一个瓦片高度为 4 似乎在存储成本与 I/O 开销之间取得较合理的平衡。它存储了 16 个哈希值，而非 30 个（存储量减少了 47%），并且（假设 SHA-256）1 个包含 16 个哈希值的瓦片只需 512 字节（刚好是一个磁盘扇区）（译注：512 = 256 * 16 / 8）。
+
+只有每个瓦片的最底行需要存储，因为更上层的行可通过根据其下层重新计算出来（译注：每层瓦片都会存储，且仅存储其最底下一行，而非仅存储叶子节点的瓦片）。在我们的例子中，高度为 2 的瓦片存储了 4 个哈希值，而非 6 个，减少了 33% 的存储。对于高度更高的瓦片，存储减少量逐渐趋于 50%。瓦片化后的代价是原本读取 1 个哈希，现需读半个瓦片，增加了 I/O 需求。对于一个实际的系统，一个瓦片高度为 4 似乎在存储成本与 I/O 开销之间取得较合理的平衡。它存储了 16 个哈希值，而非 30 个（存储量减少了 47%），并且（假设 SHA-256）1 个包含 16 个哈希值的瓦片只需 512 字节（刚好是一个磁盘扇区）（译注：512 = 256 \* 16 / 8）。
 
 前面已提过，每层存储一个哈希文件，共 lg N 个文件。使用瓦片存储后，我们只需存储瓦片高度值的倍数个哈希文件。若瓦片高度为 4，则我们只需为 0、4、8、12、16 级哈希层分别存储 1 个哈希文件。当我们需要另一个层的哈希值时，我们可通过读取瓦片重新计算其哈希值。
 
-
 # 提供瓦片服务
+
 提供证据的服务 `RecordProof(R, N)` 和 `TreeProof(N, N′)` 对缓存不太友好。例如，`RecordProof(R, N)` 通常与 `RecordProof(R+1, N)`、` RecordProof(R, N+1)` 有很多相同的哈希，但这 3 者是不同的请求，必须分别进行缓存。
 
-一个对缓存更优化的方法是将 `RecordProof`、`TreeProof` 替换为一个综合的请求 `Hash(L, K)`，提供一个永久的哈希值。客户端可很简单的计算出需要哪些哈希，只需更少的独立哈希，而非整个证据（`2 N` vs <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;N^{2}/2" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;N^{2}/2" title="N^{2}/2" /></a>），从而有助于提高缓存命中率。但不幸的是，切换到 `Hash` 请求是低效的：获取一个记录的证据之前只需 1 次请求，现在却需 2 lg N 次请求，树的证据更需达 3 lg N 次请求。而且，每个请求只传递了一个哈希（32 字节）（译注：32字节 = 256bit，即一个 SHA-256 哈希值）：请求的大小远大于有效信息的大小。
+一个对缓存更优化的方法是将 `RecordProof`、`TreeProof` 替换为一个综合的请求 `Hash(L, K)`，提供一个永久的哈希值。客户端可很简单的计算出需要哪些哈希，只需更少的独立哈希，而非整个证据（`2 N` vs <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;N^{2}/2" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;N^{2}/2" title="N^{2}/2" /></a>），从而有助于提高缓存命中率。但不幸的是，切换到 `Hash` 请求是低效的：获取一个记录的证据之前只需 1 次请求，现在却需 2 lg N 次请求，树的证据更需达 3 lg N 次请求。而且，每个请求只传递了一个哈希（32 字节）（译注：32 字节 = 256bit，即一个 SHA-256 哈希值）：请求的大小远大于有效信息的大小。
 
 我们可以通过增加一个返回瓦片的接口 `Tile(L, K)`，保留对缓存友好特性，同时减少请求次数、减少相关请求开销，以减少带宽开销。客户端可根据证据所需获取对应的瓦片，并缓存瓦片（尤其是树中较高的瓦片）以供日后的证据使用。
 
-对于使用 SHA-256 的真实系统来说，高度为 8 的瓦片是 8kB（译注：8kB = `一个哈希值 256 bit` * `高度为 8 的瓦片的底行节点数为 256 ` / `8bit 一字节`）。在一个大型日志（例如 1 亿条记录）的证据只需 3 个完整的瓦片（或 24kB 的下载大小），以及一个包含根哈希的不完整瓦片（192 字节）。高度为 8 的瓦片可利用已存储的高度为 4（前面小节建议的大小）的瓦片提供服务。另一个合理的选择是同时提供高度为 6（每个 2kB）和 7（每个 4kB） 的瓦片服务。
+对于使用 SHA-256 的真实系统来说，高度为 8 的瓦片是 8kB（译注：8kB = `一个哈希值 256 bit` \* `高度为 8 的瓦片的底行节点数为 256 ` / `8bit 一字节`）。在一个大型日志（例如 1 亿条记录）的证据只需 3 个完整的瓦片（或 24kB 的下载大小），以及一个包含根哈希的不完整瓦片（192 字节）。高度为 8 的瓦片可利用已存储的高度为 4（前面小节建议的大小）的瓦片提供服务。另一个合理的选择是同时提供高度为 6（每个 2kB）和 7（每个 4kB） 的瓦片服务。
 
 如果在服务器之前存在缓存服务，则应为每个大小不同的瓦片指定不同名称，以避免请求较大瓦片时却返回一个旧的更小的瓦片（译注：可能相同坐标的瓦片在开始时是不完整的，后来日志逐渐变大，可能该坐标的瓦片变成完整的了）。虽然在给定的系统中，瓦片的高度是不变的，但明确说明瓦片的高度可能有助于系统从一个固定的瓦片高度转换到另一个固定的瓦片高度时不产生歧义。例如，在一个简单的 HTTP API 的 GET 请求中，我们可用 `/tile/H/L/K` 来命名一个完整的瓦片，用 `/tile/H/L/K.W` 来命名一个不完整的瓦片（表示该树有 `W` 个哈希）。
 
-
-
 # 验证瓦片
+
 下载、缓存瓦片的一个潜在问题是：不能确定它们是否可信。攻击者可能会修改部分瓦片，从而导致验证失败。我们可通过在下载瓦片后对已签名的根哈希值进行验证，即可避免此类问题。具体来说，若我们有一个已签名的根哈希值 T，我们先下载最多不超过 (lg N)/H 个瓦片，并用瓦片中的哈希值组成完整子树计算出 T。在前面的图中 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;T_{27}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;T_{27}" title="T_{27}" /></a> 对应的是 `tile(2, 0)/1`、`tile(1, 1)/2`、`tile(0, 6)/3`（译注：可参考前的瓦片图和有 `x`、`y` 的图）。通过计算这些瓦片中的哈希值，如果我们得到正确的 T，这些哈希值就都是正确的。这些瓦片由瓦片树中的顶部瓦片、各层的最右侧瓦片组成，而且现在我们已知这些瓦片是正确的了。若需对其他的瓦片进行验证，我们应首先对该瓦片的父瓦片进行验证（因为顶层瓦片已通过验证），然后再利用该瓦片中的所有哈希计算出其父瓦片中对应的哈希值。还是以 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;T_{27}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;T_{27}" title="T_{27}" /></a> 为例，假设下载到的瓦片是 `tile(0, 1)`，我们可这样计算：
 
 ```
@@ -249,9 +259,10 @@ h(2, 1) = H(H(h(0, 4), h(0, 5)), H(h(0, 6), h(0, 7)))
 
 并检查该值是否与直接记录在已验证的 `tile(1, 0)` 中的 `h(2, 1)` 相匹配。若匹配，则此下载到的瓦片（译注：即此瓦片 `tile(0, 1)`）通过验证。
 
-
 # 总结
+
 总结一下，我们已了解该如何发布一个具有以下特性的透明（防篡改、不可变、仅追加）日志服务：
+
 - 客户端可通过下载 O(lg N) 个字节来验证任意一个数据记录
 - 客户端可通过下载 O(lg N) 个字节来验证一个新日志确实包含了旧日志
 - 对于较大的日志，只需通过 3 个均为 8kB 的 RPC 请求即可验证
@@ -266,8 +277,8 @@ h(2, 1) = H(H(h(0, 4), h(0, 5)), H(h(0, 6), h(0, 7)))
 
 总而言之，这种结构使得无需信任日志的服务器本身。它不能删除一个被查看过的记录，因为会有检测。如果不能永远欺骗用户，它就不能欺骗用户，因为用户可与其他用户进行比较，从而轻松验证是否有问题。日志本身可很容易代理及缓存，所以即使主服务器消失了，其他副本也可以继续为缓存的日志提供服务。最后，检查者可检测日志中是否存在不该存在的条目，这样就可以在使用日志服务的时候异步验证日志的真实内容。
 
-
 # 延伸阅读
+
 有一些关于本数据结构的原始资料，都非常易读，推荐大家认真去学习一下。
 
 Ralph Merkle 在其博士论文 [密保、验证和基于公钥的系统（Secrecy, authentication, and public-key systems，1979）](http://www.merkle.com/papers/Thesis1979.pdf)中首次提出了默克尔树（Merkle trees）。默克尔树可用于，将具有单用途公共钥匙的签名方案，转换为一种具有多用途钥匙的方案。这个多用途钥匙是一棵树的根哈希，这棵树包含 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;2^{L}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;2^{L}" title="2^{L}" /></a> 个伪随机产生的单用途钥匙。每个签名都以一个特定的单用途钥匙开始，然后是其在树中的索引 K，然后是一个证据（由 L 个哈希组成）（这个证据可验证钥匙对应树中的 K 记录）。Adam Langley 的博客文章 [基于签名的哈希（Hash based signatures，2013）](https://www.imperialviolet.org/2013/07/18/hashsig.html) 简要介绍了单用途签名方案，以及默克尔树如何起作用。
@@ -282,8 +293,8 @@ Google 的通用透明度（General Transparency）[Trillian](https://github.com
 
 为了验证 Go 语言生态中的模块（modules）（即软件包），我们 [计划使用透明日志](https://blog.golang.org/modules2019) 来存储特定模块版本的密码学哈希值。这样客户端可从密码理论上确定现在下载到的软件，以后也能下载到同样的数据。对于该系统的网络服务，我们计划直接提供瓦片服务，而非证据（proofs）。本文是属于 [Go 语言的特定设计（the Go-specific design）](https://golang.org/design/25530-notary) 关于透明日志的延伸介绍。
 
-
 # 附录 A：后序存储设计
+
 前面介绍过的基于文件的存储方式：将永久哈希存储在 lg N 个仅追加的文件中，即树的每个层级对应一个文件。哈希值 `h(L, K)` 将被存储在第 L 个哈希文件的 `K × 哈希值单位长度` 偏移位置中。
 
 Crosby 和 Wallach 指出，使用二叉树的后序编号，可很容易地将 lg N 个哈希层级合并为 1 个仅追加的哈希文件中。其中父哈希存储在最右子节点之后。例如，写入 N = 13 条记录后，永久哈希树的结构如下：
@@ -300,8 +311,8 @@ Crosby 和 Wallach 指出，使用二叉树的后序编号，可很容易地将 
 
 这种交错的存储方式还可改善读取时 I/O 性能。若读取一个证据（proof）通常意味着从每个层级读取 1 个哈希，这些哈希聚集在树中的某些叶子周围。若树的每个层级是分别存储在不同文件，每个哈希都在不同的文件中（译注：这里说的 `每个哈希` 应是指某个节点路径所组成的哈希列表中的哈希），也即一次 I/O 操作不能同时读取多个哈希。但当树以交错形式存储时，底层级的哈希都是相邻的，使得可以一次磁盘读取就能得到许多所需的哈希。
 
-
 # 附录 B：中序存储设计
+
 另一方式是使用中序遍历树的编号方式来安排 lg N 个哈希文件，这样每个父哈希都存储在其左右子树之间：
 
 ![](https://research.swtch.com/tlog-in-13@2x.png)
@@ -314,8 +325,8 @@ Crosby 和 Wallach 指出，使用二叉树的后序编号，可很容易地将 
 
 其次，存储的位置也改善了。现在每个父哈希都精确地位于其子树之间，而非右侧更远的地方。
 
-
 # 附录 C：瓦片存储设计
+
 将哈希树存储在 lg N 个独立的层级中，可使其很简单地转换为瓦片存储：只需少写入 `(H–1)/H` 个文件。最简单的瓦片实现可能是使用分散的文件，但还是解释一下，为什么值得去将交错存储的哈希文件转换为瓦片存储。这个转换并不是直接删除一些文件那么简单。直接忽略某些层级的哈希还不够：我们还希望文件中每个瓦片都是连续的。例如，对于高度为 2 的瓦片，在 1 级的第 1 个瓦片应存储 `h(2, 0)` 至 `h(2, 3)` 的哈希，但无论是后序还是中序交错，都将这 4 个哈希（译注：4 个哈希即 `h(2, 0)`、`h(2, 1)`、`h(2, 2)`、`h(2, 3)`）放在相邻的位置。
 
 相反，我们必须简单地定义瓦片都是连续存储的，然再选择一个线性的瓦片布局顺序。对于高度为 2 的瓦片，这些瓦片形成一个四叉树，更通用地说应该是形成一个 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;2^{H}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;2^{H}" title="2^{H}" /></a> 叉树。我们可使用附录 A 中提到的后序布局：
@@ -326,7 +337,7 @@ Crosby 和 Wallach 指出，使用二叉树的后序编号，可很容易地将 
 
 ![](https://research.swtch.com/tlog-tile-post-16@2x.png)
 
-哈希文件在索引为 20 的数据位置之后不会写入任何瓦片，除非直到 20 之前的空隙已填充完（译注：此处描述的位置是：0 1 2 3 4 `20` 5 6 7 8 9 .... 17 18 19）。但然后又重复类似操作：在写完前面 20 个瓦片后会导致立即将接下来的第一个哈希写入到索引为 84 的瓦片中（译注：上图中 0-20 共 21 个瓦片整体将作为更大的四叉树的最左节点，因为是四叉树，所以还需 3 个类似上图的树才能拼凑出更大四叉树的 4 个节点，也即 21 * 4 = 84，实际大四叉树的根节点位置应在 84 之后即 85（从 1 起算的话），而因为本文一直以 0 起算索引值，所以文中说是 84）。一般化来说，文件中只有前面的 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;1/2^{H}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;1/2^{H}" title="1/2^{H}" /></a> 的哈希值是可保证相邻。大部分的系统都能高效支持文件中存在大孔，但也并非全部系统都支持：我们还是希望使用其他瓦片结构来避免大孔问题。
+哈希文件在索引为 20 的数据位置之后不会写入任何瓦片，除非直到 20 之前的空隙已填充完（译注：此处描述的位置是：0 1 2 3 4 `20` 5 6 7 8 9 .... 17 18 19）。但然后又重复类似操作：在写完前面 20 个瓦片后会导致立即将接下来的第一个哈希写入到索引为 84 的瓦片中（译注：上图中 0-20 共 21 个瓦片整体将作为更大的四叉树的最左节点，因为是四叉树，所以还需 3 个类似上图的树才能拼凑出更大四叉树的 4 个节点，也即 21 \* 4 = 84，实际大四叉树的根节点位置应在 84 之后即 85（从 1 起算的话），而因为本文一直以 0 起算索引值，所以文中说是 84）。一般化来说，文件中只有前面的 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;1/2^{H}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;1/2^{H}" title="1/2^{H}" /></a> 的哈希值是可保证相邻。大部分的系统都能高效支持文件中存在大孔，但也并非全部系统都支持：我们还是希望使用其他瓦片结构来避免大孔问题。
 
 若将父瓦片放在紧跟其最左子节点之后，则可消除所有的孔（不完整的块除外），并且似乎刚好与附录 B 中的中序结构对应：
 
@@ -338,9 +349,6 @@ Crosby 和 Wallach 指出，使用二叉树的后序编号，可很容易地将 
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\fn_cm&space;seq(L,&space;K)&space;=&space;((K&space;&plus;&space;B&space;-&space;2)/(B&space;-&space;1))_{B}&space;||&space;(1)_{B}^{L}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\fn_cm&space;seq(L,&space;K)&space;=&space;((K&space;&plus;&space;B&space;-&space;2)/(B&space;-&space;1))_{B}&space;||&space;(1)_{B}^{L}" title="seq(L, K) = ((K + B - 2)/(B - 1))_{B} || (1)_{B}^{L}" /></a>
 
-上图中，<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;(X)_{B}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;(X)_{B}" title="(X)_{B}" /></a> 表示 `X` 被写成 以B为基础的数字，`||` 表示将 以B为基础的数字 串起来，<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;(1)_{B}^{L}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;(1)_{B}^{L}" title="(1)_{B}^{L}" /></a> 表示 以B为基础 的数字 1 重复了 L 次，<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;B&space;=&space;2^{H}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;B&space;=&space;2^{H}" title="B = 2^{H}" /></a>。
+上图中，<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;(X)_{B}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;(X)_{B}" title="(X)_{B}" /></a> 表示 `X` 被写成 以 B 为基础的数字，`||` 表示将 以 B 为基础的数字 串起来，<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;(1)_{B}^{L}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;(1)_{B}^{L}" title="(1)_{B}^{L}" /></a> 表示 以 B 为基础 的数字 1 重复了 L 次，<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\fn_cm&space;B&space;=&space;2^{H}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\inline&space;\fn_cm&space;B&space;=&space;2^{H}" title="B = 2^{H}" /></a>。
 
 此编码方案形成了中序二叉树的遍历方式（H = 1，B = 2），保留了偏移量在数学上的规则性，代价是树的结构变得不规则。由于我们只关心数学计算，不关心树到底长什么样，所以此方案可能算是相对合理的平衡。关于此奇怪排序的细节，可见我的这篇文章 [一个编码树的遍历（An Encoded Tree Traversal）](https://research.swtch.com/treenum)。
-
-
-

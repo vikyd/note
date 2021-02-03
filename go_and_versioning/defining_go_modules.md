@@ -12,6 +12,11 @@
 
 发表时间：2018-02-22 周四 [PDF](https://research.swtch.com/vgo-module.pdf)
 
+# 目录
+
+<!--ts-->
+<!--te-->
+
 # 正文
 
 正如前面 [综述文章](https://github.com/vikyd/note/blob/master/go_and_versioning/go_add_package_versioning.md) 所说的，一个 Go 模块（module）表示一系列包组成的一个版本单元，其中包含一个 go.mod 文件，用于指定所依赖的其他模块。趁此迁移到模块机制之际，正好可让我们回首看看原来的 go 命令是如何管理源码的，里面涉及很多细节问题，可借此机会进行修复。此时此刻，`go get` 命令已经快 10 岁了。我们需要确保新的模块机制能满足接下来 10 年的需求。

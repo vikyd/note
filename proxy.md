@@ -2,17 +2,22 @@
 
 设置代理是为了这几种情况：
 
-* `翻墙`
-* 从 `内网` 访问 `外网`
-* 从 `内网` 访问 `内网镜像库`（npm、composer 等）
+- `翻墙`
+- 从 `内网` 访问 `外网`
+- 从 `内网` 访问 `内网镜像库`（npm、composer 等）
+
+# 目录
+
+<!--ts-->
+<!--te-->
 
 # 代理方式
 
 代理设置至少有以下几种方式：
 
-* 设置目标代理机器（常用）
+- 设置目标代理机器（常用）
   > 如：`http://yourProxyServer:port`
-* 设置 pac 自动匹配代理（常用于浏览器）
+- 设置 pac 自动匹配代理（常用于浏览器）
   > 如：`http://example/a.pac`
 
 # 代理地址
@@ -41,16 +46,18 @@ set https_proxy=
 
 注意：
 
-* `http_proxy` 和 `https_proxy` 对应的都是 `http://yourProxyServer:port`，后者可能没有 `https` 的 `s`
+- `http_proxy` 和 `https_proxy` 对应的都是 `http://yourProxyServer:port`，后者可能没有 `https` 的 `s`
 
 # Linux 代理设置
 
 同下面 Mac 代理设置 ↓
 
 # Mac 代理设置
+
 这里只说命令行配置代理的方式
 
 在 `~/.bash_profile` 或 `~/.zshrc` 中填入设置代理的快捷方式：
+
 ```sh
 # shadowsocks 翻墙用，不翻墙可不用
 alias proxy_ss='export all_proxy=socks5://127.0.0.1:1086; export http_proxy=http://127.0.0.1:1087; export https_proxy=https://127.0.0.1:1087'
@@ -65,6 +72,7 @@ alias unproxy='unset all_proxy; unset http_proxy; unset https_proxy'
 设置完，记得 source 一下配置文件。
 
 使用，shell 中执行（开发机为例）：
+
 ```sh
 # 设置代理
 proxy_dev
@@ -74,9 +82,10 @@ unproxy
 
 ```
 
-----
+---
 
 单独命令：
+
 ```sh
 # 临时设置代理
 export http_proxy=http://yourProxyServer:port
@@ -91,14 +100,11 @@ unset http_proxy
 unset https_proxy
 ```
 
-
 # Mac Homebrew 代理设置
+
 同上面 Mac 命令行的代理设置。
 
 [Brew 官方参考](https://docs.brew.sh/Manpage#using-homebrew-behind-a-proxy)
-
-
-
 
 # Git 代理设置
 
@@ -208,8 +214,8 @@ yarn 全局配置： `用户目录/.yarnrc`
 
 注意：
 
-* 有时设置了代理也不生效，可能原因是 `yarn.lock` 文件的问题，删掉重来试试
-  * 参考：https://github.com/yarnpkg/yarn/issues/4890
+- 有时设置了代理也不生效，可能原因是 `yarn.lock` 文件的问题，删掉重来试试
+  - 参考：https://github.com/yarnpkg/yarn/issues/4890
 
 # nvm 代理设置
 
@@ -253,12 +259,7 @@ nvm proxy "none"
 - 当前用户目录
 - 系统根目录（Linux 的 `/` 目录）
 
-
-
-
 参考：https://bower.io/docs/config/#placement--order
-
-
 
 # PHP Composer 代理设置
 
@@ -277,7 +278,6 @@ set https_proxy=yourProxyServer:port
 
 系统配置了这两个环境变量的话，就相当于 Composer 的全局代理
 
-
 # PhpStorm、IntelliJ IDEA、PyCharm、WebStorm、Android Studio（或 Jetbrains 系其他）代理设置
 
 [Jetbrains](https://www.jetbrains.com/)
@@ -290,12 +290,11 @@ set https_proxy=yourProxyServer:port
 
 -> `OK`
 
-
 # Maven 代理、镜像设置
+
 [Maven](https://maven.apache.org/)
 
 Maven 的代理、镜像设置内容较多，详细见 [这里](https://github.com/vikyd/note/blob/master/maven_proxy.md)
-
 
 # Gradle 代理设置
 
@@ -306,8 +305,6 @@ Maven 的代理、镜像设置内容较多，详细见 [这里](https://github.c
 - 若设置全局项目：
   - 新建或编辑 `用户目录/.gradle/gradle.properties`
 
-
-
 在 `gradle.properties` 文件中增加以下设置：
 
 ```
@@ -317,34 +314,31 @@ systemProp.https.proxyHost=yourProxyServer
 systemProp.https.proxyPort=yourPort
 ```
 
-
 参考：https://docs.gradle.org/current/userguide/build_environment.html
 
-
-
 ## Python 的 pip 代理设置
+
 pip 可用于安装 Python 的包。
 
 [pip](https://pypi.org/project/pip/) 的代理设置有 3 种方式（n 选 1）：
- - 系统环境变量
-   - 就如 CMD 的代理设置，之后再 `pip install yourPackage`，Win ↓
-   ```cmd
-   set http_proxy=http://yourProxyServer:port
-   set https_proxy=http://yourProxyServer:port
-   ```
- - `--proxy` 参数
-   - `pip install yourPackage --proxy http://yourProxyServer:port`
- - `pip.ini` 配置文件（推荐，永久）
-   - 以 Win 为例，在用户目录新建目录和文件 ` %HOME%\pip\pip.ini`，填入：
-     ```ini
-     [install]
-     proxy=http://yourProxyServer:port
-     ```
-   - 查看设置是否成功：`pip config list`
+
+- 系统环境变量
+  - 就如 CMD 的代理设置，之后再 `pip install yourPackage`，Win ↓
+  ```cmd
+  set http_proxy=http://yourProxyServer:port
+  set https_proxy=http://yourProxyServer:port
+  ```
+- `--proxy` 参数
+  - `pip install yourPackage --proxy http://yourProxyServer:port`
+- `pip.ini` 配置文件（推荐，永久）
+  - 以 Win 为例，在用户目录新建目录和文件 ` %HOME%\pip\pip.ini`，填入：
+    ```ini
+    [install]
+    proxy=http://yourProxyServer:port
+    ```
+  - 查看设置是否成功：`pip config list`
 
 pip 设置代理的官方文档：https://pip.pypa.io/en/stable/user_guide/#using-a-proxy-server
-
-
 
 # VSCode 代理设置
 
@@ -363,8 +357,8 @@ pip 设置代理的官方文档：https://pip.pypa.io/en/stable/user_guide/#usin
 
 菜单栏 -> 最右侧问号 `?` -> `设置更新代理服务器` ->
 
-* `Proxy server`：yourProxyServer
-* `Port`：yourPort
+- `Proxy server`：yourProxyServer
+- `Port`：yourPort
 
 # Sublime 代理设置
 
@@ -372,22 +366,19 @@ pip 设置代理的官方文档：https://pip.pypa.io/en/stable/user_guide/#usin
 
 也可在配置文件自定义代理：
 
-* `菜单栏` -> `Preferences` -> `Settings` -> `在左右任意一侧填入`：
+- `菜单栏` -> `Preferences` -> `Settings` -> `在左右任意一侧填入`：
 
 ```json
 "http_proxy": "http://yourProxyServer:port",
 "https_proxy": "http://yourProxyServer:port",
 ```
 
-
-
 # Eclipse 代理设置
+
 [Eclipse](https://www.eclipse.org/) 代理设置方式：
 
 - `Window` -> `Preferences` -> `General` -> `Network Connections` -> 右侧 `Active Provider` 选择 `Manual` -> `Proxy entries 表格` 中双击第 1 行的 `HTTP` -> `Host` 填 `yourProxyServer` -> `Port` 填 `yourPort` -> `OK`
 - `HTTPS`、`SOCKS` 同理设置
-
-
 
 # Atom 编辑器 代理设置
 
@@ -416,34 +407,34 @@ apm config get
 
 方法 01（临时）：
 
-* 先设置 Windows CMD 的代理：
+- 先设置 Windows CMD 的代理：
   ```cmd
   set http_proxy=http://yourProxyServer:port
   set https_proxy=http://yourProxyServer:port
   ```
-* 或 Linux shell 的代理：
+- 或 Linux shell 的代理：
   ```sh
   export http_proxy=http://yourProxyServer:port
   export https_proxy=http://yourProxyServer:port
   ```
-* 然后可以直接使用 wget 命令
+- 然后可以直接使用 wget 命令
 
 方法 02（永久，推荐！）：
 
-* 直接使用 wget 配置文件，在当前用户主目录下新建文件 `.wgetrc`（或 Linux 的 `/etc/wgetrc`）：
+- 直接使用 wget 配置文件，在当前用户主目录下新建文件 `.wgetrc`（或 Linux 的 `/etc/wgetrc`）：
   ```ini
   http-proxy = yourProxyServer:port
   https-proxy = yourProxyServer:port
   ftp-proxy = yourProxyServer:port
   ```
-* 然后可以直接使用 wget 命令
+- 然后可以直接使用 wget 命令
 
 方法 03（临时）：
 
-* 直接在 wget 命令中添加参数，如
-  * `wget https://www.baidu.com -e https-proxy=yourProxyServer:port`
-  * 或 （都是 http ，而非 https）
-  * `wget http://www.baidu.com -e http-proxy=yourProxyServer:port`
+- 直接在 wget 命令中添加参数，如
+  - `wget https://www.baidu.com -e https-proxy=yourProxyServer:port`
+  - 或 （都是 http ，而非 https）
+  - `wget http://www.baidu.com -e http-proxy=yourProxyServer:port`
 
 # curl 代理设置
 
@@ -451,61 +442,61 @@ apm config get
 
 方法 01（临时）：
 
-* 先设置 Windows CMD 的代理：
+- 先设置 Windows CMD 的代理：
   ```cmd
   set http_proxy=yourProxyServer:port
   set https_proxy=yourProxyServer:port
   ```
-* 或 Linux shell 的代理：
+- 或 Linux shell 的代理：
   ```sh
   export http_proxy=yourProxyServer:port
   export https_proxy=yourProxyServer:port
   ```
-* 然后可以直接使用 curl 命令，如
-  * `curl http://www.baidu.com -o baidu.html`
+- 然后可以直接使用 curl 命令，如
+  - `curl http://www.baidu.com -o baidu.html`
 
 方法 02（永久，推荐！）：
 
-* 直接使用 curl 配置文件，在当前用户主目录下新建配置文件（Win：`_curlrc`）（Linux：`.curlrc`）：
+- 直接使用 curl 配置文件，在当前用户主目录下新建配置文件（Win：`_curlrc`）（Linux：`.curlrc`）：
   ```ini
   proxy = yourProxyServer:port
   ```
-* 然后可以直接使用 curl 命令，如
-  * `curl http://www.baidu.com -o baidu.html`
+- 然后可以直接使用 curl 命令，如
+  - `curl http://www.baidu.com -o baidu.html`
 
 方法 03（临时）：
 
-* 直接在 curl 命令中添加参数，如
-  * `curl https://www.baidu.com -o baidu.html -x yourProxyServer:port`
+- 直接在 curl 命令中添加参数，如
+  - `curl https://www.baidu.com -o baidu.html -x yourProxyServer:port`
     > `-x` 小写 x 代表 `proxy` 的意思
 
-
-
-
 # Golang 的 go get 代理
+
 [Golang](https://golang.org/) 的 `go get` 使用系统的 `http_proxy`，但拉取代码时会使用 Git 的代理，
 所以两步都要做：
+
 1. 设置系统代理（或说 CMD 代理）
-  ```cmd
-  set http_proxy=yourProxyServer:port
-  ```
+
+```cmd
+set http_proxy=yourProxyServer:port
+```
+
 2. 设置 Git 代理，参考前面的 `Git 代理设置`
-  ```cmd
-  git config --global http.proxy http://yourProxyServer:port
-  ```
+
+```cmd
+git config --global http.proxy http://yourProxyServer:port
+```
 
 参考：
+
 - https://stackoverflow.com/a/10385612/2752670
 - 官方参考：https://github.com/golang/go/wiki/GoGetProxyConfig
 
-
 若使用 VSCode，要想 VSCode 自动下载 Go 的依赖工具，则也应设置 VSCode 的 settings.json 中的代理：
+
 ```json
 "http.proxy": "http://yourProxyServer:port",
 ```
-
-
-
 
 # Navicat 连外网数据库
 
@@ -513,10 +504,10 @@ apm config get
 
 注意：此方法不太安全，慎重使用！
 
-* 步骤 01：
+- 步骤 01：
   Navicat 安装目录找到文件： `C:\Program Files\PremiumSoft\Navicat Premium\ntunnel_mysql.php` （或对应语言的 php），放置到你外网 Web 服务目录下（浏览器可打开 `http://IP:port/abc/ntunnel_mysql.php` 看到一个页面）
 
-* 步骤 02：
+- 步骤 02：
   `右键某个数据库连接` -> `HTTP` -> 勾选 `使用 HTTP 通道` -> `通道地址` 填 `http://IP:port/abc/ntunnel_mysql.php` -> 下面 `代理服务器` -> 勾选 `使用代理服务器` -> `主机` 填 `yourPorxyServer` -> `端口` 填 `yourPort` -> `测试连接` -> `确定`
 
 # Virtual Box、VMware 代理设置
@@ -525,24 +516,22 @@ apm config get
 
 代理设置：虚拟机内的系统与外部物理机一样的代理设置，才能上网。
 
-
 # Xshell 代理设置
 
 打开某个 session 的属性设置
 
-* Connection
-* Proxy
-* Browse
-* Add
-  * **Name**：anyName（或随意名字）
-  * **Type**：HTTP 1.1
-  * **Host**：yourProxyServer
-  * **Port**：yourPort
-  * OK
-  * Close
-* Proxy Server 选择刚新建的代理
-* 完毕
-
+- Connection
+- Proxy
+- Browse
+- Add
+  - **Name**：anyName（或随意名字）
+  - **Type**：HTTP 1.1
+  - **Host**：yourProxyServer
+  - **Port**：yourPort
+  - OK
+  - Close
+- Proxy Server 选择刚新建的代理
+- 完毕
 
 # SecureCRT 代理设置
 
@@ -550,24 +539,23 @@ apm config get
 
 1.  全局添加代理项
 
-* Options
-* Global Options
-* Firewall
-  * Add
-    * **Name**：anyName（或随意名字）
-    * **Type**：HTTP (no authentication)
-    * **Hostname or IP**：yourProxyServer
-    * **Port**：yourPort
-    * OK
+- Options
+- Global Options
+- Firewall
+  - Add
+    - **Name**：anyName（或随意名字）
+    - **Type**：HTTP (no authentication)
+    - **Hostname or IP**：yourProxyServer
+    - **Port**：yourPort
+    - OK
 
 2.  在你的连接中选中刚刚新建的代理项
 
-* 你的连接 -> 属性
-* Connection
-* SSH2
-* Firewall
-* 选择 `刚新建的代理项`
-
+- 你的连接 -> 属性
+- Connection
+- SSH2
+- Firewall
+- 选择 `刚新建的代理项`
 
 # Proxifier 为其他软件设置代理
 
@@ -577,14 +565,14 @@ apm config get
 
 优点：
 
-* 不用按照每个软件的不同方式设置各自的代理
-* 部分没有代理设置界面的软件很适合使用 Proxifier
-* 可查看被代理软件的实际流量情况
-* Windows、Mac 都可使用
+- 不用按照每个软件的不同方式设置各自的代理
+- 部分没有代理设置界面的软件很适合使用 Proxifier
+- 可查看被代理软件的实际流量情况
+- Windows、Mac 都可使用
 
 缺点：
 
-* 代理设置有时不够个性化（如 Git 的全局代理与当前 Git 项目代理）
+- 代理设置有时不够个性化（如 Git 的全局代理与当前 Git 项目代理）
 
 步骤：
 

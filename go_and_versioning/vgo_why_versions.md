@@ -1,18 +1,24 @@
 # Why Add Versions To Go?
-原文：https://research.swtch.com/vgo-why-versions
 
+原文：https://research.swtch.com/vgo-why-versions
 
 作者：[Russ Cox](https://swtch.com/~rsc/)
 
 翻译时间：2019-11-16
 
 # 为什么要为 Go 添加版本管理功能？
+
 （[Go 与版本管理](https://research.swtch.com/vgo)，第 10 部分）
 
 发表时间：2018-06-07 周四 [PDF](https://research.swtch.com/vgo-why-versions.pdf)
 
+# 目录
+
+<!--ts-->
+<!--te-->
 
 # 正文
+
 人们有时问我为什么要为 Go 语言添加包版本管理功能？现在的 Go 不够用了么？通常，这些人在其他语言中也没有好的版本经验，他们将版本与破坏性修改联系在一起。本文将介绍为什么我们需要在 Go 语言中添加包版本管理功能。之后的文章将介绍为什么我们不鼓励破坏性修改。
 
 因对版本管理的忽略，`go get` 命令有 2 种失败场景：使用太旧的代码，以及使用太新的代码。假如我们想使用 D 包，此时还没有安装任何包，可以执行 `go get D`。`go get` 命令会下载最新的 D 代码（即 `git clone` 下载到的内容），并构建成功。为了描述得更清楚，我们将此份代码称为 D 的 1.0 版本，并记住我们的代码对 D 依赖细节（或如下图）。但注意，现在只是我们脑子里理解这其中的依赖细节，但 `go get` 并不理解。

@@ -1,5 +1,10 @@
 # go get 在 go mod 项目与非 go mod 项目中的区别
 
+# 目录
+
+<!--ts-->
+<!--te-->
+
 # 在 go mod 项目中
 
 - `go get` 会下载到 `$GOPATH/pkg/mod` 对应目录中
