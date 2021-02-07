@@ -9,7 +9,7 @@
 - [base64 编码规则](#base64-%E7%BC%96%E7%A0%81%E8%A7%84%E5%88%99)
 - [为什么每组 `6个二进制位` 前都加 2 个二进制位 `00`？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AF%8F%E7%BB%84-6%E4%B8%AA%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D-%E5%89%8D%E9%83%BD%E5%8A%A0-2-%E4%B8%AA%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BD%8D-00)
 - [为什么末尾要用 `=` 来补全？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%AB%E5%B0%BE%E8%A6%81%E7%94%A8--%E6%9D%A5%E8%A1%A5%E5%85%A8)
-- [ 为什么常用 base64 而非 base16/base32/base95/base128/base256？](#%08-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B8%B8%E7%94%A8-base64-%E8%80%8C%E9%9D%9E-base16base32base95base128base256)
+- [为什么常用 base64 而非 base16/base32/base95/base128/base256？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%B8%B8%E7%94%A8-base64-%E8%80%8C%E9%9D%9E-base16base32base95base128base256)
 - [其他](#%E5%85%B6%E4%BB%96)
 - [base64 使用场景](#base64-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF)
 
