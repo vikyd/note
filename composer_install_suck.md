@@ -2,8 +2,17 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [概述](#%E6%A6%82%E8%BF%B0)
+- [方式 01：Composer-Setup.exe 一键安装 Composer（不推荐）](#%E6%96%B9%E5%BC%8F-01composer-setupexe-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85-composer%E4%B8%8D%E6%8E%A8%E8%8D%90)
+- [方式 02：命令行安装 Composer（推荐）](#%E6%96%B9%E5%BC%8F-02%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%AE%89%E8%A3%85-composer%E6%8E%A8%E8%8D%90)
+- [使用 Composer 安装 PHP 第三方库](#%E4%BD%BF%E7%94%A8-composer-%E5%AE%89%E8%A3%85-php-%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93)
+- [为什么不直接设置 http_proxy 和 https_proxy 到系统环境变量中？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%9B%B4%E6%8E%A5%E8%AE%BE%E7%BD%AE-http_proxy-%E5%92%8C-https_proxy-%E5%88%B0%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%AD)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 概述
 

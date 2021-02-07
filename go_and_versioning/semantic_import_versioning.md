@@ -14,8 +14,25 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [正文](#%E6%AD%A3%E6%96%87)
+- [一个关于依赖包的故事](#%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E4%BE%9D%E8%B5%96%E5%8C%85%E7%9A%84%E6%95%85%E4%BA%8B)
+  - [序言](#%E5%BA%8F%E8%A8%80)
+  - [第一章](#%E7%AC%AC%E4%B8%80%E7%AB%A0)
+  - [第二章](#%E7%AC%AC%E4%BA%8C%E7%AB%A0)
+  - [第三章](#%E7%AC%AC%E4%B8%89%E7%AB%A0)
+- [使用语义版本化后](#%E4%BD%BF%E7%94%A8%E8%AF%AD%E4%B9%89%E7%89%88%E6%9C%AC%E5%8C%96%E5%90%8E)
+  - [使用 import 版本化后](#%E4%BD%BF%E7%94%A8-import-%E7%89%88%E6%9C%AC%E5%8C%96%E5%90%8E)
+  - [基于语义的 import 版本化](#%E5%9F%BA%E4%BA%8E%E8%AF%AD%E4%B9%89%E7%9A%84-import-%E7%89%88%E6%9C%AC%E5%8C%96)
+- [指明功能的名称 & 不可变的含义](#%E6%8C%87%E6%98%8E%E5%8A%9F%E8%83%BD%E7%9A%84%E5%90%8D%E7%A7%B0--%E4%B8%8D%E5%8F%AF%E5%8F%98%E7%9A%84%E5%90%AB%E4%B9%89)
+- [避免单例问题](#%E9%81%BF%E5%85%8D%E5%8D%95%E4%BE%8B%E9%97%AE%E9%A2%98)
+- [API 的自动更新](#api-%E7%9A%84%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0)
+- [致力于兼容性](#%E8%87%B4%E5%8A%9B%E4%BA%8E%E5%85%BC%E5%AE%B9%E6%80%A7)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 正文
 

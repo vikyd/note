@@ -14,8 +14,21 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [正文](#%E6%AD%A3%E6%96%87)
+- [实例](#%E5%AE%9E%E4%BE%8B)
+  - [Hello, world](#hello-world)
+  - [升级模块](#%E5%8D%87%E7%BA%A7%E6%A8%A1%E5%9D%97)
+  - [降级模块](#%E9%99%8D%E7%BA%A7%E6%A8%A1%E5%9D%97)
+  - [排除模块](#%E6%8E%92%E9%99%A4%E6%A8%A1%E5%9D%97)
+  - [替换模块](#%E6%9B%BF%E6%8D%A2%E6%A8%A1%E5%9D%97)
+  - [向后兼容性](#%E5%90%91%E5%90%8E%E5%85%BC%E5%AE%B9%E6%80%A7)
+- [下一步？](#%E4%B8%8B%E4%B8%80%E6%AD%A5)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 正文
 

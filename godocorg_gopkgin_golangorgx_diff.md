@@ -2,8 +2,34 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [概述](#%E6%A6%82%E8%BF%B0)
+- [示例](#%E7%A4%BA%E4%BE%8B)
+- [总的来说](#%E6%80%BB%E7%9A%84%E6%9D%A5%E8%AF%B4)
+- [前提知识点](#%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AF%86%E7%82%B9)
+- [名词约定](#%E5%90%8D%E8%AF%8D%E7%BA%A6%E5%AE%9A)
+- [gopkg.in 简述](#gopkgin-%E7%AE%80%E8%BF%B0)
+- [golang.org/x 简述](#golangorgx-%E7%AE%80%E8%BF%B0)
+- [godoc.org 简述](#godocorg-%E7%AE%80%E8%BF%B0)
+- [后面将详解每个服务的细节](#%E5%90%8E%E9%9D%A2%E5%B0%86%E8%AF%A6%E8%A7%A3%E6%AF%8F%E4%B8%AA%E6%9C%8D%E5%8A%A1%E7%9A%84%E7%BB%86%E8%8A%82)
+- [gopkg.in 详述](#gopkgin-%E8%AF%A6%E8%BF%B0)
+  - [gopkg.in 的具体流程](#gopkgin-%E7%9A%84%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B)
+    - [简单版](#%E7%AE%80%E5%8D%95%E7%89%88)
+    - [详细版](#%E8%AF%A6%E7%BB%86%E7%89%88)
+  - [Gopkg.lock 与 gopkg.in 并无关系](#gopkglock-%E4%B8%8E-gopkgin-%E5%B9%B6%E6%97%A0%E5%85%B3%E7%B3%BB)
+  - [gopkg.in 的优缺点](#gopkgin-%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9)
+    - [优点](#%E4%BC%98%E7%82%B9)
+    - [缺点](#%E7%BC%BA%E7%82%B9)
+- [golang.org/x 详述](#golangorgx-%E8%AF%A6%E8%BF%B0)
+    - [简单版](#%E7%AE%80%E5%8D%95%E7%89%88-1)
+    - [详细版](#%E8%AF%A6%E7%BB%86%E7%89%88-1)
+- [godoc.org 详述](#godocorg-%E8%AF%A6%E8%BF%B0)
+- [总结](#%E6%80%BB%E7%BB%93)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 概述
 

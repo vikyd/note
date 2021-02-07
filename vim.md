@@ -6,8 +6,28 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [以前、现在](#%E4%BB%A5%E5%89%8D%E7%8E%B0%E5%9C%A8)
+- [目的](#%E7%9B%AE%E7%9A%84)
+- [简要说明 Vim 相比其他编辑器的好处](#%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E-vim-%E7%9B%B8%E6%AF%94%E5%85%B6%E4%BB%96%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%A5%BD%E5%A4%84)
+- [什么是 `肌肉记忆`？](#%E4%BB%80%E4%B9%88%E6%98%AF-%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86)
+- [对比下上述的优缺点](#%E5%AF%B9%E6%AF%94%E4%B8%8B%E4%B8%8A%E8%BF%B0%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9)
+- [本质分析](#%E6%9C%AC%E8%B4%A8%E5%88%86%E6%9E%90)
+- [肌肉记忆真的值得么？](#%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%E7%9C%9F%E7%9A%84%E5%80%BC%E5%BE%97%E4%B9%88)
+- [肌肉记忆太难形成怎么办？](#%E8%82%8C%E8%82%89%E8%AE%B0%E5%BF%86%E5%A4%AA%E9%9A%BE%E5%BD%A2%E6%88%90%E6%80%8E%E4%B9%88%E5%8A%9E)
+- [感觉 Vim 的快捷键毫无规律，怎么学？](#%E6%84%9F%E8%A7%89-vim-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%AF%AB%E6%97%A0%E8%A7%84%E5%BE%8B%E6%80%8E%E4%B9%88%E5%AD%A6)
+- [Vim 的快捷键设置真的合理么？](#vim-%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE%E7%9C%9F%E7%9A%84%E5%90%88%E7%90%86%E4%B9%88)
+- [Vim 能有 IDE 的功能么？](#vim-%E8%83%BD%E6%9C%89-ide-%E7%9A%84%E5%8A%9F%E8%83%BD%E4%B9%88)
+- [Vim 的功能是不是很弱？](#vim-%E7%9A%84%E5%8A%9F%E8%83%BD%E6%98%AF%E4%B8%8D%E6%98%AF%E5%BE%88%E5%BC%B1)
+- [Vim 与 IDE 的结合](#vim-%E4%B8%8E-ide-%E7%9A%84%E7%BB%93%E5%90%88)
+- [Vim 的插件安装是不是很麻烦？](#vim-%E7%9A%84%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%98%AF%E4%B8%8D%E6%98%AF%E5%BE%88%E9%BA%BB%E7%83%A6)
+- [Vim 的配置文件是不是太复杂？](#vim-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%98%AF%E4%B8%8D%E6%98%AF%E5%A4%AA%E5%A4%8D%E6%9D%82)
+- [总的建议](#%E6%80%BB%E7%9A%84%E5%BB%BA%E8%AE%AE)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 以前、现在
 

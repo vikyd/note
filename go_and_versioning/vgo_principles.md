@@ -16,8 +16,28 @@ PDF：https://research.swtch.com/vgo-principles.pdf
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [正文](#%E6%AD%A3%E6%96%87)
+- [为什么需要版本？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%89%88%E6%9C%AC)
+- [软件工程中的版本](#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%89%88%E6%9C%AC)
+- [原则](#%E5%8E%9F%E5%88%99)
+- [原则 &#035;1：兼容性](#%E5%8E%9F%E5%88%99-1%E5%85%BC%E5%AE%B9%E6%80%A7)
+  - [反对的声音：审美](#%E5%8F%8D%E5%AF%B9%E7%9A%84%E5%A3%B0%E9%9F%B3%E5%AE%A1%E7%BE%8E)
+  - [反对的声音：新的 import 路径](#%E5%8F%8D%E5%AF%B9%E7%9A%84%E5%A3%B0%E9%9F%B3%E6%96%B0%E7%9A%84-import-%E8%B7%AF%E5%BE%84)
+  - [反对的声音：一个构建中包含多个主版本号](#%E5%8F%8D%E5%AF%B9%E7%9A%84%E5%A3%B0%E9%9F%B3%E4%B8%80%E4%B8%AA%E6%9E%84%E5%BB%BA%E4%B8%AD%E5%8C%85%E5%90%AB%E5%A4%9A%E4%B8%AA%E4%B8%BB%E7%89%88%E6%9C%AC%E5%8F%B7)
+  - [反对的声音：不容易开发实验阶段的包](#%E5%8F%8D%E5%AF%B9%E7%9A%84%E5%A3%B0%E9%9F%B3%E4%B8%8D%E5%AE%B9%E6%98%93%E5%BC%80%E5%8F%91%E5%AE%9E%E9%AA%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E5%8C%85)
+- [原则 &#035;2：可复现性](#%E5%8E%9F%E5%88%99-2%E5%8F%AF%E5%A4%8D%E7%8E%B0%E6%80%A7)
+  - [反对的声音：使用最新版本才是未来的趋势](#%E5%8F%8D%E5%AF%B9%E7%9A%84%E5%A3%B0%E9%9F%B3%E4%BD%BF%E7%94%A8%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E6%89%8D%E6%98%AF%E6%9C%AA%E6%9D%A5%E7%9A%84%E8%B6%8B%E5%8A%BF)
+  - [反对的声音：构建库程序时使用最新版本是一种功能](#%E5%8F%8D%E5%AF%B9%E7%9A%84%E5%A3%B0%E9%9F%B3%E6%9E%84%E5%BB%BA%E5%BA%93%E7%A8%8B%E5%BA%8F%E6%97%B6%E4%BD%BF%E7%94%A8%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC%E6%98%AF%E4%B8%80%E7%A7%8D%E5%8A%9F%E8%83%BD)
+- [原则 &#035;3：协作](#%E5%8E%9F%E5%88%99-3%E5%8D%8F%E4%BD%9C)
+  - [反对的声音：使用可声明的不兼容性和 SAT 求解器](#%E5%8F%8D%E5%AF%B9%E7%9A%84%E5%A3%B0%E9%9F%B3%E4%BD%BF%E7%94%A8%E5%8F%AF%E5%A3%B0%E6%98%8E%E7%9A%84%E4%B8%8D%E5%85%BC%E5%AE%B9%E6%80%A7%E5%92%8C-sat-%E6%B1%82%E8%A7%A3%E5%99%A8)
+- [实例：Go 模块方案 vs 基于 SAT 的求解方案](#%E5%AE%9E%E4%BE%8Bgo-%E6%A8%A1%E5%9D%97%E6%96%B9%E6%A1%88-vs-%E5%9F%BA%E4%BA%8E-sat-%E7%9A%84%E6%B1%82%E8%A7%A3%E6%96%B9%E6%A1%88)
+- [总结](#%E6%80%BB%E7%BB%93)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 正文
 

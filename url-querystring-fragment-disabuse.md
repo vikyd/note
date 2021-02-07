@@ -2,8 +2,31 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [名词约定](#%E5%90%8D%E8%AF%8D%E7%BA%A6%E5%AE%9A)
+- [测试验证](#%E6%B5%8B%E8%AF%95%E9%AA%8C%E8%AF%81)
+- [疑惑](#%E7%96%91%E6%83%91)
+- [流程](#%E6%B5%81%E7%A8%8B)
+- [实例](#%E5%AE%9E%E4%BE%8B)
+  - [正常的例子](#%E6%AD%A3%E5%B8%B8%E7%9A%84%E4%BE%8B%E5%AD%90)
+  - [多个 `?` 时，最终的 QueryString 是什么？](#%E5%A4%9A%E4%B8%AA--%E6%97%B6%E6%9C%80%E7%BB%88%E7%9A%84-querystring-%E6%98%AF%E4%BB%80%E4%B9%88)
+  - [`&` 字符本身如何才能作为值？](#-%E5%AD%97%E7%AC%A6%E6%9C%AC%E8%BA%AB%E5%A6%82%E4%BD%95%E6%89%8D%E8%83%BD%E4%BD%9C%E4%B8%BA%E5%80%BC)
+  - [QueryString 中多个连续的 `&` 有没有什么用？](#querystring-%E4%B8%AD%E5%A4%9A%E4%B8%AA%E8%BF%9E%E7%BB%AD%E7%9A%84--%E6%9C%89%E6%B2%A1%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8)
+  - [QueryString 中单独的 `&` 会发生什么？](#querystring-%E4%B8%AD%E5%8D%95%E7%8B%AC%E7%9A%84--%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88)
+  - [QueryString 中有个多个同名 key，结果是什么？](#querystring-%E4%B8%AD%E6%9C%89%E4%B8%AA%E5%A4%9A%E4%B8%AA%E5%90%8C%E5%90%8D-key%E7%BB%93%E6%9E%9C%E6%98%AF%E4%BB%80%E4%B9%88)
+  - [多个 `#` 时，最终的 Fragment 是什么？](#%E5%A4%9A%E4%B8%AA--%E6%97%B6%E6%9C%80%E7%BB%88%E7%9A%84-fragment-%E6%98%AF%E4%BB%80%E4%B9%88)
+  - [`?` 与 `#` 谁的优先级高？](#-%E4%B8%8E--%E8%B0%81%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E9%AB%98)
+    - [例：`?a=1#xx?b=2`](#%E4%BE%8Ba1xxb2)
+    - [例：`#xx?b=2#yy`](#%E4%BE%8Bxxb2yy)
+    - [section-3.4 ↓](#section-34-%E2%86%93)
+    - [section-3.5 ↓](#section-35-%E2%86%93)
+- [其他问题](#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98)
+- [参考](#%E5%8F%82%E8%80%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 名词约定
 

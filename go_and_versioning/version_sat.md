@@ -12,8 +12,19 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [译注](#%E8%AF%91%E6%B3%A8)
+- [译前名称解释](#%E8%AF%91%E5%89%8D%E5%90%8D%E7%A7%B0%E8%A7%A3%E9%87%8A)
+- [正文](#%E6%AD%A3%E6%96%87)
+- [证明版本选择是 NP 完全问题](#%E8%AF%81%E6%98%8E%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9%E6%98%AF-np-%E5%AE%8C%E5%85%A8%E9%97%AE%E9%A2%98)
+- [各种包管理器的实现方式](#%E5%90%84%E7%A7%8D%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F)
+- [路在何方](#%E8%B7%AF%E5%9C%A8%E4%BD%95%E6%96%B9)
+- [相关工作](#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 译注
 

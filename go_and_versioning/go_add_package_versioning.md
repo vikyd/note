@@ -14,8 +14,25 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [译前名词解释](#%E8%AF%91%E5%89%8D%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A)
+- [正文](#%E6%AD%A3%E6%96%87)
+- [背景](#%E8%83%8C%E6%99%AF)
+  - [Makefile、goinstall、go get](#makefilegoinstallgo-get)
+  - [版本管理和 API 稳定性](#%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%92%8C-api-%E7%A8%B3%E5%AE%9A%E6%80%A7)
+  - [vendor 模式和可复现的构建](#vendor-%E6%A8%A1%E5%BC%8F%E5%92%8C%E5%8F%AF%E5%A4%8D%E7%8E%B0%E7%9A%84%E6%9E%84%E5%BB%BA)
+  - [官方的包管理器实验](#%E5%AE%98%E6%96%B9%E7%9A%84%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E5%AE%9E%E9%AA%8C)
+- [提案](#%E6%8F%90%E6%A1%88)
+  - [import 兼容性规则](#import-%E5%85%BC%E5%AE%B9%E6%80%A7%E8%A7%84%E5%88%99)
+  - [最小版本选择](#%E6%9C%80%E5%B0%8F%E7%89%88%E6%9C%AC%E9%80%89%E6%8B%A9)
+  - [定义 Go 模块](#%E5%AE%9A%E4%B9%89-go-%E6%A8%A1%E5%9D%97)
+  - [集成到 go 命令](#%E9%9B%86%E6%88%90%E5%88%B0-go-%E5%91%BD%E4%BB%A4)
+- [下一步？](#%E4%B8%8B%E4%B8%80%E6%AD%A5)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 译前名词解释
 

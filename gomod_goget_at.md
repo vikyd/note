@@ -15,8 +15,35 @@ Golang 官方文档貌似没清晰地列出 `@` 的所有可能情况。
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [名词约定](#%E5%90%8D%E8%AF%8D%E7%BA%A6%E5%AE%9A)
+- [伪版本号](#%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7)
+- [实验环境](#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83)
+- [实例 github 仓库](#%E5%AE%9E%E4%BE%8B-github-%E4%BB%93%E5%BA%93)
+- [实验准备](#%E5%AE%9E%E9%AA%8C%E5%87%86%E5%A4%87)
+- [实验：go get `@` 模式、实例](#%E5%AE%9E%E9%AA%8Cgo-get--%E6%A8%A1%E5%BC%8F%E5%AE%9E%E4%BE%8B)
+  - [类型：不带任何 `@`](#%E7%B1%BB%E5%9E%8B%E4%B8%8D%E5%B8%A6%E4%BB%BB%E4%BD%95-)
+  - [类型：`@semverTag`](#%E7%B1%BB%E5%9E%8Bsemvertag)
+  - [类型：`@semverTagPrefix`](#%E7%B1%BB%E5%9E%8Bsemvertagprefix)
+  - [类型：`@"运算符semverTag"`](#%E7%B1%BB%E5%9E%8B%E8%BF%90%E7%AE%97%E7%AC%A6semvertag)
+  - [类型：`@commitHash`](#%E7%B1%BB%E5%9E%8Bcommithash)
+  - [类型：`@branchName`](#%E7%B1%BB%E5%9E%8Bbranchname)
+  - [类型：固定字符串 `@latest`](#%E7%B1%BB%E5%9E%8B%E5%9B%BA%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2-latest)
+  - [类型：固定字符串 `@HEAD`](#%E7%B1%BB%E5%9E%8B%E5%9B%BA%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2-head)
+  - [类型：固定字符串 `@upgrade`](#%E7%B1%BB%E5%9E%8B%E5%9B%BA%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2-upgrade)
+  - [类型：固定字符串 `@patch`](#%E7%B1%BB%E5%9E%8B%E5%9B%BA%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2-patch)
+  - [类型：固定字符串 `@none`](#%E7%B1%BB%E5%9E%8B%E5%9B%BA%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2-none)
+- [版本优先级](#%E7%89%88%E6%9C%AC%E4%BC%98%E5%85%88%E7%BA%A7)
+  - [优先级](#%E4%BC%98%E5%85%88%E7%BA%A7)
+  - [优先级实验](#%E4%BC%98%E5%85%88%E7%BA%A7%E5%AE%9E%E9%AA%8C)
+- [其他](#%E5%85%B6%E4%BB%96)
+- [自建验证 git 仓库](#%E8%87%AA%E5%BB%BA%E9%AA%8C%E8%AF%81-git-%E4%BB%93%E5%BA%93)
+- [参考](#%E5%8F%82%E8%80%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 名词约定
 

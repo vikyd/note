@@ -9,8 +9,22 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [使用方式 TL;DR](#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F-tldr)
+- [省事的使用方式](#%E7%9C%81%E4%BA%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F)
+- [方法 1：使用 repo1.maven.org/maven2 （中央仓库 + 代理）](#%E6%96%B9%E6%B3%95-1%E4%BD%BF%E7%94%A8-repo1mavenorgmaven2-%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93--%E4%BB%A3%E7%90%86)
+- [方法 2：使用镜像 yourMavenMirror.com（推荐！）](#%E6%96%B9%E6%B3%95-2%E4%BD%BF%E7%94%A8%E9%95%9C%E5%83%8F-yourmavenmirrorcom%E6%8E%A8%E8%8D%90)
+- [上传自己的包](#%E4%B8%8A%E4%BC%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8C%85)
+- [常见问题](#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
+    - [IntelliJ IDEA 中 settings.xml 不生效](#intellij-idea-%E4%B8%AD-settingsxml-%E4%B8%8D%E7%94%9F%E6%95%88)
+    - [部分 jar 从 yourMavenMirror.com 下载，部分从外网下载](#%E9%83%A8%E5%88%86-jar-%E4%BB%8E-yourmavenmirrorcom-%E4%B8%8B%E8%BD%BD%E9%83%A8%E5%88%86%E4%BB%8E%E5%A4%96%E7%BD%91%E4%B8%8B%E8%BD%BD)
+- [参考](#%E5%8F%82%E8%80%83)
+- [文件](#%E6%96%87%E4%BB%B6)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 使用方式 TL;DR
 

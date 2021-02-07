@@ -8,8 +8,46 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [代理方式](#%E4%BB%A3%E7%90%86%E6%96%B9%E5%BC%8F)
+- [代理地址](#%E4%BB%A3%E7%90%86%E5%9C%B0%E5%9D%80)
+- [Windows CMD 代理设置](#windows-cmd-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Linux 代理设置](#linux-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Mac 代理设置](#mac-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Mac Homebrew 代理设置](#mac-homebrew-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Git 代理设置](#git-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Git 用户名、邮箱设置](#git-%E7%94%A8%E6%88%B7%E5%90%8D%E9%82%AE%E7%AE%B1%E8%AE%BE%E7%BD%AE)
+- [npm 代理设置 + 镜像设置](#npm-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE--%E9%95%9C%E5%83%8F%E8%AE%BE%E7%BD%AE)
+  - [使用淘宝 npm 镜像（推荐）](#%E4%BD%BF%E7%94%A8%E6%B7%98%E5%AE%9D-npm-%E9%95%9C%E5%83%8F%E6%8E%A8%E8%8D%90)
+  - [使用 npm 官方镜像](#%E4%BD%BF%E7%94%A8-npm-%E5%AE%98%E6%96%B9%E9%95%9C%E5%83%8F)
+- [npm 代理、镜像查看方式](#npm-%E4%BB%A3%E7%90%86%E9%95%9C%E5%83%8F%E6%9F%A5%E7%9C%8B%E6%96%B9%E5%BC%8F)
+- [yarn 代理设置 + 镜像设置](#yarn-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE--%E9%95%9C%E5%83%8F%E8%AE%BE%E7%BD%AE)
+- [nvm 代理设置](#nvm-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Bower 代理设置](#bower-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [PHP Composer 代理设置](#php-composer-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [PhpStorm、IntelliJ IDEA、PyCharm、WebStorm、Android Studio（或 Jetbrains 系其他）代理设置](#phpstormintellij-ideapycharmwebstormandroid-studio%E6%88%96-jetbrains-%E7%B3%BB%E5%85%B6%E4%BB%96%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Maven 代理、镜像设置](#maven-%E4%BB%A3%E7%90%86%E9%95%9C%E5%83%8F%E8%AE%BE%E7%BD%AE)
+- [Gradle 代理设置](#gradle-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+  - [Python 的 pip 代理设置](#python-%E7%9A%84-pip-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [VSCode 代理设置](#vscode-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Notepad++ 代理设置](#notepad-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Sublime 代理设置](#sublime-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Eclipse 代理设置](#eclipse-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Atom 编辑器 代理设置](#atom-%E7%BC%96%E8%BE%91%E5%99%A8-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [wget 代理设置](#wget-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [curl 代理设置](#curl-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Golang 的 go get 代理](#golang-%E7%9A%84-go-get-%E4%BB%A3%E7%90%86)
+- [Navicat 连外网数据库](#navicat-%E8%BF%9E%E5%A4%96%E7%BD%91%E6%95%B0%E6%8D%AE%E5%BA%93)
+- [Virtual Box、VMware 代理设置](#virtual-boxvmware-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Xshell 代理设置](#xshell-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [SecureCRT 代理设置](#securecrt-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE)
+- [Proxifier 为其他软件设置代理](#proxifier-%E4%B8%BA%E5%85%B6%E4%BB%96%E8%BD%AF%E4%BB%B6%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86)
+- [注意：上述例子均为虚拟代理，请自行替换为你自己的代理](#%E6%B3%A8%E6%84%8F%E4%B8%8A%E8%BF%B0%E4%BE%8B%E5%AD%90%E5%9D%87%E4%B8%BA%E8%99%9A%E6%8B%9F%E4%BB%A3%E7%90%86%E8%AF%B7%E8%87%AA%E8%A1%8C%E6%9B%BF%E6%8D%A2%E4%B8%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BB%A3%E7%90%86)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 代理方式
 

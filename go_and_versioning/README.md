@@ -1,5 +1,10 @@
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Golang 版本管理系列 `翻译` 11 篇全](#golang-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%B3%BB%E5%88%97-%E7%BF%BB%E8%AF%91-11-%E7%AF%87%E5%85%A8)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Golang 版本管理系列 `翻译` 11 篇全
 

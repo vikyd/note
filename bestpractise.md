@@ -6,8 +6,32 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [搜索引擎使用习惯](#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E4%B9%A0%E6%83%AF)
+- [科学上网](#%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91)
+- [文档、笔记](#%E6%96%87%E6%A1%A3%E7%AC%94%E8%AE%B0)
+- [浏览器](#%E6%B5%8F%E8%A7%88%E5%99%A8)
+- [多标签形式管理多个文件窗口（类似 Chronme 标签页）](#%E5%A4%9A%E6%A0%87%E7%AD%BE%E5%BD%A2%E5%BC%8F%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E7%AA%97%E5%8F%A3%E7%B1%BB%E4%BC%BC-chronme-%E6%A0%87%E7%AD%BE%E9%A1%B5)
+- [压缩软件](#%E5%8E%8B%E7%BC%A9%E8%BD%AF%E4%BB%B6)
+- [技术问题解答：StackOverflow](#%E6%8A%80%E6%9C%AF%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94stackoverflow)
+- [寻找、贡献开源代码：GitHub](#%E5%AF%BB%E6%89%BE%E8%B4%A1%E7%8C%AE%E5%BC%80%E6%BA%90%E4%BB%A3%E7%A0%81github)
+- [Windows CMD 命令行替代品](#windows-cmd-%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%9B%BF%E4%BB%A3%E5%93%81)
+- [日常文本编辑器](#%E6%97%A5%E5%B8%B8%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8)
+- [编程 IDE](#%E7%BC%96%E7%A8%8B-ide)
+- [视频播放器](#%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8)
+- [音乐播放器](#%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8)
+- [文件目录大小分布](#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E5%A4%A7%E5%B0%8F%E5%88%86%E5%B8%83)
+- [图片、音频、视频 格式转换](#%E5%9B%BE%E7%89%87%E9%9F%B3%E9%A2%91%E8%A7%86%E9%A2%91-%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2)
+- [PDF 阅读器](#pdf-%E9%98%85%E8%AF%BB%E5%99%A8)
+- [图片查看](#%E5%9B%BE%E7%89%87%E6%9F%A5%E7%9C%8B)
+- [笔记](#%E7%AC%94%E8%AE%B0)
+- [右键处理](#%E5%8F%B3%E9%94%AE%E5%A4%84%E7%90%86)
+- [编辑器、终端半透明](#%E7%BC%96%E8%BE%91%E5%99%A8%E7%BB%88%E7%AB%AF%E5%8D%8A%E9%80%8F%E6%98%8E)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 搜索引擎使用习惯
 
