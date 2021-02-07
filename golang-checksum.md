@@ -8,8 +8,27 @@ Golang 的 modules（模块）使用了一些哈希校验值来防止源码被�
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [go.sum 中哪些字符串是哈希值？](#gosum-%E4%B8%AD%E5%93%AA%E4%BA%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%93%88%E5%B8%8C%E5%80%BC)
+  - [简单](#%E7%AE%80%E5%8D%95)
+  - [详细](#%E8%AF%A6%E7%BB%86)
+- [哈希值计算方式：简述版](#%E5%93%88%E5%B8%8C%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F%E7%AE%80%E8%BF%B0%E7%89%88)
+  - [`go.mod` 的哈希值计算方式](#gomod-%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F)
+  - [`模块全部内容` 的哈希值计算方式](#%E6%A8%A1%E5%9D%97%E5%85%A8%E9%83%A8%E5%86%85%E5%AE%B9-%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F)
+- [哈希值计算方式：详细版](#%E5%93%88%E5%B8%8C%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F%E8%AF%A6%E7%BB%86%E7%89%88)
+  - [`go.mod` 的哈希值计算方式](#gomod-%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F-1)
+  - [`模块全部内容` 的哈希值计算方式](#%E6%A8%A1%E5%9D%97%E5%85%A8%E9%83%A8%E5%86%85%E5%AE%B9-%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E5%BC%8F-1)
+- [思考 & 问题](#%E6%80%9D%E8%80%83--%E9%97%AE%E9%A2%98)
+  - [为何 Golang 需要求模块的哈希值？](#%E4%B8%BA%E4%BD%95-golang-%E9%9C%80%E8%A6%81%E6%B1%82%E6%A8%A1%E5%9D%97%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC)
+  - [为何既要整个模块的哈希值，还要 go.mod 哈希值？](#%E4%B8%BA%E4%BD%95%E6%97%A2%E8%A6%81%E6%95%B4%E4%B8%AA%E6%A8%A1%E5%9D%97%E7%9A%84%E5%93%88%E5%B8%8C%E5%80%BC%E8%BF%98%E8%A6%81-gomod-%E5%93%88%E5%B8%8C%E5%80%BC)
+  - [为何 Golang 模块哈希计算如此奇怪？](#%E4%B8%BA%E4%BD%95-golang-%E6%A8%A1%E5%9D%97%E5%93%88%E5%B8%8C%E8%AE%A1%E7%AE%97%E5%A6%82%E6%AD%A4%E5%A5%87%E6%80%AA)
+  - [为何不对整个模块打包 zip 求哈希？](#%E4%B8%BA%E4%BD%95%E4%B8%8D%E5%AF%B9%E6%95%B4%E4%B8%AA%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85-zip-%E6%B1%82%E5%93%88%E5%B8%8C)
+- [备注](#%E5%A4%87%E6%B3%A8)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # go.sum 中哪些字符串是哈希值？
 

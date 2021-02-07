@@ -17,8 +17,32 @@ golang.org/design/25530-sumdb
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [译前名词解释](#%E8%AF%91%E5%89%8D%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A)
+- [摘要](#%E6%91%98%E8%A6%81)
+- [背景](#%E8%83%8C%E6%99%AF)
+  - [基于 `go.sum` 进行模块验证](#%E5%9F%BA%E4%BA%8E-gosum-%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9D%97%E9%AA%8C%E8%AF%81)
+  - [透明日志](#%E9%80%8F%E6%98%8E%E6%97%A5%E5%BF%97)
+- [提议](#%E6%8F%90%E8%AE%AE)
+  - [校验数据库（Checksum Database）](#%E6%A0%A1%E9%AA%8C%E6%95%B0%E6%8D%AE%E5%BA%93checksum-database)
+  - [代理一个校验数据库](#%E4%BB%A3%E7%90%86%E4%B8%80%E4%B8%AA%E6%A0%A1%E9%AA%8C%E6%95%B0%E6%8D%AE%E5%BA%93)
+  - [`go` 命令客户端](#go-%E5%91%BD%E4%BB%A4%E5%AE%A2%E6%88%B7%E7%AB%AF)
+- [根本原因](#%E6%A0%B9%E6%9C%AC%E5%8E%9F%E5%9B%A0)
+  - [安全](#%E5%AE%89%E5%85%A8)
+  - [隐私](#%E9%9A%90%E7%A7%81)
+    - [私有模块的路径](#%E7%A7%81%E6%9C%89%E6%A8%A1%E5%9D%97%E7%9A%84%E8%B7%AF%E5%BE%84)
+    - [私有模块的 SHA256](#%E7%A7%81%E6%9C%89%E6%A8%A1%E5%9D%97%E7%9A%84-sha256)
+    - [公共模块的使用数据](#%E5%85%AC%E5%85%B1%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE)
+    - [通过代理保护隐私](#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%90%86%E4%BF%9D%E6%8A%A4%E9%9A%90%E7%A7%81)
+    - [通过批量下载保护隐私](#%E9%80%9A%E8%BF%87%E6%89%B9%E9%87%8F%E4%B8%8B%E8%BD%BD%E4%BF%9D%E6%8A%A4%E9%9A%90%E7%A7%81)
+    - [在持续集成、持续开发（CI/CD）中的隐私](#%E5%9C%A8%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E6%8C%81%E7%BB%AD%E5%BC%80%E5%8F%91cicd%E4%B8%AD%E7%9A%84%E9%9A%90%E7%A7%81)
+- [兼容性](#%E5%85%BC%E5%AE%B9%E6%80%A7)
+- [实现](#%E5%AE%9E%E7%8E%B0)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 译前名词解释
 

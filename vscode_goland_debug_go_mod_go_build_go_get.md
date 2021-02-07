@@ -22,8 +22,34 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [实例项目](#%E5%AE%9E%E4%BE%8B%E9%A1%B9%E7%9B%AE)
+- [实验环境](#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83)
+- [VSCode 调试项目源码、第三方依赖库、Go 标准库](#vscode-%E8%B0%83%E8%AF%95%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E7%AC%AC%E4%B8%89%E6%96%B9%E4%BE%9D%E8%B5%96%E5%BA%93go-%E6%A0%87%E5%87%86%E5%BA%93)
+  - [步骤](#%E6%AD%A5%E9%AA%A4)
+  - [说明](#%E8%AF%B4%E6%98%8E)
+- [VSCode 已打开项目源码情况下，如何再打开标准库或第三方依赖包的源码文件？](#vscode-%E5%B7%B2%E6%89%93%E5%BC%80%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E6%83%85%E5%86%B5%E4%B8%8B%E5%A6%82%E4%BD%95%E5%86%8D%E6%89%93%E5%BC%80%E6%A0%87%E5%87%86%E5%BA%93%E6%88%96%E7%AC%AC%E4%B8%89%E6%96%B9%E4%BE%9D%E8%B5%96%E5%8C%85%E7%9A%84%E6%BA%90%E7%A0%81%E6%96%87%E4%BB%B6)
+- [GoLand 调试项目源码、第三方依赖库、Go 标准库](#goland-%E8%B0%83%E8%AF%95%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81%E7%AC%AC%E4%B8%89%E6%96%B9%E4%BE%9D%E8%B5%96%E5%BA%93go-%E6%A0%87%E5%87%86%E5%BA%93)
+  - [步骤](#%E6%AD%A5%E9%AA%A4-1)
+  - [说明](#%E8%AF%B4%E6%98%8E-1)
+- [VSCode 调试 `go build` 编译器本身](#vscode-%E8%B0%83%E8%AF%95-go-build-%E7%BC%96%E8%AF%91%E5%99%A8%E6%9C%AC%E8%BA%AB)
+  - [步骤](#%E6%AD%A5%E9%AA%A4-2)
+  - [说明](#%E8%AF%B4%E6%98%8E-2)
+- [GoLand 调试 `go build` 编译器本身](#goland-%E8%B0%83%E8%AF%95-go-build-%E7%BC%96%E8%AF%91%E5%99%A8%E6%9C%AC%E8%BA%AB)
+  - [步骤](#%E6%AD%A5%E9%AA%A4-3)
+  - [说明](#%E8%AF%B4%E6%98%8E-3)
+- [VSCode 调试 `go mod` 命令](#vscode-%E8%B0%83%E8%AF%95-go-mod-%E5%91%BD%E4%BB%A4)
+- [GoLand 调试 `go mod` 命令](#goland-%E8%B0%83%E8%AF%95-go-mod-%E5%91%BD%E4%BB%A4)
+- [调试 `go get` 命令](#%E8%B0%83%E8%AF%95-go-get-%E5%91%BD%E4%BB%A4)
+- [VSCode 调试 Golang 自身单元测试源码](#vscode-%E8%B0%83%E8%AF%95-golang-%E8%87%AA%E8%BA%AB%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%BA%90%E7%A0%81)
+  - [步骤](#%E6%AD%A5%E9%AA%A4-4)
+- [GoLand 调试 Golang 自身单元测试源码](#goland-%E8%B0%83%E8%AF%95-golang-%E8%87%AA%E8%BA%AB%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%BA%90%E7%A0%81)
+- [小结](#%E5%B0%8F%E7%BB%93)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 实例项目
 

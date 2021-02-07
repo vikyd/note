@@ -12,8 +12,29 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [译前名词解释](#%E8%AF%91%E5%89%8D%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A)
+- [正文](#%E6%AD%A3%E6%96%87)
+- [密码学中的哈希、验证和承诺](#%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C%E9%AA%8C%E8%AF%81%E5%92%8C%E6%89%BF%E8%AF%BA)
+- [默克尔树（Merkle Trees）](#%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91merkle-trees)
+- [基于默克尔树结构的日志](#%E5%9F%BA%E4%BA%8E%E9%BB%98%E5%85%8B%E5%B0%94%E6%A0%91%E7%BB%93%E6%9E%84%E7%9A%84%E6%97%A5%E5%BF%97)
+- [存储日志](#%E5%AD%98%E5%82%A8%E6%97%A5%E5%BF%97)
+- [提供日志服务](#%E6%8F%90%E4%BE%9B%E6%97%A5%E5%BF%97%E6%9C%8D%E5%8A%A1)
+- [验证日志](#%E9%AA%8C%E8%AF%81%E6%97%A5%E5%BF%97)
+- [对日志进行瓦片化](#%E5%AF%B9%E6%97%A5%E5%BF%97%E8%BF%9B%E8%A1%8C%E7%93%A6%E7%89%87%E5%8C%96)
+- [存储瓦片](#%E5%AD%98%E5%82%A8%E7%93%A6%E7%89%87)
+- [提供瓦片服务](#%E6%8F%90%E4%BE%9B%E7%93%A6%E7%89%87%E6%9C%8D%E5%8A%A1)
+- [验证瓦片](#%E9%AA%8C%E8%AF%81%E7%93%A6%E7%89%87)
+- [总结](#%E6%80%BB%E7%BB%93)
+- [延伸阅读](#%E5%BB%B6%E4%BC%B8%E9%98%85%E8%AF%BB)
+- [附录 A：后序存储设计](#%E9%99%84%E5%BD%95-a%E5%90%8E%E5%BA%8F%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1)
+- [附录 B：中序存储设计](#%E9%99%84%E5%BD%95-b%E4%B8%AD%E5%BA%8F%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1)
+- [附录 C：瓦片存储设计](#%E9%99%84%E5%BD%95-c%E7%93%A6%E7%89%87%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 译前名词解释
 

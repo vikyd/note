@@ -22,8 +22,39 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [正文](#%E6%AD%A3%E6%96%87)
+- [包管理器是个大坑，你最好别踩](#%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E6%98%AF%E4%B8%AA%E5%A4%A7%E5%9D%91%E4%BD%A0%E6%9C%80%E5%A5%BD%E5%88%AB%E8%B8%A9)
+- [本文所说的 "包管理器"](#%E6%9C%AC%E6%96%87%E6%89%80%E8%AF%B4%E7%9A%84-%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8)
+- [我们碰到敌人了，敌人却是我们自己](#%E6%88%91%E4%BB%AC%E7%A2%B0%E5%88%B0%E6%95%8C%E4%BA%BA%E4%BA%86%E6%95%8C%E4%BA%BA%E5%8D%B4%E6%98%AF%E6%88%91%E4%BB%AC%E8%87%AA%E5%B7%B1)
+- [状态与协议](#%E7%8A%B6%E6%80%81%E4%B8%8E%E5%8D%8F%E8%AE%AE)
+  - [角色](#%E8%A7%92%E8%89%B2)
+  - [管道中的管道](#%E7%AE%A1%E9%81%93%E4%B8%AD%E7%9A%84%E7%AE%A1%E9%81%93)
+- [构造清单文件](#%E6%9E%84%E9%80%A0%E6%B8%85%E5%8D%95%E6%96%87%E4%BB%B6)
+  - [包管理中心](#%E5%8C%85%E7%AE%A1%E7%90%86%E4%B8%AD%E5%BF%83)
+  - [参数化](#%E5%8F%82%E6%95%B0%E5%8C%96)
+  - [依赖包](#%E4%BE%9D%E8%B5%96%E5%8C%85)
+  - [等等，我们要聊下版本](#%E7%AD%89%E7%AD%89%E6%88%91%E4%BB%AC%E8%A6%81%E8%81%8A%E4%B8%8B%E7%89%88%E6%9C%AC)
+  - [没有版本的版本](#%E6%B2%A1%E6%9C%89%E7%89%88%E6%9C%AC%E7%9A%84%E7%89%88%E6%9C%AC)
+  - [交换的原子](#%E4%BA%A4%E6%8D%A2%E7%9A%84%E5%8E%9F%E5%AD%90)
+  - [其他思考](#%E5%85%B6%E4%BB%96%E6%80%9D%E8%80%83)
+- [转化为 lock 文件](#%E8%BD%AC%E5%8C%96%E4%B8%BA-lock-%E6%96%87%E4%BB%B6)
+  - [算法](#%E7%AE%97%E6%B3%95)
+  - [钻石依赖、SemVer、忍耐，我要发飙了](#%E9%92%BB%E7%9F%B3%E4%BE%9D%E8%B5%96semver%E5%BF%8D%E8%80%90%E6%88%91%E8%A6%81%E5%8F%91%E9%A3%99%E4%BA%86)
+  - [依赖包的参数化](#%E4%BE%9D%E8%B5%96%E5%8C%85%E7%9A%84%E5%8F%82%E6%95%B0%E5%8C%96)
+- [编译器，最初阶段：从 lock 文件到依赖包源码](#%E7%BC%96%E8%AF%91%E5%99%A8%E6%9C%80%E5%88%9D%E9%98%B6%E6%AE%B5%E4%BB%8E-lock-%E6%96%87%E4%BB%B6%E5%88%B0%E4%BE%9D%E8%B5%96%E5%8C%85%E6%BA%90%E7%A0%81)
+- [四种状态的变化](#%E5%9B%9B%E7%A7%8D%E7%8A%B6%E6%80%81%E7%9A%84%E5%8F%98%E5%8C%96)
+  - [新概念：匹配、同步、持久化](#%E6%96%B0%E6%A6%82%E5%BF%B5%E5%8C%B9%E9%85%8D%E5%90%8C%E6%AD%A5%E6%8C%81%E4%B9%85%E5%8C%96)
+- [结局](#%E7%BB%93%E5%B1%80)
+- [Go 语言 PDM](#go-%E8%AF%AD%E8%A8%80-pdm)
+  - [升级 `go get`](#%E5%8D%87%E7%BA%A7-go-get)
+  - [共享、monorepos（大仓库）、我可管理的最简单的 `别那样做`](#%E5%85%B1%E4%BA%ABmonorepos%E5%A4%A7%E4%BB%93%E5%BA%93%E6%88%91%E5%8F%AF%E7%AE%A1%E7%90%86%E7%9A%84%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84-%E5%88%AB%E9%82%A3%E6%A0%B7%E5%81%9A)
+  - [语言版本控制与行动计划](#%E8%AF%AD%E8%A8%80%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E4%B8%8E%E8%A1%8C%E5%8A%A8%E8%AE%A1%E5%88%92)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 正文
 

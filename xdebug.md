@@ -2,8 +2,24 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [目的](#%E7%9B%AE%E7%9A%84)
+- [名称解释](#%E5%90%8D%E7%A7%B0%E8%A7%A3%E9%87%8A)
+- [主要流程](#%E4%B8%BB%E8%A6%81%E6%B5%81%E7%A8%8B)
+- [准备工作（可跳过直接看后面）](#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%E5%8F%AF%E8%B7%B3%E8%BF%87%E7%9B%B4%E6%8E%A5%E7%9C%8B%E5%90%8E%E9%9D%A2)
+- [调试过程的细节可跳过直接看后面结论](#%E8%B0%83%E8%AF%95%E8%BF%87%E7%A8%8B%E7%9A%84%E7%BB%86%E8%8A%82%E5%8F%AF%E8%B7%B3%E8%BF%87%E7%9B%B4%E6%8E%A5%E7%9C%8B%E5%90%8E%E9%9D%A2%E7%BB%93%E8%AE%BA)
+- [Xdebug 简单调试过程描述（无断点）](#xdebug-%E7%AE%80%E5%8D%95%E8%B0%83%E8%AF%95%E8%BF%87%E7%A8%8B%E6%8F%8F%E8%BF%B0%E6%97%A0%E6%96%AD%E7%82%B9)
+- [Xdebug 简单调试过程描述（含断点）](#xdebug-%E7%AE%80%E5%8D%95%E8%B0%83%E8%AF%95%E8%BF%87%E7%A8%8B%E6%8F%8F%E8%BF%B0%E5%90%AB%E6%96%AD%E7%82%B9)
+- [Xdebug 调试流程解释](#xdebug-%E8%B0%83%E8%AF%95%E6%B5%81%E7%A8%8B%E8%A7%A3%E9%87%8A)
+- [个人曾经的误解](#%E4%B8%AA%E4%BA%BA%E6%9B%BE%E7%BB%8F%E7%9A%84%E8%AF%AF%E8%A7%A3)
+- [简单总结](#%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93)
+  - [为什么 PHP 的调试器（如 Xdebug）需要额外安装？其他语言（如 Python、Java、NodeJs）就自带调试器](#%E4%B8%BA%E4%BB%80%E4%B9%88-php-%E7%9A%84%E8%B0%83%E8%AF%95%E5%99%A8%E5%A6%82-xdebug%E9%9C%80%E8%A6%81%E9%A2%9D%E5%A4%96%E5%AE%89%E8%A3%85%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80%E5%A6%82-pythonjavanodejs%E5%B0%B1%E8%87%AA%E5%B8%A6%E8%B0%83%E8%AF%95%E5%99%A8)
+  - [PHP debugger 列举](#php-debugger-%E5%88%97%E4%B8%BE)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 目的
 

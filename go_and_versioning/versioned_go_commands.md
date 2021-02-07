@@ -14,8 +14,22 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [正文](#%E6%AD%A3%E6%96%87)
+- [一个古老的构建故事](#%E4%B8%80%E4%B8%AA%E5%8F%A4%E8%80%81%E7%9A%84%E6%9E%84%E5%BB%BA%E6%95%85%E4%BA%8B)
+- [Go 语言的构建和隔离原则](#go-%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99)
+- [自动下载依赖](#%E8%87%AA%E5%8A%A8%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96)
+- [修改模块版本（go get）](#%E4%BF%AE%E6%94%B9%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%ACgo-get)
+- [模块信息（go list）](#%E6%A8%A1%E5%9D%97%E4%BF%A1%E6%81%AFgo-list)
+- [准备新的模块版本（go release）](#%E5%87%86%E5%A4%87%E6%96%B0%E7%9A%84%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%ACgo-release)
+- [模式匹配](#%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D)
+- [别再把项目代码放 GOPATH 里](#%E5%88%AB%E5%86%8D%E6%8A%8A%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E6%94%BE-gopath-%E9%87%8C)
+- [下一步？](#%E4%B8%8B%E4%B8%80%E6%AD%A5)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 正文
 

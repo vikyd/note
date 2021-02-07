@@ -2,8 +2,51 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [起因](#%E8%B5%B7%E5%9B%A0)
+- [原因](#%E5%8E%9F%E5%9B%A0)
+- [解决](#%E8%A7%A3%E5%86%B3)
+- [下面比较长，需配合实例来验证](#%E4%B8%8B%E9%9D%A2%E6%AF%94%E8%BE%83%E9%95%BF%E9%9C%80%E9%85%8D%E5%90%88%E5%AE%9E%E4%BE%8B%E6%9D%A5%E9%AA%8C%E8%AF%81)
+- [由此引发的思考](#%E7%94%B1%E6%AD%A4%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83)
+- [urlencode 了解](#urlencode-%E4%BA%86%E8%A7%A3)
+  - [urlencode 允许的字符](#urlencode-%E5%85%81%E8%AE%B8%E7%9A%84%E5%AD%97%E7%AC%A6)
+  - [urlencode 编码规则](#urlencode-%E7%BC%96%E7%A0%81%E8%A7%84%E5%88%99)
+  - [为什么需要 urlencode，而不是直接原始字符编码或二进制发送到服务端？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-urlencode%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E5%8E%9F%E5%A7%8B%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E6%88%96%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%8F%91%E9%80%81%E5%88%B0%E6%9C%8D%E5%8A%A1%E7%AB%AF)
+- [urlencode 中表示一个空格，应是 `%20`？还是 `+`？](#urlencode-%E4%B8%AD%E8%A1%A8%E7%A4%BA%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%A0%BC%E5%BA%94%E6%98%AF-%E8%BF%98%E6%98%AF-)
+  - [urlencode 实验](#urlencode-%E5%AE%9E%E9%AA%8C)
+  - [HTTP Content-Type 与 urlencode 关系](#http-content-type-%E4%B8%8E-urlencode-%E5%85%B3%E7%B3%BB)
+  - [关系](#%E5%85%B3%E7%B3%BB)
+  - [urlencode 编码数组（嵌套数组）](#urlencode-%E7%BC%96%E7%A0%81%E6%95%B0%E7%BB%84%E5%B5%8C%E5%A5%97%E6%95%B0%E7%BB%84)
+    - [HTML form submit 嵌套数据的 urlencoded 编码方式](#html-form-submit-%E5%B5%8C%E5%A5%97%E6%95%B0%E6%8D%AE%E7%9A%84-urlencoded-%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F)
+    - [jQuery 嵌套数据的 urlencoded 编码方式](#jquery-%E5%B5%8C%E5%A5%97%E6%95%B0%E6%8D%AE%E7%9A%84-urlencoded-%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F)
+    - [axios.js 嵌套数据的 urlencoded 编码方式](#axiosjs-%E5%B5%8C%E5%A5%97%E6%95%B0%E6%8D%AE%E7%9A%84-urlencoded-%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F)
+  - [PHP 嵌套数据的 urlencoded 编码方式](#php-%E5%B5%8C%E5%A5%97%E6%95%B0%E6%8D%AE%E7%9A%84-urlencoded-%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F)
+  - [Python urllib.urlencode 嵌套数据的 urlencoded 编码方式](#python-urlliburlencode-%E5%B5%8C%E5%A5%97%E6%95%B0%E6%8D%AE%E7%9A%84-urlencoded-%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F)
+  - [py requests 嵌套数据的 urlencoded 编码方式](#py-requests-%E5%B5%8C%E5%A5%97%E6%95%B0%E6%8D%AE%E7%9A%84-urlencoded-%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F)
+- [PHP 的 `php://input` 能否读取多次](#php-%E7%9A%84-phpinput-%E8%83%BD%E5%90%A6%E8%AF%BB%E5%8F%96%E5%A4%9A%E6%AC%A1)
+  - [`php://input` 是什么？](#phpinput-%E6%98%AF%E4%BB%80%E4%B9%88)
+  - [能否读取多次](#%E8%83%BD%E5%90%A6%E8%AF%BB%E5%8F%96%E5%A4%9A%E6%AC%A1)
+- [Laravel](#laravel)
+  - [服务端](#%E6%9C%8D%E5%8A%A1%E7%AB%AF)
+  - [客户端](#%E5%AE%A2%E6%88%B7%E7%AB%AF)
+  - [结论](#%E7%BB%93%E8%AE%BA)
+- [Codeigniter](#codeigniter)
+  - [服务端](#%E6%9C%8D%E5%8A%A1%E7%AB%AF-1)
+  - [客户端](#%E5%AE%A2%E6%88%B7%E7%AB%AF-1)
+  - [结论](#%E7%BB%93%E8%AE%BA-1)
+- [urlencode 与 base64 的区别](#urlencode-%E4%B8%8E-base64-%E7%9A%84%E5%8C%BA%E5%88%AB)
+- [`Content-Type` vs `MIME`](#content-type-vs-mime)
+- [杂](#%E6%9D%82)
+- [总结](#%E6%80%BB%E7%BB%93)
+  - [HTTP Client（Py requests、浏览器、jQuery、axios）](#http-clientpy-requests%E6%B5%8F%E8%A7%88%E5%99%A8jqueryaxios)
+- [HTTP 基础](#http-%E5%9F%BA%E7%A1%80)
+- [备注](#%E5%A4%87%E6%B3%A8)
+- [名词约定](#%E5%90%8D%E8%AF%8D%E7%BA%A6%E5%AE%9A)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 起因
 

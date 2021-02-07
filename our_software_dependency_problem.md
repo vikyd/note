@@ -14,8 +14,35 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [译文 ↓](#%E8%AF%91%E6%96%87-%E2%86%93)
+- [标题：我们的软件依赖问题](#%E6%A0%87%E9%A2%98%E6%88%91%E4%BB%AC%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98)
+- [什么是依赖？](#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BE%9D%E8%B5%96)
+- [何处会出错？](#%E4%BD%95%E5%A4%84%E4%BC%9A%E5%87%BA%E9%94%99)
+- [检查依赖](#%E6%A3%80%E6%9F%A5%E4%BE%9D%E8%B5%96)
+  - [设计](#%E8%AE%BE%E8%AE%A1)
+  - [代码质量](#%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F)
+  - [测试](#%E6%B5%8B%E8%AF%95)
+  - [调试](#%E8%B0%83%E8%AF%95)
+  - [维护](#%E7%BB%B4%E6%8A%A4)
+  - [使用](#%E4%BD%BF%E7%94%A8)
+  - [安全](#%E5%AE%89%E5%85%A8)
+  - [许可证](#%E8%AE%B8%E5%8F%AF%E8%AF%81)
+  - [依赖](#%E4%BE%9D%E8%B5%96)
+- [测试依赖](#%E6%B5%8B%E8%AF%95%E4%BE%9D%E8%B5%96)
+- [抽象依赖](#%E6%8A%BD%E8%B1%A1%E4%BE%9D%E8%B5%96)
+- [隔离依赖](#%E9%9A%94%E7%A6%BB%E4%BE%9D%E8%B5%96)
+- [避开依赖](#%E9%81%BF%E5%BC%80%E4%BE%9D%E8%B5%96)
+- [更新依赖](#%E6%9B%B4%E6%96%B0%E4%BE%9D%E8%B5%96)
+- [监控依赖](#%E7%9B%91%E6%8E%A7%E4%BE%9D%E8%B5%96)
+- [总结](#%E6%80%BB%E7%BB%93)
+- [参考](#%E5%8F%82%E8%80%83)
+- [尾声](#%E5%B0%BE%E5%A3%B0)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 译文 ↓
 

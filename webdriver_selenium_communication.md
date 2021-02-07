@@ -8,8 +8,19 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [疑惑](#%E7%96%91%E6%83%91)
+- [WebDriver 通讯过程（Chrome 为例）](#webdriver-%E9%80%9A%E8%AE%AF%E8%BF%87%E7%A8%8Bchrome-%E4%B8%BA%E4%BE%8B)
+    - [1. 简单流程（不经 Selenium-server）](#1-%E7%AE%80%E5%8D%95%E6%B5%81%E7%A8%8B%E4%B8%8D%E7%BB%8F-selenium-server)
+    - [2. 复杂流程（经 Selenium-server）（常用）](#2-%E5%A4%8D%E6%9D%82%E6%B5%81%E7%A8%8B%E7%BB%8F-selenium-server%E5%B8%B8%E7%94%A8)
+- [流程解释 & 其他疑惑](#%E6%B5%81%E7%A8%8B%E8%A7%A3%E9%87%8A--%E5%85%B6%E4%BB%96%E7%96%91%E6%83%91)
+- [参考](#%E5%8F%82%E8%80%83)
+- [特别注明](#%E7%89%B9%E5%88%AB%E6%B3%A8%E6%98%8E)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 疑惑
 

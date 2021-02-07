@@ -2,8 +2,14 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [在 go mod 项目中](#%E5%9C%A8-go-mod-%E9%A1%B9%E7%9B%AE%E4%B8%AD)
+- [在非 go mod 项目中](#%E5%9C%A8%E9%9D%9E-go-mod-%E9%A1%B9%E7%9B%AE%E4%B8%AD)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 在 go mod 项目中
 

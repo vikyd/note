@@ -14,8 +14,30 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [译前名词解释](#%E8%AF%91%E5%89%8D%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A)
+- [正文](#%E6%AD%A3%E6%96%87)
+- [实例](#%E5%AE%9E%E4%BE%8B)
+- [低保真的构建](#%E4%BD%8E%E4%BF%9D%E7%9C%9F%E7%9A%84%E6%9E%84%E5%BB%BA)
+- [算法](#%E7%AE%97%E6%B3%95)
+  - [算法 1：构造构建列表](#%E7%AE%97%E6%B3%95-1%E6%9E%84%E9%80%A0%E6%9E%84%E5%BB%BA%E5%88%97%E8%A1%A8)
+  - [算法 2：升级所有模块](#%E7%AE%97%E6%B3%95-2%E5%8D%87%E7%BA%A7%E6%89%80%E6%9C%89%E6%A8%A1%E5%9D%97)
+  - [算法 R：计算最小的需求列表](#%E7%AE%97%E6%B3%95-r%E8%AE%A1%E7%AE%97%E6%9C%80%E5%B0%8F%E7%9A%84%E9%9C%80%E6%B1%82%E5%88%97%E8%A1%A8)
+  - [算法 3：升级 1 个模块](#%E7%AE%97%E6%B3%95-3%E5%8D%87%E7%BA%A7-1-%E4%B8%AA%E6%A8%A1%E5%9D%97)
+  - [算法 4：降级 1 个模块](#%E7%AE%97%E6%B3%95-4%E9%99%8D%E7%BA%A7-1-%E4%B8%AA%E6%A8%A1%E5%9D%97)
+- [理论](#%E7%90%86%E8%AE%BA)
+- [排除模块](#%E6%8E%92%E9%99%A4%E6%A8%A1%E5%9D%97)
+- [替换模块](#%E6%9B%BF%E6%8D%A2%E6%A8%A1%E5%9D%97)
+- [谁应控制你的构建](#%E8%B0%81%E5%BA%94%E6%8E%A7%E5%88%B6%E4%BD%A0%E7%9A%84%E6%9E%84%E5%BB%BA)
+- [高保真的构建](#%E9%AB%98%E4%BF%9D%E7%9C%9F%E7%9A%84%E6%9E%84%E5%BB%BA)
+- [升级速度](#%E5%8D%87%E7%BA%A7%E9%80%9F%E5%BA%A6)
+- [升级时间](#%E5%8D%87%E7%BA%A7%E6%97%B6%E9%97%B4)
+- [最小](#%E6%9C%80%E5%B0%8F)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 译前名词解释
 

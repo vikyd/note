@@ -8,8 +8,33 @@ go mod 遵循语义版本，即 [semver](https://semver.org/)，项目的各种�
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [go mod 的伪版本号官方定义](#go-mod-%E7%9A%84%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7%E5%AE%98%E6%96%B9%E5%AE%9A%E4%B9%89)
+- [go mod 的伪版本号实例](#go-mod-%E7%9A%84%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7%E5%AE%9E%E4%BE%8B)
+- [实验](#%E5%AE%9E%E9%AA%8C)
+  - [第 1 种伪版本号（主版本：v0）：`vX.0.0-yyyymmddhhmmss-abcdefabcdef`](#%E7%AC%AC-1-%E7%A7%8D%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7%E4%B8%BB%E7%89%88%E6%9C%ACv0vx00-yyyymmddhhmmss-abcdefabcdef)
+  - [第 1 种伪版本号（主版本：v2）：`vX.0.0-yyyymmddhhmmss-abcdefabcdef`](#%E7%AC%AC-1-%E7%A7%8D%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7%E4%B8%BB%E7%89%88%E6%9C%ACv2vx00-yyyymmddhhmmss-abcdefabcdef)
+  - [go get 可指定版本](#go-get-%E5%8F%AF%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC)
+  - [第 2 种伪版本号：`vX.Y.Z-pre.0.yyyymmddhhmmss-abcdefabcdef`](#%E7%AC%AC-2-%E7%A7%8D%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7vxyz-pre0yyyymmddhhmmss-abcdefabcdef)
+  - [第 3 种伪版本号：`vX.Y.(Z+1)-0.yyyymmddhhmmss-abcdefabcdef`](#%E7%AC%AC-3-%E7%A7%8D%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7vxyz1-0yyyymmddhhmmss-abcdefabcdef)
+  - [第 4 种伪版本号：`vX.0.0-00010101000000-000000000000`](#%E7%AC%AC-4-%E7%A7%8D%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7vx00-00010101000000-000000000000)
+- [在线检测 语义版本合法性](#%E5%9C%A8%E7%BA%BF%E6%A3%80%E6%B5%8B-%E8%AF%AD%E4%B9%89%E7%89%88%E6%9C%AC%E5%90%88%E6%B3%95%E6%80%A7)
+- [语义版本的正常版本](#%E8%AF%AD%E4%B9%89%E7%89%88%E6%9C%AC%E7%9A%84%E6%AD%A3%E5%B8%B8%E7%89%88%E6%9C%AC)
+- [语义版本号的伪版本号](#%E8%AF%AD%E4%B9%89%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7)
+- [补充说明](#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E)
+  - [`+incompatible` 是什么？](#incompatible-%E6%98%AF%E4%BB%80%E4%B9%88)
+  - [`// indirect` 是什么？](#-indirect-%E6%98%AF%E4%BB%80%E4%B9%88)
+- [go get 某些版本的失败情况](#go-get-%E6%9F%90%E4%BA%9B%E7%89%88%E6%9C%AC%E7%9A%84%E5%A4%B1%E8%B4%A5%E6%83%85%E5%86%B5)
+  - [情况 01：无 go.mod](#%E6%83%85%E5%86%B5-01%E6%97%A0-gomod)
+  - [情况 02：有 `go.mod` 但版本不对](#%E6%83%85%E5%86%B5-02%E6%9C%89-gomod-%E4%BD%86%E7%89%88%E6%9C%AC%E4%B8%8D%E5%AF%B9)
+- [伪版本号的一些特点](#%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%B9%E7%82%B9)
+- [总结](#%E6%80%BB%E7%BB%93)
+- [其他参考](#%E5%85%B6%E4%BB%96%E5%8F%82%E8%80%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # go mod 的伪版本号官方定义
 

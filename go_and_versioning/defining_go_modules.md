@@ -14,8 +14,25 @@
 
 # 目录
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [正文](#%E6%AD%A3%E6%96%87)
+- [为 release 添加版本](#%E4%B8%BA-release-%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9C%AC)
+- [go.mod 文件](#gomod-%E6%96%87%E4%BB%B6)
+- [从代码库到模块](#%E4%BB%8E%E4%BB%A3%E7%A0%81%E5%BA%93%E5%88%B0%E6%A8%A1%E5%9D%97)
+  - [多模块的代码库](#%E5%A4%9A%E6%A8%A1%E5%9D%97%E7%9A%84%E4%BB%A3%E7%A0%81%E5%BA%93)
+  - [废弃的版本](#%E5%BA%9F%E5%BC%83%E7%9A%84%E7%89%88%E6%9C%AC)
+  - [发布](#%E5%8F%91%E5%B8%83)
+  - [代码托管网站](#%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1%E7%BD%91%E7%AB%99)
+- [模块打包](#%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85)
+- [模块下载协议](#%E6%A8%A1%E5%9D%97%E4%B8%8B%E8%BD%BD%E5%8D%8F%E8%AE%AE)
+- [模块代理服务](#%E6%A8%A1%E5%9D%97%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1)
+- [vendor 模式的终结](#vendor-%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%BB%88%E7%BB%93)
+- [下一步？](#%E4%B8%8B%E4%B8%80%E6%AD%A5)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # 正文
 
