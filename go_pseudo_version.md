@@ -10,7 +10,6 @@ go mod 遵循语义版本，即 [semver](https://semver.org/)，项目的各种�
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [go mod 的伪版本号官方定义](#go-mod-%E7%9A%84%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7%E5%AE%98%E6%96%B9%E5%AE%9A%E4%B9%89)
 - [go mod 的伪版本号实例](#go-mod-%E7%9A%84%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7%E5%AE%9E%E4%BE%8B)

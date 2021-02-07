@@ -10,7 +10,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [代理方式](#%E4%BB%A3%E7%90%86%E6%96%B9%E5%BC%8F)
 - [代理地址](#%E4%BB%A3%E7%90%86%E5%9C%B0%E5%9D%80)

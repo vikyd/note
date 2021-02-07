@@ -10,7 +10,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [疑惑](#%E7%96%91%E6%83%91)
 - [WebDriver 通讯过程（Chrome 为例）](#webdriver-%E9%80%9A%E8%AE%AF%E8%BF%87%E7%A8%8Bchrome-%E4%B8%BA%E4%BE%8B)

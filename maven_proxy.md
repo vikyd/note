@@ -11,7 +11,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [使用方式 TL;DR](#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F-tldr)
 - [省事的使用方式](#%E7%9C%81%E4%BA%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F)

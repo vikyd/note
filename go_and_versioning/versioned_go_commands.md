@@ -16,7 +16,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [正文](#%E6%AD%A3%E6%96%87)
 - [一个古老的构建故事](#%E4%B8%80%E4%B8%AA%E5%8F%A4%E8%80%81%E7%9A%84%E6%9E%84%E5%BB%BA%E6%95%85%E4%BA%8B)

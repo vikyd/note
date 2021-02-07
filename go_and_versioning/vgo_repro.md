@@ -16,7 +16,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [正文](#%E6%AD%A3%E6%96%87)
 - [可复现的构建](#%E5%8F%AF%E5%A4%8D%E7%8E%B0%E7%9A%84%E6%9E%84%E5%BB%BA)

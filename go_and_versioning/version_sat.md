@@ -14,7 +14,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [译注](#%E8%AF%91%E6%B3%A8)
 - [译前名称解释](#%E8%AF%91%E5%89%8D%E5%90%8D%E7%A7%B0%E8%A7%A3%E9%87%8A)

@@ -4,7 +4,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [名词约定](#%E5%90%8D%E8%AF%8D%E7%BA%A6%E5%AE%9A)
 - [测试验证](#%E6%B5%8B%E8%AF%95%E9%AA%8C%E8%AF%81)

@@ -17,7 +17,6 @@ Golang 官方文档貌似没清晰地列出 `@` 的所有可能情况。
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [名词约定](#%E5%90%8D%E8%AF%8D%E7%BA%A6%E5%AE%9A)
 - [伪版本号](#%E4%BC%AA%E7%89%88%E6%9C%AC%E5%8F%B7)

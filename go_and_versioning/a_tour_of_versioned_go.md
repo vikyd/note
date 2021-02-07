@@ -16,7 +16,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [正文](#%E6%AD%A3%E6%96%87)
 - [实例](#%E5%AE%9E%E4%BE%8B)

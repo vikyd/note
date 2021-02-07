@@ -18,7 +18,6 @@ PDF：https://research.swtch.com/vgo-principles.pdf
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [正文](#%E6%AD%A3%E6%96%87)
 - [为什么需要版本？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%89%88%E6%9C%AC)

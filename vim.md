@@ -8,7 +8,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [以前、现在](#%E4%BB%A5%E5%89%8D%E7%8E%B0%E5%9C%A8)
 - [目的](#%E7%9B%AE%E7%9A%84)

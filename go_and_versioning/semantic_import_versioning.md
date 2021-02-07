@@ -16,7 +16,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [正文](#%E6%AD%A3%E6%96%87)
 - [一个关于依赖包的故事](#%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E4%BE%9D%E8%B5%96%E5%8C%85%E7%9A%84%E6%95%85%E4%BA%8B)

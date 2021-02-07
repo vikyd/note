@@ -13,7 +13,6 @@ Golang 的 go mod 模式有很多与众不同的设计，其中之一就是：�
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [实例](#%E5%AE%9E%E4%BE%8B)
 - [参考](#%E5%8F%82%E8%80%83)

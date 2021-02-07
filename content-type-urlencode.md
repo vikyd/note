@@ -4,7 +4,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [起因](#%E8%B5%B7%E5%9B%A0)
 - [原因](#%E5%8E%9F%E5%9B%A0)

@@ -2,7 +2,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [base64](#base64)
 - [base64 允许的字符](#base64-%E5%85%81%E8%AE%B8%E7%9A%84%E5%AD%97%E7%AC%A6)

@@ -4,7 +4,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [免费](#%E5%85%8D%E8%B4%B9)
 - [收费](#%E6%94%B6%E8%B4%B9)

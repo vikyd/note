@@ -16,7 +16,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [正文](#%E6%AD%A3%E6%96%87)
 - [为 release 添加版本](#%E4%B8%BA-release-%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9C%AC)

@@ -4,7 +4,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [概述](#%E6%A6%82%E8%BF%B0)
 - [方式 01：Composer-Setup.exe 一键安装 Composer（不推荐）](#%E6%96%B9%E5%BC%8F-01composer-setupexe-%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85-composer%E4%B8%8D%E6%8E%A8%E8%8D%90)

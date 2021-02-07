@@ -4,7 +4,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [ifconfig 里的疑问](#ifconfig-%E9%87%8C%E7%9A%84%E7%96%91%E9%97%AE)
 - [ifconfig 输出示例](#ifconfig-%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B)

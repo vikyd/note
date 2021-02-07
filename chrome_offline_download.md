@@ -6,7 +6,6 @@ https://vikyd.github.io/download-chromium-history-version/
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [概述](#%E6%A6%82%E8%BF%B0)
 - [Chrome 离线包 - 最新版（官方）](#chrome-%E7%A6%BB%E7%BA%BF%E5%8C%85---%E6%9C%80%E6%96%B0%E7%89%88%E5%AE%98%E6%96%B9)

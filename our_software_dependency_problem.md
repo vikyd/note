@@ -16,7 +16,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [译文 ↓](#%E8%AF%91%E6%96%87-%E2%86%93)
 - [标题：我们的软件依赖问题](#%E6%A0%87%E9%A2%98%E6%88%91%E4%BB%AC%E7%9A%84%E8%BD%AF%E4%BB%B6%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98)

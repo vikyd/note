@@ -10,7 +10,6 @@ VSCode 可快速对 Golang 自身源码进行 debug 调试。
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [前提](#%E5%89%8D%E6%8F%90)
 - [开始 debug](#%E5%BC%80%E5%A7%8B-debug)

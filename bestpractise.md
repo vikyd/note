@@ -8,7 +8,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [搜索引擎使用习惯](#%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E4%B9%A0%E6%83%AF)
 - [科学上网](#%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91)

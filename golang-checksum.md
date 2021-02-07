@@ -10,7 +10,6 @@ Golang 的 modules（模块）使用了一些哈希校验值来防止源码被�
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [go.sum 中哪些字符串是哈希值？](#gosum-%E4%B8%AD%E5%93%AA%E4%BA%9B%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%93%88%E5%B8%8C%E5%80%BC)
   - [简单](#%E7%AE%80%E5%8D%95)

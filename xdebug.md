@@ -4,7 +4,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [目的](#%E7%9B%AE%E7%9A%84)
 - [名称解释](#%E5%90%8D%E7%A7%B0%E8%A7%A3%E9%87%8A)

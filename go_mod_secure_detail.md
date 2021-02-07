@@ -21,7 +21,6 @@ Golang Module 为何要验证模块安全？又是如何验证模块哈希安全
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
 
 - [安全是指什么？](#%E5%AE%89%E5%85%A8%E6%98%AF%E6%8C%87%E4%BB%80%E4%B9%88)
 - [名词约定](#%E5%90%8D%E8%AF%8D%E7%BA%A6%E5%AE%9A)
