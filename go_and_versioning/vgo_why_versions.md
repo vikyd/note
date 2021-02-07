@@ -14,14 +14,8 @@
 
 # 目录
 
-<!--ts-->
-   * [Why Add Versions To Go?](#why-add-versions-to-go)
-   * [为什么要为 Go 添加版本管理功能？](#为什么要为-go-添加版本管理功能)
-   * [目录](#目录)
-   * [正文](#正文)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 正文
 

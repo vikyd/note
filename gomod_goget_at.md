@@ -15,35 +15,8 @@ Golang 官方文档貌似没清晰地列出 `@` 的所有可能情况。
 
 # 目录
 
-<!--ts-->
-   * [Golang module 模式下 go get 使用 @ 的潜规则和实例](#golang-module-模式下-go-get-使用--的潜规则和实例)
-   * [目录](#目录)
-   * [名词约定](#名词约定)
-   * [伪版本号](#伪版本号)
-   * [实验环境](#实验环境)
-   * [实例 github 仓库](#实例-github-仓库)
-   * [实验准备](#实验准备)
-   * [实验：go get @ 模式、实例](#实验go-get--模式实例)
-      * [类型：不带任何 @](#类型不带任何-)
-      * [类型：@semverTag](#类型semvertag)
-      * [类型：@semverTagPrefix](#类型semvertagprefix)
-      * [类型：@"运算符semverTag"](#类型运算符semvertag)
-      * [类型：@commitHash](#类型commithash)
-      * [类型：@branchName](#类型branchname)
-      * [类型：固定字符串 @latest](#类型固定字符串-latest)
-      * [类型：固定字符串 @HEAD](#类型固定字符串-head)
-      * [类型：固定字符串 @upgrade](#类型固定字符串-upgrade)
-      * [类型：固定字符串 @patch](#类型固定字符串-patch)
-      * [类型：固定字符串 @none](#类型固定字符串-none)
-   * [版本优先级](#版本优先级)
-      * [优先级](#优先级)
-      * [优先级实验](#优先级实验)
-   * [其他](#其他)
-   * [自建验证 git 仓库](#自建验证-git-仓库)
-   * [参考](#参考)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 名词约定
 

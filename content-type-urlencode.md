@@ -2,51 +2,8 @@
 
 # 目录
 
-<!--ts-->
-   * [由 urlencode、HTTP Content-Type、嵌套数组想到的](#由-urlencodehttp-content-type嵌套数组想到的)
-   * [目录](#目录)
-   * [起因](#起因)
-   * [原因](#原因)
-   * [解决](#解决)
-   * [下面比较长，需配合实例来验证](#下面比较长需配合实例来验证)
-   * [由此引发的思考](#由此引发的思考)
-   * [urlencode 了解](#urlencode-了解)
-      * [urlencode 允许的字符](#urlencode-允许的字符)
-      * [urlencode 编码规则](#urlencode-编码规则)
-      * [为什么需要 urlencode，而不是直接原始字符编码或二进制发送到服务端？](#为什么需要-urlencode而不是直接原始字符编码或二进制发送到服务端)
-   * [urlencode 中表示一个空格，应是 %20？还是 +？](#urlencode-中表示一个空格应是-20还是-)
-      * [urlencode 实验](#urlencode-实验)
-      * [HTTP Content-Type 与 urlencode 关系](#http-content-type-与-urlencode-关系)
-      * [关系](#关系)
-      * [urlencode 编码数组（嵌套数组）](#urlencode-编码数组嵌套数组)
-         * [HTML form submit 嵌套数据的 urlencoded 编码方式](#html-form-submit-嵌套数据的-urlencoded-编码方式)
-         * [jQuery 嵌套数据的 urlencoded 编码方式](#jquery-嵌套数据的-urlencoded-编码方式)
-         * [axios.js 嵌套数据的 urlencoded 编码方式](#axiosjs-嵌套数据的-urlencoded-编码方式)
-      * [PHP 嵌套数据的 urlencoded 编码方式](#php-嵌套数据的-urlencoded-编码方式)
-      * [Python urllib.urlencode 嵌套数据的 urlencoded 编码方式](#python-urlliburlencode-嵌套数据的-urlencoded-编码方式)
-      * [py <a href="python-requests.org">requests</a> 嵌套数据的 urlencoded 编码方式](#py-requests-嵌套数据的-urlencoded-编码方式)
-   * [PHP 的 php://input 能否读取多次](#php-的-phpinput-能否读取多次)
-      * [php://input 是什么？](#phpinput-是什么)
-      * [能否读取多次](#能否读取多次)
-   * [Laravel](#laravel)
-      * [服务端](#服务端)
-      * [客户端](#客户端)
-      * [结论](#结论)
-   * [Codeigniter](#codeigniter)
-      * [服务端](#服务端-1)
-      * [客户端](#客户端-1)
-      * [结论](#结论-1)
-   * [urlencode 与 base64 的区别](#urlencode-与-base64-的区别)
-   * [Content-Type vs MIME](#content-type-vs-mime)
-   * [杂](#杂)
-   * [总结](#总结)
-      * [HTTP Client（Py requests、浏览器、jQuery、axios）](#http-clientpy-requests浏览器jqueryaxios)
-   * [HTTP 基础](#http-基础)
-   * [备注](#备注)
-   * [名词约定](#名词约定)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 起因
 

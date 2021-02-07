@@ -14,14 +14,8 @@
 
 # 目录
 
-<!--ts-->
-   * [The vgo proposal is accepted. Now what?](#the-vgo-proposal-is-accepted-now-what)
-   * [vgo 提案被接受了，然后呢？](#vgo-提案被接受了然后呢)
-   * [目录](#目录)
-   * [正文](#正文)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 正文
 

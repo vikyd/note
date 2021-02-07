@@ -1,4 +1,8 @@
+<!-- START doctoc -->
+<!-- END doctoc -->
+
 # Golang 版本管理系列 `翻译` 11 篇全
+
 翻译自 [Russ Cox](https://swtch.com/~rsc/) 大神（Golang 总舵主之一）的 Golang Module 系列文章 [Go & Versioning](https://research.swtch.com/vgo) 。
 
 - [Part01 译：Go += 包版本管理 - Go += Package Versioning（20180220）](https://github.com/vikyd/note/blob/master/go_and_versioning/go_add_package_versioning.md)
@@ -13,6 +17,5 @@
 - [Part09 译：什么是软件工程？ - What is Software Engineering?（20180530）](https://github.com/vikyd/note/blob/master/go_and_versioning/what_is_software_engineering.md)
 - [Part10 译：为什么要为 Go 添加版本管理功能？ - Why Add Versions To Go?（20180607）](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_why_versions.md)
 - [Part11 译：Go 语言的模块版本管理原则 - The Principles of Versioning in Go（20191203）](https://github.com/vikyd/note/blob/master/go_and_versioning/vgo_principles.md)
-
 
 想看翻译之外的 Golang 文章，见 [这里](https://github.com/vikyd/note)。

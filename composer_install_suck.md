@@ -2,17 +2,8 @@
 
 # 目录
 
-<!--ts-->
-   * [PHP Composer 安装踩坑记（代理设置）](#php-composer-安装踩坑记代理设置)
-   * [目录](#目录)
-   * [概述](#概述)
-   * [方式 01：Composer-Setup.exe 一键安装 Composer（不推荐）](#方式-01composer-setupexe-一键安装-composer不推荐)
-   * [方式 02：命令行安装 Composer（推荐）](#方式-02命令行安装-composer推荐)
-   * [使用 Composer 安装 PHP 第三方库](#使用-composer-安装-php-第三方库)
-   * [为什么不直接设置 http_proxy 和 https_proxy 到系统环境变量中？](#为什么不直接设置-http_proxy-和-https_proxy-到系统环境变量中)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 概述
 

@@ -8,46 +8,8 @@
 
 # 目录
 
-<!--ts-->
-   * [常用代理设置汇总](#常用代理设置汇总)
-   * [目录](#目录)
-   * [代理方式](#代理方式)
-   * [代理地址](#代理地址)
-   * [Windows CMD 代理设置](#windows-cmd-代理设置)
-   * [Linux 代理设置](#linux-代理设置)
-   * [Mac 代理设置](#mac-代理设置)
-   * [Mac Homebrew 代理设置](#mac-homebrew-代理设置)
-   * [Git 代理设置](#git-代理设置)
-   * [Git 用户名、邮箱设置](#git-用户名邮箱设置)
-   * [npm 代理设置 + 镜像设置](#npm-代理设置--镜像设置)
-      * [使用淘宝 npm 镜像（推荐）](#使用淘宝-npm-镜像推荐)
-      * [使用 npm 官方镜像](#使用-npm-官方镜像)
-   * [npm 代理、镜像查看方式](#npm-代理镜像查看方式)
-   * [yarn 代理设置 + 镜像设置](#yarn-代理设置--镜像设置)
-   * [nvm 代理设置](#nvm-代理设置)
-   * [Bower 代理设置](#bower-代理设置)
-   * [PHP Composer 代理设置](#php-composer-代理设置)
-   * [PhpStorm、IntelliJ IDEA、PyCharm、WebStorm、Android Studio（或 Jetbrains 系其他）代理设置](#phpstormintellij-ideapycharmwebstormandroid-studio或-jetbrains-系其他代理设置)
-   * [Maven 代理、镜像设置](#maven-代理镜像设置)
-   * [Gradle 代理设置](#gradle-代理设置)
-      * [Python 的 pip 代理设置](#python-的-pip-代理设置)
-   * [VSCode 代理设置](#vscode-代理设置)
-   * [Notepad++ 代理设置](#notepad-代理设置)
-   * [Sublime 代理设置](#sublime-代理设置)
-   * [Eclipse 代理设置](#eclipse-代理设置)
-   * [Atom 编辑器 代理设置](#atom-编辑器-代理设置)
-   * [wget 代理设置](#wget-代理设置)
-   * [curl 代理设置](#curl-代理设置)
-   * [Golang 的 go get 代理](#golang-的-go-get-代理)
-   * [Navicat 连外网数据库](#navicat-连外网数据库)
-   * [Virtual Box、VMware 代理设置](#virtual-boxvmware-代理设置)
-   * [Xshell 代理设置](#xshell-代理设置)
-   * [SecureCRT 代理设置](#securecrt-代理设置)
-   * [Proxifier 为其他软件设置代理](#proxifier-为其他软件设置代理)
-   * [注意：上述例子均为虚拟代理，请自行替换为你自己的代理](#注意上述例子均为虚拟代理请自行替换为你自己的代理)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 代理方式
 

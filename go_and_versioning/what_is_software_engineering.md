@@ -14,14 +14,8 @@
 
 # 目录
 
-<!--ts-->
-   * [What is Software Engineering?](#what-is-software-engineering)
-   * [什么是软件工程？](#什么是软件工程)
-   * [目录](#目录)
-   * [正文](#正文)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 正文
 

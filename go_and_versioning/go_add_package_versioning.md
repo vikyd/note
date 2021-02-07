@@ -14,26 +14,8 @@
 
 # 目录
 
-<!--ts-->
-   * [Go += Package Versioning](#go--package-versioning)
-   * [Go += 包版本管理](#go--包版本管理)
-   * [目录](#目录)
-   * [译前名词解释](#译前名词解释)
-   * [正文](#正文)
-   * [背景](#背景)
-      * [Makefile、goinstall、go get](#makefilegoinstallgo-get)
-      * [版本管理和 API 稳定性](#版本管理和-api-稳定性)
-      * [vendor 模式和可复现的构建](#vendor-模式和可复现的构建)
-      * [官方的包管理器实验](#官方的包管理器实验)
-   * [提案](#提案)
-      * [import 兼容性规则](#import-兼容性规则)
-      * [最小版本选择](#最小版本选择)
-      * [定义 Go 模块](#定义-go-模块)
-      * [集成到 go 命令](#集成到-go-命令)
-   * [下一步？](#下一步)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 译前名词解释
 

@@ -8,15 +8,8 @@ VSCode 可快速对 Golang 自身源码进行 debug 调试。
 
 # 目录
 
-<!--ts-->
-   * [技巧：VSCode 调试 Golang 自身源码](#技巧vscode-调试-golang-自身源码)
-   * [目录](#目录)
-   * [前提](#前提)
-   * [开始 debug](#开始-debug)
-   * [用途？](#用途)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 前提
 

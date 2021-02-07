@@ -2,31 +2,8 @@
 
 # 目录
 
-<!--ts-->
-   * [URL 中 QueryString 与 Fragment 的困惑](#url-中-querystring-与-fragment-的困惑)
-   * [目录](#目录)
-   * [名词约定](#名词约定)
-   * [测试验证](#测试验证)
-   * [疑惑](#疑惑)
-   * [流程](#流程)
-   * [实例](#实例)
-      * [正常的例子](#正常的例子)
-      * [多个 ? 时，最终的 QueryString 是什么？](#多个--时最终的-querystring-是什么)
-      * [&amp; 字符本身如何才能作为值？](#-字符本身如何才能作为值)
-      * [QueryString 中多个连续的 &amp; 有没有什么用？](#querystring-中多个连续的--有没有什么用)
-      * [QueryString 中单独的 &amp; 会发生什么？](#querystring-中单独的--会发生什么)
-      * [QueryString 中有个多个同名 key，结果是什么？](#querystring-中有个多个同名-key结果是什么)
-      * [多个 # 时，最终的 Fragment 是什么？](#多个--时最终的-fragment-是什么)
-      * [? 与 # 谁的优先级高？](#-与--谁的优先级高)
-         * [例：?a=1#xx?b=2](#例a1xxb2)
-         * [例：#xx?b=2#yy](#例xxb2yy)
-         * [<a href="https://tools.ietf.org/html/rfc3986#section-3.4" rel="nofollow">section-3.4 ↓</a>](#section-34-)
-         * [<a href="https://tools.ietf.org/html/rfc3986#section-3.5" rel="nofollow">section-3.5 ↓</a>](#section-35-)
-   * [其他问题](#其他问题)
-   * [参考](#参考)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 名词约定
 

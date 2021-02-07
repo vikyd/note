@@ -8,19 +8,8 @@
 
 # 目录
 
-<!--ts-->
-   * [概述](#概述)
-   * [目录](#目录)
-   * [疑惑](#疑惑)
-   * [WebDriver 通讯过程（Chrome 为例）](#webdriver-通讯过程chrome-为例)
-         * [1. 简单流程（不经 Selenium-server）](#1-简单流程不经-selenium-server)
-         * [2. 复杂流程（经 Selenium-server）（常用）](#2-复杂流程经-selenium-server常用)
-   * [流程解释 &amp; 其他疑惑](#流程解释--其他疑惑)
-   * [参考](#参考)
-   * [特别注明](#特别注明)
-
-
-<!--te-->
+<!-- START doctoc -->
+<!-- END doctoc -->
 
 # 疑惑
 

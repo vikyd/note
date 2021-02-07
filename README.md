@@ -1,3 +1,6 @@
+<!-- START doctoc -->
+<!-- END doctoc -->
+
 # Viky 一些技术笔记
 
 - 2017 [深圳填海卫星图 1973-2016](https://github.com/vikyd/shenzhen-reclamation)
@@ -48,4 +51,4 @@
 
 ---
 
-> 各文中的 `目录` 由 [ekalinin/github-markdown-toc](https://github.com/ekalinin/github-markdown-toc) + [Github Actions](https://github.com/features/actions) 自动 [生成](https://github.com/vikyd/note/blob/master/.github/workflows/update-md-toc.yml) 。
+> 各文中的 `目录` 由 [TOC Generator](https://github.com/marketplace/actions/toc-generator) 自动生成。
