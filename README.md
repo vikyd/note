@@ -1,7 +1,8 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Viky 一些技术笔记](#viky-%E4%B8%80%E4%BA%9B%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0)
+- [Viky 一些技术笔记](#viky-一些技术笔记)
+- [Viky 一些开源小项目](#viky-一些开源小项目)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -52,6 +53,10 @@
   - 20200926 [几种姿势：调试 go mod、go build 命令等 Golang 自身源码（VSCode、GoLand）](https://github.com/vikyd/note/blob/master/vscode_goland_debug_go_mod_go_build_go_get.md)
 - 20201025 [原来 ifconfig 的字段是这样的含义](https://github.com/vikyd/note/blob/master/ifconfig.md)
 - 20200120 [Chromium/Chrome 最新、历史版本离线安装包 - 下载方法](https://vikyd.github.io/download-chromium-history-version/)
+
+# Viky 一些开源小项目
+
+见 [这里](open_source.md) 。
 
 ---
 
