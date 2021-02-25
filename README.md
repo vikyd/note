@@ -1,11 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [Viky 一些技术笔记](#viky-%E4%B8%80%E4%BA%9B%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0)
-- [Viky 一些开源小项目](#viky-%E4%B8%80%E4%BA%9B%E5%BC%80%E6%BA%90%E5%B0%8F%E9%A1%B9%E7%9B%AE)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # Viky 一些技术笔记
 
 - 2017 [深圳填海卫星图 1973-2016](https://github.com/vikyd/shenzhen-reclamation)
