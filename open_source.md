@@ -1,6 +1,15 @@
 # Viky 一些开源小项目
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Golang](#golang)
+- [前端](#%E5%89%8D%E7%AB%AF)
+- [Python](#python)
+- [C/C++](#cc)
+- [开源项目的文档翻译](#%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91)
+- [技术笔记](#%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Golang
