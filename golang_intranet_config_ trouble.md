@@ -10,9 +10,25 @@
 
 # 目录
 
-<!-- START doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-<!-- END doctoc -->
+- [从包管理器的本质工作说起](#%E4%BB%8E%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%B7%A5%E4%BD%9C%E8%AF%B4%E8%B5%B7)
+- [Go Module 的解决方式](#go-module-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F)
+  - [`去中心化` 机制](#%E5%8E%BB%E4%B8%AD%E5%BF%83%E5%8C%96-%E6%9C%BA%E5%88%B6)
+    - [优点](#%E4%BC%98%E7%82%B9)
+    - [引发的坑](#%E5%BC%95%E5%8F%91%E7%9A%84%E5%9D%91)
+  - [`安全` 机制](#%E5%AE%89%E5%85%A8-%E6%9C%BA%E5%88%B6)
+    - [如何保证安全](#%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E5%AE%89%E5%85%A8)
+    - [引发的坑](#%E5%BC%95%E5%8F%91%E7%9A%84%E5%9D%91-1)
+  - [一图概述](#%E4%B8%80%E5%9B%BE%E6%A6%82%E8%BF%B0)
+  - [Go 自身的不足](#go-%E8%87%AA%E8%BA%AB%E7%9A%84%E4%B8%8D%E8%B6%B3)
+- [与 Golang 无关的内网本身的坑](#%E4%B8%8E-golang-%E6%97%A0%E5%85%B3%E7%9A%84%E5%86%85%E7%BD%91%E6%9C%AC%E8%BA%AB%E7%9A%84%E5%9D%91)
+- [能否有一键填坑工具？](#%E8%83%BD%E5%90%A6%E6%9C%89%E4%B8%80%E9%94%AE%E5%A1%AB%E5%9D%91%E5%B7%A5%E5%85%B7)
+- [能否搭建内网的 GOPROXY、GOSUMDB 解决所有问题？](#%E8%83%BD%E5%90%A6%E6%90%AD%E5%BB%BA%E5%86%85%E7%BD%91%E7%9A%84-goproxygosumdb-%E8%A7%A3%E5%86%B3%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98)
+- [小结](#%E5%B0%8F%E7%BB%93)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 [TOC]
 
