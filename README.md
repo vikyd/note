@@ -1,8 +1,8 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Viky 一些技术笔记](#viky-%E4%B8%80%E4%BA%9B%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0)
-- [Viky 一些开源小项目](#viky-%E4%B8%80%E4%BA%9B%E5%BC%80%E6%BA%90%E5%B0%8F%E9%A1%B9%E7%9B%AE)
+- [Viky 一些技术笔记](#viky-一些技术笔记)
+- [Viky 一些开源小项目](#viky-一些开源小项目)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -48,6 +48,7 @@
   - 20200308 [Golang module 模式下 go get 使用 `@` 的潜规则和实例](https://github.com/vikyd/note/blob/master/gomod_goget_at.md)
   - 20200701 [Golang 的 import path 与根目录 package name 不匹配的处理方式](https://github.com/vikyd/note/blob/master/go_package_not_match_importpath.md)
   - 20200802 [Golang 20160212 译：如果你想写一个包管理器（长文）- So you want to write a package manager](https://github.com/vikyd/note/blob/master/so_you_want_to_write_a_package_manager.md)
+  - 20210315 [为何配置 Golang 内网开发环境那么多坑？](https://github.com/vikyd/note/blob/master/golang_intranet_config_%20trouble.md)
 - Golang debug 相关
   - 20200311 [技巧：VSCode 调试 Golang 自身源码](https://github.com/vikyd/note/blob/master/vscode_debug_go_self.md)
   - 20200926 [几种姿势：调试 go mod、go build 命令等 Golang 自身源码（VSCode、GoLand）](https://github.com/vikyd/note/blob/master/vscode_goland_debug_go_mod_go_build_go_get.md)
