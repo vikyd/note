@@ -27,7 +27,7 @@
   - [Demo](https://vikyd.github.io/vue-monaco-singleline-custom-language/)
 - [chromium-history-version-crawler](https://github.com/vikyd/chromium-history-version-crawler)：Chromium 各系统历史版本安装包[下载](https://vikyd.github.io/download-chromium-history-version/) 爬虫（Js）
   - [Page](https://vikyd.github.io/download-chromium-history-version/)
-- [vscode-ext-foldlevel](https://github.com/vikyd/vscode-ext-foldlevel)：VSCode 插件，用于一键折叠、展开代码到指定层级
+- [vscode-ext-foldlevel](https://github.com/vikyd/vscode-ext-foldlevel)：VSCode [插件](https://marketplace.visualstudio.com/items?itemName=vikyd.vscode-fold-level)，用于一键折叠、展开代码到指定层级
 
 # Python
 
