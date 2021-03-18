@@ -21,12 +21,9 @@
 
 # 前端
 
-- [vue-object-inspector](https://github.com/vikyd/vue-object-inspector)：基于 Vue 的类似 Chrome Console 的 Object/JSON 展示组件
-  - [Demo](https://codesandbox.io/s/vue-object-inspector-demo-gjs9h?file=/src/components/InspectorDemo.vue)
-- [vue-monaco-singleline](https://github.com/vikyd/vue-monaco-singleline)：基于 Vue 的 [Monaco Editor](https://github.com/microsoft/monaco-editor) 单行模式组件
-  - [Demo](https://vikyd.github.io/vue-monaco-singleline-custom-language/)
-- [chromium-history-version-crawler](https://github.com/vikyd/chromium-history-version-crawler)：Chromium 各系统历史版本安装包[下载](https://vikyd.github.io/download-chromium-history-version/) 爬虫（Js）
-  - [Page](https://vikyd.github.io/download-chromium-history-version/)
+- [vue-object-inspector](https://github.com/vikyd/vue-object-inspector)：基于 Vue 的类似 Chrome Console 的 Object/JSON 展示组件。[Demo](https://codesandbox.io/s/vue-object-inspector-demo-gjs9h?file=/src/components/InspectorDemo.vue)
+- [vue-monaco-singleline](https://github.com/vikyd/vue-monaco-singleline)：基于 Vue 的 [Monaco Editor](https://github.com/microsoft/monaco-editor) 单行模式组件。[Demo](https://vikyd.github.io/vue-monaco-singleline-custom-language/)
+- [chromium-history-version-crawler](https://github.com/vikyd/chromium-history-version-crawler)：Chromium 各系统历史版本安装包[下载](https://vikyd.github.io/download-chromium-history-version/) 爬虫（Js）。[Page](https://vikyd.github.io/download-chromium-history-version/)
 - [vscode-ext-foldlevel](https://github.com/vikyd/vscode-ext-foldlevel)：VSCode [插件](https://marketplace.visualstudio.com/items?itemName=vikyd.vscode-fold-level)，用于一键折叠、展开代码到指定层级
 
 # Python
