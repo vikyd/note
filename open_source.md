@@ -36,10 +36,8 @@
 
 # 开源项目的文档翻译
 
-- [jsTree-doc](https://github.com/vikyd/jsTree-doc)：www.jstree.com 的中文翻译文档
-  - [Page](https://vikyd.gitbooks.io/jstree/)
-- [pclzip-doc-zh-cn](https://github.com/vikyd/pclzip-doc-zh-cn)：PHP 库 [PclZip](http://www.phpconcept.net/pclzip) 的中文文档
-  - [Page](https://vikyd.gitbooks.io/pclzip/content/)
+- [jsTree-doc](https://github.com/vikyd/jsTree-doc)：www.jstree.com 的中文翻译文档。[Page](https://vikyd.gitbooks.io/jstree/)
+- [pclzip-doc-zh-cn](https://github.com/vikyd/pclzip-doc-zh-cn)：PHP 库 [PclZip](http://www.phpconcept.net/pclzip) 的中文文档。[Page](https://vikyd.gitbooks.io/pclzip/content/)
 
 # 技术笔记
 
