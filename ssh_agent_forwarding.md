@@ -1,3 +1,51 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [SSH Agent Forwarding 的理解与实验](#ssh-agent-forwarding-%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E5%AE%9E%E9%AA%8C)
+- [实验](#%E5%AE%9E%E9%AA%8C)
+  - [实验环境](#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83)
+  - [配置](#%E9%85%8D%E7%BD%AE)
+    - [A 的配置](#a-%E7%9A%84%E9%85%8D%E7%BD%AE)
+    - [B 的配置](#b-%E7%9A%84%E9%85%8D%E7%BD%AE)
+    - [C 无需配置](#c-%E6%97%A0%E9%9C%80%E9%85%8D%E7%BD%AE)
+  - [分两个步骤](#%E5%88%86%E4%B8%A4%E4%B8%AA%E6%AD%A5%E9%AA%A4)
+  - [步骤 01 ：从 A ssh 登录到 B](#%E6%AD%A5%E9%AA%A4-01-%E4%BB%8E-a-ssh-%E7%99%BB%E5%BD%95%E5%88%B0-b)
+    - [方式 01 ：ssh 命令中增加 `-A` 参数](#%E6%96%B9%E5%BC%8F-01-ssh-%E5%91%BD%E4%BB%A4%E4%B8%AD%E5%A2%9E%E5%8A%A0--a-%E5%8F%82%E6%95%B0)
+    - [方式 02 ：修改 A 中 `~/.ssh/config` 对应 B 的 Host 块](#%E6%96%B9%E5%BC%8F-02-%E4%BF%AE%E6%94%B9-a-%E4%B8%AD-sshconfig-%E5%AF%B9%E5%BA%94-b-%E7%9A%84-host-%E5%9D%97)
+  - [步骤 02 ：验证](#%E6%AD%A5%E9%AA%A4-02-%E9%AA%8C%E8%AF%81)
+    - [验证 B 能 ssh 到 C](#%E9%AA%8C%E8%AF%81-b-%E8%83%BD-ssh-%E5%88%B0-c)
+    - [验证 B 能基于 ssh clone Github](#%E9%AA%8C%E8%AF%81-b-%E8%83%BD%E5%9F%BA%E4%BA%8E-ssh-clone-github)
+    - [验证不转发 ssh agent 时的情况](#%E9%AA%8C%E8%AF%81%E4%B8%8D%E8%BD%AC%E5%8F%91-ssh-agent-%E6%97%B6%E7%9A%84%E6%83%85%E5%86%B5)
+- [ssh agent 的环境变量](#ssh-agent-%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
+  - [SSH_AUTH_SOCK](#ssh_auth_sock)
+  - [SSH_AGENT_PID](#ssh_agent_pid)
+- [ssh agent 的命令列表](#ssh-agent-%E7%9A%84%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8)
+  - [查看当前 ssh agent 已加载的 key](#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D-ssh-agent-%E5%B7%B2%E5%8A%A0%E8%BD%BD%E7%9A%84-key)
+  - [启动新的 ssh agent](#%E5%90%AF%E5%8A%A8%E6%96%B0%E7%9A%84-ssh-agent)
+  - [ssh agent 加载私钥](#ssh-agent-%E5%8A%A0%E8%BD%BD%E7%A7%81%E9%92%A5)
+  - [ssh agent 取消已加载的私钥](#ssh-agent-%E5%8F%96%E6%B6%88%E5%B7%B2%E5%8A%A0%E8%BD%BD%E7%9A%84%E7%A7%81%E9%92%A5)
+  - [停止 ssh agent](#%E5%81%9C%E6%AD%A2-ssh-agent)
+  - [查看 ssh agent 列表](#%E6%9F%A5%E7%9C%8B-ssh-agent-%E5%88%97%E8%A1%A8)
+- [Mac、Linux 的 ssh agent](#maclinux-%E7%9A%84-ssh-agent)
+  - [Mac 中 ssh agent 默认行为](#mac-%E4%B8%AD-ssh-agent-%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA)
+  - [Linux 中 ssh agent 的默认行为](#linux-%E4%B8%AD-ssh-agent-%E7%9A%84%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA)
+  - [Mac：如果 kill 掉默认启动的 ssh agent](#mac%E5%A6%82%E6%9E%9C-kill-%E6%8E%89%E9%BB%98%E8%AE%A4%E5%90%AF%E5%8A%A8%E7%9A%84-ssh-agent)
+  - [Mac：手动启动新 ssh agent](#mac%E6%89%8B%E5%8A%A8%E5%90%AF%E5%8A%A8%E6%96%B0-ssh-agent)
+  - [Mac：VSCode 基于 ssh agent 授权远程机器 git clone](#macvscode-%E5%9F%BA%E4%BA%8E-ssh-agent-%E6%8E%88%E6%9D%83%E8%BF%9C%E7%A8%8B%E6%9C%BA%E5%99%A8-git-clone)
+- [踩坑、疑问列表](#%E8%B8%A9%E5%9D%91%E7%96%91%E9%97%AE%E5%88%97%E8%A1%A8)
+  - [踩坑：以为 ssh agent 进程是全局唯一的](#%E8%B8%A9%E5%9D%91%E4%BB%A5%E4%B8%BA-ssh-agent-%E8%BF%9B%E7%A8%8B%E6%98%AF%E5%85%A8%E5%B1%80%E5%94%AF%E4%B8%80%E7%9A%84)
+  - [踩坑：以为启动 ssh agent 时的输出是结果](#%E8%B8%A9%E5%9D%91%E4%BB%A5%E4%B8%BA%E5%90%AF%E5%8A%A8-ssh-agent-%E6%97%B6%E7%9A%84%E8%BE%93%E5%87%BA%E6%98%AF%E7%BB%93%E6%9E%9C)
+  - [踩坑：Mac 启动的 VSCode 基于哪个 ssh-agent 实例？](#%E8%B8%A9%E5%9D%91mac-%E5%90%AF%E5%8A%A8%E7%9A%84-vscode-%E5%9F%BA%E4%BA%8E%E5%93%AA%E4%B8%AA-ssh-agent-%E5%AE%9E%E4%BE%8B)
+  - [踩坑：`AllowAgentForwarding` 应配置到有私钥还是没私钥的一端？](#%E8%B8%A9%E5%9D%91allowagentforwarding-%E5%BA%94%E9%85%8D%E7%BD%AE%E5%88%B0%E6%9C%89%E7%A7%81%E9%92%A5%E8%BF%98%E6%98%AF%E6%B2%A1%E7%A7%81%E9%92%A5%E7%9A%84%E4%B8%80%E7%AB%AF)
+  - [踩坑：以为 `~/.ssh/config` 配置的 host 与 `ssh user@ip` IP端口一致就会复用参数](#%E8%B8%A9%E5%9D%91%E4%BB%A5%E4%B8%BA-sshconfig-%E9%85%8D%E7%BD%AE%E7%9A%84-host-%E4%B8%8E-ssh-userip-ip%E7%AB%AF%E5%8F%A3%E4%B8%80%E8%87%B4%E5%B0%B1%E4%BC%9A%E5%A4%8D%E7%94%A8%E5%8F%82%E6%95%B0)
+  - [疑问：如何在 B 的其他命令窗复用 B 中曾转发过的 `SSH_AUTH_SOCK`？](#%E7%96%91%E9%97%AE%E5%A6%82%E4%BD%95%E5%9C%A8-b-%E7%9A%84%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4%E7%AA%97%E5%A4%8D%E7%94%A8-b-%E4%B8%AD%E6%9B%BE%E8%BD%AC%E5%8F%91%E8%BF%87%E7%9A%84-ssh_auth_sock)
+  - [疑问：即使没有 ssh、ssh-agent、ssh-add 工具，git 能用起 `SSH_AUTH_SOCK`？](#%E7%96%91%E9%97%AE%E5%8D%B3%E4%BD%BF%E6%B2%A1%E6%9C%89-sshssh-agentssh-add-%E5%B7%A5%E5%85%B7git-%E8%83%BD%E7%94%A8%E8%B5%B7-ssh_auth_sock)
+  - [疑问：ssh-agent 加载私钥后，若将私钥文件删除，ssh agent 能否继续用？](#%E7%96%91%E9%97%AEssh-agent-%E5%8A%A0%E8%BD%BD%E7%A7%81%E9%92%A5%E5%90%8E%E8%8B%A5%E5%B0%86%E7%A7%81%E9%92%A5%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4ssh-agent-%E8%83%BD%E5%90%A6%E7%BB%A7%E7%BB%AD%E7%94%A8)
+- [TODO](#todo)
+- [参考](#%E5%8F%82%E8%80%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # SSH Agent Forwarding 的理解与实验
 
 SSH Agent Forwarding 又可叫 SSH Agent 转发、SSH 代理转发，可用于让没有 SSH 私钥的机器 B 也能通过拥有私钥的 A 里的 SSH Agent 来获取授权。
