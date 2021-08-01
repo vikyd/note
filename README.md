@@ -56,6 +56,7 @@
 - 20200120 [Chromium/Chrome 最新、历史版本离线安装包 - 下载方法](https://vikyd.github.io/download-chromium-history-version/)
 - 20210706 [SSH Agent Forwarding 的理解与配置](https://github.com/vikyd/note/blob/master/ssh_agent_forwarding.md)
 - 20210708 [SSH 端口转发（SSH Tunneling 、Port Forwarding) 的理解与实验](https://github.com/vikyd/note/blob/master/ssh_tunneling_port_forwarding.md)
+- 20210801 [VSCode 打开 remote host 的 Docker container 的踩坑之旅](https://github.com/vikyd/note/blob/master/vscode_remote_host_container.md)
 
 
 # Viky 一些开源小项目
