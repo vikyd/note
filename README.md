@@ -54,7 +54,7 @@
   - 20200926 [几种姿势：调试 go mod、go build 命令等 Golang 自身源码（VSCode、GoLand）](https://github.com/vikyd/note/blob/master/vscode_goland_debug_go_mod_go_build_go_get.md)
 - 20201025 [原来 ifconfig 的字段是这样的含义](https://github.com/vikyd/note/blob/master/ifconfig.md)
 - 20200120 [Chromium 最新、历史版本离线安装包 - 下载方法](https://vikyd.github.io/download-chromium-history-version/)
-- 20210706 [SSH Agent Forwarding 的理解与配置](https://github.com/vikyd/note/blob/master/ssh_agent_forwarding.md)
+- 20210706 [SSH Agent Forwarding 的理解与实验](https://github.com/vikyd/note/blob/master/ssh_agent_forwarding.md)
 - 20210708 [SSH 端口转发（SSH Tunneling 、Port Forwarding) 的理解与实验](https://github.com/vikyd/note/blob/master/ssh_tunneling_port_forwarding.md)
 - 20210801 [VSCode 打开 remote host 的 Docker container 的踩坑之旅](https://github.com/vikyd/note/blob/master/vscode_remote_host_container.md)
 
