@@ -1,30 +1,14 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-- [VSCode 打开 remote host 的 Docker container 的踩坑之旅](#vscode-%E6%89%93%E5%BC%80-remote-host-%E7%9A%84-docker-container-%E7%9A%84%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%97%85)
-- [目录](#%E7%9B%AE%E5%BD%95)
-- [名词约定](#%E5%90%8D%E8%AF%8D%E7%BA%A6%E5%AE%9A)
-- [踩过的坑](#%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91)
-  - [问题：忘记把 ssh 用户加入到 docker](#%E9%97%AE%E9%A2%98%E5%BF%98%E8%AE%B0%E6%8A%8A-ssh-%E7%94%A8%E6%88%B7%E5%8A%A0%E5%85%A5%E5%88%B0-docker)
-  - [问题：VSCode `REMOTE EXPLORER` -> `Containers` 无内容（VSCode 应先打开 remote host 目录）](#%E9%97%AE%E9%A2%98vscode-remote-explorer---containers-%E6%97%A0%E5%86%85%E5%AE%B9vscode-%E5%BA%94%E5%85%88%E6%89%93%E5%BC%80-remote-host-%E7%9B%AE%E5%BD%95)
-  - [问题：VSCode `REMOTE EXPLORER` -> `Containers` 无内容（local 命令行应先切换 docker context 到 remote）](#%E9%97%AE%E9%A2%98vscode-remote-explorer---containers-%E6%97%A0%E5%86%85%E5%AE%B9local-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E5%85%88%E5%88%87%E6%8D%A2-docker-context-%E5%88%B0-remote)
-  - [问题：`"docker.host"`？](#%E9%97%AE%E9%A2%98dockerhost)
-  - [其他问题](#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 # VSCode 打开 remote host 的 Docker container 的踩坑之旅
 通过 VSCode 打开远程服务器内的 docker container 作为开发环境，是个挺有意思的事。
 
 > 介绍可看 [官方文档](https://code.visualstudio.com/docs/remote/containers-advanced#_a-basic-remote-example)。
 
-
 有时会碰到这样的坑：**VSCode 能打开 remote host 的目录，但显示不了、也打开不了 remot host 上的 container**。
+
 
 
 # 目录
 [TOC]
-
 
 # 名词约定
 为精确简便，约定以下名词：
@@ -45,17 +29,17 @@ VSCode 连接 remote host 的 container 会有很多坑，因为涉及 ssh 配�
 
 ## 问题：忘记把 ssh 用户加入到 docker 
 详细错误：
-- 若是 local 命令行已切换 docker context，执行 `docker ps` 会提示
+- 若 local 命令行已切换 docker context，执行 `docker ps` 会提示
 ```
 Cannot connect to the Docker daemon at http://docker. Is the docker daemon running?
 ```
 - 若是 VSCode 可能看不出提示
 
 原因：
-- 忘记把从 local ssh 到 remote host 的用户添加到 remote host 的 `docker` group 中。
+- 忘记把 local ssh 到 remote host 的用户添加到 remote host 的 `docker` group 中。
 
 解决：
-- 在 remote host 登录 root，将平时你平时配置的 ssh 用户添加到名为 `docker` 的 group 中：
+- 在 remote host 登录 root，将你平时配置的 ssh 用户添加到名为 `docker` 的 group 中：
 ```sh
 # 将 yourUserName 添加到 docker 这个 group 中
 usermod -aG docker yourUserName
@@ -136,5 +120,22 @@ docker context use default
 
 ## 其他问题
 VSCode + remote host 的 container 作为开发环境还有不少问题需解决，如：如何在 remote host 的 container 内拥有 git pull/push 等权限？这是题外话了。
+
+
+# 附录表格
+VSCode 中如何显示远程 Docker container 列表？
+
+
+当前打开目录 | Docker Context | 显示的 Contaienr 列表 |
+---|---|---|
+本机目录 | 本机 | 本机 |
+本机目录 | 远程 | 远程 ★ |
+远程目录 | 本机 | 远程 ★ |
+远程目录 | 远程 | 远程 ★ |
+
+结论：
+- 只要打开了 `远程目录`，则 VSCode 的 Remote Explorer 显示的 Contaienr 列表必然是 `远程` 的
+- 若打开了 `本机目录`，且本机 Docker Context 指向了远程，则 VSCode 的 Remote Explorer 显示的 Contaienr 列表也是 `远程` 的
+- 全程貌似与 VSCode 的配置 `settings.json` 的 `docker.host` 项无关
 
 
