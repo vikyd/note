@@ -57,6 +57,7 @@
 - 20210706 [SSH Agent Forwarding 的理解与实验](https://github.com/vikyd/note/blob/master/ssh_agent_forwarding.md)
 - 20210708 [SSH 端口转发（SSH Tunneling 、Port Forwarding) 的理解与实验](https://github.com/vikyd/note/blob/master/ssh_tunneling_port_forwarding.md)
 - 20210801 [VSCode 打开 remote host 的 Docker container 的踩坑之旅](https://github.com/vikyd/note/blob/master/vscode_remote_host_container.md)
+- 20210821 [Mac VSCode 打开远程 Docker container 时 git 授权问题（ssh-agent）](https://github.com/vikyd/note/blob/master/mac_vscode_container_git_ssh_agent.md)
 
 
 # Viky 一些开源小项目
