@@ -1,3 +1,22 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Mac VSCode 打开远程 Docker container 时 git 授权问题（ssh-agent）](#mac-vscode-%E6%89%93%E5%BC%80%E8%BF%9C%E7%A8%8B-docker-container-%E6%97%B6-git-%E6%8E%88%E6%9D%83%E9%97%AE%E9%A2%98ssh-agent)
+- [目录](#%E7%9B%AE%E5%BD%95)
+- [概述](#%E6%A6%82%E8%BF%B0)
+- [问题](#%E9%97%AE%E9%A2%98)
+- [实验环境](#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83)
+- [解决](#%E8%A7%A3%E5%86%B3)
+  - [简单版解决](#%E7%AE%80%E5%8D%95%E7%89%88%E8%A7%A3%E5%86%B3)
+  - [详细版解决](#%E8%AF%A6%E7%BB%86%E7%89%88%E8%A7%A3%E5%86%B3)
+    - [Mac 查看 ssh agent 是否已启动](#mac-%E6%9F%A5%E7%9C%8B-ssh-agent-%E6%98%AF%E5%90%A6%E5%B7%B2%E5%90%AF%E5%8A%A8)
+    - [Mac 启动 ssh agent](#mac-%E5%90%AF%E5%8A%A8-ssh-agent)
+    - [VSCode 的默认行为](#vscode-%E7%9A%84%E9%BB%98%E8%AE%A4%E8%A1%8C%E4%B8%BA)
+    - [解决](#%E8%A7%A3%E5%86%B3-1)
+- [小结](#%E5%B0%8F%E7%BB%93)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Mac VSCode 打开远程 Docker container 时 git 授权问题（ssh-agent）
 先上结论：
 - Mac 的 ssh agent 应已启动
