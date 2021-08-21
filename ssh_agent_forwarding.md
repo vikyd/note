@@ -411,6 +411,7 @@ Mac 关于 ssh agent 的默认行为（[参考](https://code.visualstudio.com/do
 - 不会默认设置 `SSH_AGENT_PID` 环境变量
 - 默认启动的 ssh agent 不加载任何私钥
 - 查看默认 ssh agent 进程 的 pid：`lsof /private/tmp/com.apple.launchd.CBa7idWY89/Listeners`
+- 一键查看 Mac ssh agent 的 pid：`lsof $SSH_AUTH_SOCK`
 
 
 ## Linux 中 ssh agent 的默认行为
