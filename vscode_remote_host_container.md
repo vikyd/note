@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [VSCode 打开 remote host 的 Docker container 的踩坑之旅](#vscode-%E6%89%93%E5%BC%80-remote-host-%E7%9A%84-docker-container-%E7%9A%84%E8%B8%A9%E5%9D%91%E4%B9%8B%E6%97%85)
+- [目录](#%E7%9B%AE%E5%BD%95)
+- [名词约定](#%E5%90%8D%E8%AF%8D%E7%BA%A6%E5%AE%9A)
+- [踩过的坑](#%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91)
+  - [问题：忘记把 ssh 用户加入到 docker](#%E9%97%AE%E9%A2%98%E5%BF%98%E8%AE%B0%E6%8A%8A-ssh-%E7%94%A8%E6%88%B7%E5%8A%A0%E5%85%A5%E5%88%B0-docker)
+  - [问题：VSCode `REMOTE EXPLORER` -> `Containers` 无内容（VSCode 应先打开 remote host 目录）](#%E9%97%AE%E9%A2%98vscode-remote-explorer---containers-%E6%97%A0%E5%86%85%E5%AE%B9vscode-%E5%BA%94%E5%85%88%E6%89%93%E5%BC%80-remote-host-%E7%9B%AE%E5%BD%95)
+  - [问题：VSCode `REMOTE EXPLORER` -> `Containers` 无内容（local 命令行应先切换 docker context 到 remote）](#%E9%97%AE%E9%A2%98vscode-remote-explorer---containers-%E6%97%A0%E5%86%85%E5%AE%B9local-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BA%94%E5%85%88%E5%88%87%E6%8D%A2-docker-context-%E5%88%B0-remote)
+  - [问题：`"docker.host"`？](#%E9%97%AE%E9%A2%98dockerhost)
+  - [其他问题](#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98)
+- [附录表格](#%E9%99%84%E5%BD%95%E8%A1%A8%E6%A0%BC)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # VSCode 打开 remote host 的 Docker container 的踩坑之旅
 通过 VSCode 打开远程服务器内的 docker container 作为开发环境，是个挺有意思的事。
 
