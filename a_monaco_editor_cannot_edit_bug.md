@@ -1,3 +1,21 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [记一次 monaco editor 不能编辑的 Bug](#%E8%AE%B0%E4%B8%80%E6%AC%A1-monaco-editor-%E4%B8%8D%E8%83%BD%E7%BC%96%E8%BE%91%E7%9A%84-bug)
+- [目录](#%E7%9B%AE%E5%BD%95)
+- [起因](#%E8%B5%B7%E5%9B%A0)
+- [复现方式](#%E5%A4%8D%E7%8E%B0%E6%96%B9%E5%BC%8F)
+- [Bug 原因](#bug-%E5%8E%9F%E5%9B%A0)
+- [解决](#%E8%A7%A3%E5%86%B3)
+  - [Step1 使用新版本的 monaco-editor](#step1-%E4%BD%BF%E7%94%A8%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84-monaco-editor)
+  - [Step2 适配新版 monaco-editor 配置](#step2-%E9%80%82%E9%85%8D%E6%96%B0%E7%89%88-monaco-editor-%E9%85%8D%E7%BD%AE)
+  - [Step3 使用新版本的 monaco-vim](#step3-%E4%BD%BF%E7%94%A8%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84-monaco-vim)
+- [Fix 过程](#fix-%E8%BF%87%E7%A8%8B)
+- [GET](#get)
+- [小结](#%E5%B0%8F%E7%BB%93)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # 记一次 monaco editor 不能编辑的 Bug
 写本文，是不想下次碰到类似问题依然花费那么多时间。
 
