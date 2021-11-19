@@ -8,6 +8,7 @@
 
 # Viky 一些技术笔记
 
+- 20211119 [monaco editor 扩展 JSON 语法](https://github.com/vikyd/note/blob/master/monaco_editor_extend_json_language.md)
 - 20211109 [记一次 monaco editor 不能编辑的 Bug](https://github.com/vikyd/note/blob/master/a_monaco_editor_cannot_edit_bug.md)
 - 20210821 [Mac VSCode 打开远程 Docker container 时 git 授权问题（ssh-agent）](https://github.com/vikyd/note/blob/master/mac_vscode_container_git_ssh_agent.md)
 - 20210801 [VSCode 打开 remote host 的 Docker container 的踩坑之旅](https://github.com/vikyd/note/blob/master/vscode_remote_host_container.md)
