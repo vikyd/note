@@ -1,3 +1,21 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [monaco editor 扩展 JSON 语法](#monaco-editor-%E6%89%A9%E5%B1%95-json-%E8%AF%AD%E6%B3%95)
+- [目录](#%E7%9B%AE%E5%BD%95)
+- [相关 js 库](#%E7%9B%B8%E5%85%B3-js-%E5%BA%93)
+  - [列表](#%E5%88%97%E8%A1%A8)
+  - [恰逢 monaco editor 相关 GitHub 仓库迁移](#%E6%81%B0%E9%80%A2-monaco-editor-%E7%9B%B8%E5%85%B3-github-%E4%BB%93%E5%BA%93%E8%BF%81%E7%A7%BB)
+- [修改点](#%E4%BF%AE%E6%94%B9%E7%82%B9)
+- [使用扩展后的 JSON 语言](#%E4%BD%BF%E7%94%A8%E6%89%A9%E5%B1%95%E5%90%8E%E7%9A%84-json-%E8%AF%AD%E8%A8%80)
+- [踩过的坑](#%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91)
+  - [Postman 中 monaco-editor 扩展新语言机制的摸索](#postman-%E4%B8%AD-monaco-editor-%E6%89%A9%E5%B1%95%E6%96%B0%E8%AF%AD%E8%A8%80%E6%9C%BA%E5%88%B6%E7%9A%84%E6%91%B8%E7%B4%A2)
+  - [如何从 Postman js 代码适配到自定义语言？](#%E5%A6%82%E4%BD%95%E4%BB%8E-postman-js-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E5%88%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80)
+  - [monaco-editor 的新语言如何创建、导入（含 web worker）？](#monaco-editor-%E7%9A%84%E6%96%B0%E8%AF%AD%E8%A8%80%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%AF%BC%E5%85%A5%E5%90%AB-web-worker)
+- [遗留问题](#%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # monaco editor 扩展 JSON 语法
 总体思路：基于 monaco 官方的 json 库 [monaco-json](https://github.com/microsoft/monaco-editor/tree/v0.30.1/monaco-json)，修改其中的部分源码，再作为新语言导入 monaco editor 。
 
