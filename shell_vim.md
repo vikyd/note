@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+- [shell 输入长命令后，如何用 vim 快捷键修改中间文字？](#shell-%E8%BE%93%E5%85%A5%E9%95%BF%E5%91%BD%E4%BB%A4%E5%90%8E%E5%A6%82%E4%BD%95%E7%94%A8-vim-%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BF%AE%E6%94%B9%E4%B8%AD%E9%97%B4%E6%96%87%E5%AD%97)
 - [太长不想看，看这句](#%E5%A4%AA%E9%95%BF%E4%B8%8D%E6%83%B3%E7%9C%8B%E7%9C%8B%E8%BF%99%E5%8F%A5)
 - [前提](#%E5%89%8D%E6%8F%90)
 - [疑问](#%E7%96%91%E9%97%AE)
