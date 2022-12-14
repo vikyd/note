@@ -17,7 +17,6 @@
 
 # 译注
 - 原标题：How To Use Vim Mode On The Command Line In Bash
-- 译标题：如何在 Bash 命令行中使用 Vim 模式
 - 原文：https://dev.to/brandonwallace/how-to-use-vim-mode-on-the-command-line-in-bash-fnn
 - 作者：brandon_wallace
 - 发表时间：2021-06-11，修改于 2022-12-12
