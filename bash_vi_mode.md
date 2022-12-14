@@ -81,7 +81,7 @@ $ source ~/.bashrc
 
 添加配置，且 source 配置文件后，即可拥有一个 Vi 模式的 Bash 命令行了。
 
-从此，你可在命令行中用上 Vim 的各种快捷键。
+从此，你可在命令行中用上 Vi 的各种快捷键。
 
 如果你本来就熟悉 Vim，肯定知道 Vim 的 Command 模式和 Insert 模式。Bash 的 Vi 默认进入的是 Insert 模式。
 
@@ -98,7 +98,7 @@ GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)
 
 # 移动
 # Vi 模式的光标移动方式
-Vim 有四个方向键 `h j k l`，在 Bash 的 Vim 模式中，`h`、`l` 用于左右移动。
+Vim 有四个方向键 `h j k l`，在 Bash 的 Vi 模式中，`h`、`l` 用于左右移动。
 
 首先，按下 `ESc` 键，进入 Normal 模式。
 
