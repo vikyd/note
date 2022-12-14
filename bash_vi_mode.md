@@ -36,7 +36,7 @@
 # Vim 爱好者的好消息
 你是否曾经在输入命令行时使用过 Vim 模式？
 
-当我发现命令行可以启用 Vim 模式后，我总会在 `~/.bashrc` 中添加下面配置：
+当我发现命令行可以启用 Vi 模式后，我总会在 `~/.bashrc` 中添加下面配置：
 
 ```sh
 set -o vi
@@ -53,7 +53,7 @@ set -o vi
 - `Ctrl + A`：跳转到一行开头
 - `Ctrl + E`：跳转到一行结尾
 
-下面是 Emacs 与 Vim 模式的快捷键简表：
+下面是 Emacs 与 Vi 模式的快捷键简表：
 
 ```
 Emacs  	Vim	含义
@@ -79,11 +79,11 @@ set -o vi
 $ source ~/.bashrc
 ```
 
-添加配置，且 source 配置文件后，即可拥有一个 Vim 模式的 Bash 命令行了。
+添加配置，且 source 配置文件后，即可拥有一个 Vi 模式的 Bash 命令行了。
 
 从此，你可在命令行中用上 Vim 的各种快捷键。
 
-如果你本来就熟悉 Vim，肯定知道 Vim 的 Command 模式和 Insert 模式。Bash 的 Vim 默认进入的是 Insert 模式。
+如果你本来就熟悉 Vim，肯定知道 Vim 的 Command 模式和 Insert 模式。Bash 的 Vi 默认进入的是 Insert 模式。
 
 按下 `Esc` 键，才能进入 Normal 模式。
 
@@ -97,7 +97,7 @@ GNU bash, version 5.1.16(1)-release (x86_64-pc-linux-gnu)
 
 
 # 移动
-# Vim 模式的光标移动方式
+# Vi 模式的光标移动方式
 Vim 有四个方向键 `h j k l`，在 Bash 的 Vim 模式中，`h`、`l` 用于左右移动。
 
 首先，按下 `ESc` 键，进入 Normal 模式。
@@ -146,7 +146,7 @@ Vim 有四个方向键 `h j k l`，在 Bash 的 Vim 模式中，`h`、`l` 用于
 
 
 # 编辑
-# Vim 模式的文本编辑方式
+# Vi 模式的文本编辑方式
 `x` 删除当前光标的字符。
 
 `X` 向后删除字符（译注：类似普通编辑器中按下 `Backspace` 键）。
@@ -200,7 +200,7 @@ Vim 有四个方向键 `h j k l`，在 Bash 的 Vim 模式中，`h`、`l` 用于
 
 
 # 搜索
-# Vim 模式的搜索方式
+# Vi 模式的搜索方式
 （译注：先按 `Esc` 进入到 Normal 模式）按斜杠 `/`，并输入你想搜索的内容，然后按下 `Enter` 键，即可查找曾经执行过的命令。
 
 ![](https://res.cloudinary.com/practicaldev/image/fetch/s--NzHOZ9GP--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://i.postimg.cc/VLLYC9pp/vim-search.gif)
