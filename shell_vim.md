@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [太长不想看，看这句](#%E5%A4%AA%E9%95%BF%E4%B8%8D%E6%83%B3%E7%9C%8B%E7%9C%8B%E8%BF%99%E5%8F%A5)
+- [前提](#%E5%89%8D%E6%8F%90)
+- [疑问](#%E7%96%91%E9%97%AE)
+- [切换为 vi 模式](#%E5%88%87%E6%8D%A2%E4%B8%BA-vi-%E6%A8%A1%E5%BC%8F)
+- [默认：emacs 模式](#%E9%BB%98%E8%AE%A4emacs-%E6%A8%A1%E5%BC%8F)
+- [shell vi 模式快捷键（推荐）](#shell-vi-%E6%A8%A1%E5%BC%8F%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%8E%A8%E8%8D%90)
+- [问题：是否影响原来 shell 操作？](#%E9%97%AE%E9%A2%98%E6%98%AF%E5%90%A6%E5%BD%B1%E5%93%8D%E5%8E%9F%E6%9D%A5-shell-%E6%93%8D%E4%BD%9C)
+- [bash、zsh 的开启方式是否一致？](#bashzsh-%E7%9A%84%E5%BC%80%E5%90%AF%E6%96%B9%E5%BC%8F%E6%98%AF%E5%90%A6%E4%B8%80%E8%87%B4)
+- [值得看一下的相关小文](#%E5%80%BC%E5%BE%97%E7%9C%8B%E4%B8%80%E4%B8%8B%E7%9A%84%E7%9B%B8%E5%85%B3%E5%B0%8F%E6%96%87)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # 太长不想看，看这句
 执行 `set -o vi` 即可开启 shell 的 vi 模式，使用 vi 的快捷键修改已输入的命令文字。
 
