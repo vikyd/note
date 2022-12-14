@@ -1,3 +1,20 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [译注](#%E8%AF%91%E6%B3%A8)
+- [标题：如何在 Bash 命令行中使用 Vi 模式](#%E6%A0%87%E9%A2%98%E5%A6%82%E4%BD%95%E5%9C%A8-bash-%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%AD%E4%BD%BF%E7%94%A8-vi-%E6%A8%A1%E5%BC%8F)
+- [简介](#%E7%AE%80%E4%BB%8B)
+- [Vim 爱好者的好消息](#vim-%E7%88%B1%E5%A5%BD%E8%80%85%E7%9A%84%E5%A5%BD%E6%B6%88%E6%81%AF)
+- [移动](#%E7%A7%BB%E5%8A%A8)
+- [Vim 模式的光标移动方式](#vim-%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E6%96%B9%E5%BC%8F)
+- [编辑](#%E7%BC%96%E8%BE%91)
+- [Vim 模式的文本编辑方式](#vim-%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%96%B9%E5%BC%8F)
+- [搜索](#%E6%90%9C%E7%B4%A2)
+- [Vim 模式的搜索方式](#vim-%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%90%9C%E7%B4%A2%E6%96%B9%E5%BC%8F)
+- [小结](#%E5%B0%8F%E7%BB%93)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # 译注
 - 原标题：How To Use Vim Mode On The Command Line In Bash
 - 译标题：如何在 Bash 命令行中使用 Vim 模式
