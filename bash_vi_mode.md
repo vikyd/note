@@ -56,7 +56,7 @@ set -o vi
 下面是 Emacs 与 Vi 模式的快捷键简表：
 
 ```
-Emacs  	Vim	含义
+Emacs  	Vi	含义
 Ctrl+A	0	光标跳转到行头
 Ctrl+E	$	光标跳转到行尾
 Alt+B	b	光标向后跳转 1 个词
