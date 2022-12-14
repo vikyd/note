@@ -13,6 +13,9 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+# shell 输入长命令后，如何用 vim 快捷键修改中间文字？
+
+
 # 太长不想看，看这句
 执行 `set -o vi` 即可开启 shell 的 vi 模式，使用 vi 的快捷键修改已输入的命令文字。
 
