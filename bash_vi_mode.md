@@ -6,11 +6,11 @@
 - [简介](#%E7%AE%80%E4%BB%8B)
 - [Vim 爱好者的好消息](#vim-%E7%88%B1%E5%A5%BD%E8%80%85%E7%9A%84%E5%A5%BD%E6%B6%88%E6%81%AF)
 - [移动](#%E7%A7%BB%E5%8A%A8)
-- [Vim 模式的光标移动方式](#vim-%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E6%96%B9%E5%BC%8F)
+- [Vi 模式的光标移动方式](#vi-%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%89%E6%A0%87%E7%A7%BB%E5%8A%A8%E6%96%B9%E5%BC%8F)
 - [编辑](#%E7%BC%96%E8%BE%91)
-- [Vim 模式的文本编辑方式](#vim-%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%96%B9%E5%BC%8F)
+- [Vi 模式的文本编辑方式](#vi-%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%96%B9%E5%BC%8F)
 - [搜索](#%E6%90%9C%E7%B4%A2)
-- [Vim 模式的搜索方式](#vim-%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%90%9C%E7%B4%A2%E6%96%B9%E5%BC%8F)
+- [Vi 模式的搜索方式](#vi-%E6%A8%A1%E5%BC%8F%E7%9A%84%E6%90%9C%E7%B4%A2%E6%96%B9%E5%BC%8F)
 - [小结](#%E5%B0%8F%E7%BB%93)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
