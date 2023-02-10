@@ -1,3 +1,22 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [VSCode 自动补全 TDdesign Vue 3 的组件名、属性（含 pnpm 情况）](#vscode-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8-tddesign-vue-3-%E7%9A%84%E7%BB%84%E4%BB%B6%E5%90%8D%E5%B1%9E%E6%80%A7%E5%90%AB-pnpm-%E6%83%85%E5%86%B5)
+- [目的](#%E7%9B%AE%E7%9A%84)
+- [先上简要结论](#%E5%85%88%E4%B8%8A%E7%AE%80%E8%A6%81%E7%BB%93%E8%AE%BA)
+  - [需要](#%E9%9C%80%E8%A6%81)
+  - [无需](#%E6%97%A0%E9%9C%80)
+- [常见问题](#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98)
+  - [问题：不生效，未出现补全](#%E9%97%AE%E9%A2%98%E4%B8%8D%E7%94%9F%E6%95%88%E6%9C%AA%E5%87%BA%E7%8E%B0%E8%A1%A5%E5%85%A8)
+  - [问题：有出现补全，但大小写不是想要的](#%E9%97%AE%E9%A2%98%E6%9C%89%E5%87%BA%E7%8E%B0%E8%A1%A5%E5%85%A8%E4%BD%86%E5%A4%A7%E5%B0%8F%E5%86%99%E4%B8%8D%E6%98%AF%E6%83%B3%E8%A6%81%E7%9A%84)
+  - [问题：骤增 ts 报错](#%E9%97%AE%E9%A2%98%E9%AA%A4%E5%A2%9E-ts-%E6%8A%A5%E9%94%99)
+  - [问题：是否需配置 `tsconfig.json` 的 `include` ？](#%E9%97%AE%E9%A2%98%E6%98%AF%E5%90%A6%E9%9C%80%E9%85%8D%E7%BD%AE-tsconfigjson-%E7%9A%84-include-)
+  - [问题：pnpm 时，【`include` 配置 `node_modules/tdesign-vue-next/global.d.ts`】为什么不生效？](#%E9%97%AE%E9%A2%98pnpm-%E6%97%B6include-%E9%85%8D%E7%BD%AE-node_modulestdesign-vue-nextglobaldts%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%9F%E6%95%88)
+- [小结](#%E5%B0%8F%E7%BB%93)
+- [参考](#%E5%8F%82%E8%80%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # VSCode 自动补全 TDdesign Vue 3 的组件名、属性（含 pnpm 情况）
 
 # 目的
