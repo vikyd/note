@@ -8,6 +8,7 @@
 
 # Viky 一些技术笔记
 
+- 20230210 [VSCode 自动补全 TDdesign Vue 3 的组件名、属性（含 pnpm 情况）](https://github.com/vikyd/note/blob/master/vscode_vue_ts_autocomple.md)
 - 20221214 [bash、zsh 输入长命令后，如何用 vim 快捷键修改中间文字？](https://github.com/vikyd/note/blob/master/shell_vim.md)
 - 20221214 [译：如何在 Bash 命令行中使用 Vi 模式](https://github.com/vikyd/note/blob/master/bash_vi_mode.md)
 - 20211119 [monaco editor 扩展 JSON 语法](https://github.com/vikyd/note/blob/master/monaco_editor_extend_json_language.md)
