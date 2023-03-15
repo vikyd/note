@@ -13,7 +13,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Backbone.js + Vue 3
+# Backbone.js、jQuery 老项目中整合 Vue 3 的一种姿势
 主要基于 [vue3-sfc-loader](https://github.com/FranckFreiburger/vue3-sfc-loader) ，使得石器时代的 [Backbone,js](https://backbonejs.org/) + jQuery 老项目中可以相对无缝地用上 Vue 3.
 
 
