@@ -42,6 +42,7 @@
   - 打开： https://localhost:8686/index-local.html
   - 说明：依赖包引用本地的文件
 
+> 若想更好性能，可考虑将 `index.html`、`index-local.html`文件内的 `vue.global.js` 替换为 `vue.global.prod.js`，缺点是不便于在 Chrome Vue 插件查看状态。
 
 
 # VSCode 自动补全
