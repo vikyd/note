@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Backbone.js + Vue 3](#backbonejs--vue-3)
+- [为什么会有本文？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E6%9C%AC%E6%96%87)
+- [使用](#%E4%BD%BF%E7%94%A8)
+- [VSCode 自动补全](#vscode-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8)
+- [Chrome DevTools：打断点调试](#chrome-devtools%E6%89%93%E6%96%AD%E7%82%B9%E8%B0%83%E8%AF%95)
+- [Chrome DevTools：Vue 插件](#chrome-devtoolsvue-%E6%8F%92%E4%BB%B6)
+- [此 Demo 包括功能](#%E6%AD%A4-demo-%E5%8C%85%E6%8B%AC%E5%8A%9F%E8%83%BD)
+- [遗留问题](#%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98)
+- [vue3-sfc-loader 的更多详情](#vue3-sfc-loader-%E7%9A%84%E6%9B%B4%E5%A4%9A%E8%AF%A6%E6%83%85)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Backbone.js + Vue 3
 主要基于 [vue3-sfc-loader](https://github.com/FranckFreiburger/vue3-sfc-loader) ，使得石器时代的 [Backbone,js](https://backbonejs.org/) + jQuery 老项目中可以相对无缝地用上 Vue 3.
 
