@@ -1,7 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Backbone.js + Vue 3](#backbonejs--vue-3)
+- [Backbone.js、jQuery 老项目中整合 Vue 3 的一种姿势](#backbonejsjquery-%E8%80%81%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%95%B4%E5%90%88-vue-3-%E7%9A%84%E4%B8%80%E7%A7%8D%E5%A7%BF%E5%8A%BF)
 - [为什么会有本文？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E6%9C%89%E6%9C%AC%E6%96%87)
 - [使用](#%E4%BD%BF%E7%94%A8)
 - [VSCode 自动补全](#vscode-%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8)
