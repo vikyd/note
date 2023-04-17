@@ -18,7 +18,10 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Mac VSCode 打开远程 Docker container 时 git 授权问题（ssh-agent）
-先上结论：在 Mac 命令行执行 `ssh-add` 即可。
+先上结论：在 Mac 命令行执行下面命令即可（默认加载 `~/.ssh/id_rsa`）：
+```sh
+ssh-add
+```
 
 也即：
 - Mac 的 ssh agent 应已启动
