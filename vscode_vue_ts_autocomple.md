@@ -36,6 +36,23 @@
 - 若不生效，可尝试 reload VSCode
 - Over
 
+注意！！！：新版 Volar 对应设置属性貌似已变为
+
+```
+Features > Complete: Prop Name Casing
+
+Features > Complete: Tag Name Casing
+```
+
+可考虑设置：
+
+```json
+{
+  "vue.features.complete.propNameCasing": "autoCamel",
+  "vue.features.complete.tagNameCasing": "autoPascal"
+}
+```
+
 
 ## 无需
 
