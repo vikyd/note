@@ -266,7 +266,7 @@ replace (
 )
 ```
 
-在根目录执行 `go run main.go`，得的类似输出：
+在根目录执行 `go mod tidy && go run main.go`，得的类似输出：
 
 ```sh
 ➜ go run main.go
