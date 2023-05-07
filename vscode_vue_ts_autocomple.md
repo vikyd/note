@@ -48,8 +48,8 @@ Features > Complete: Tag Name Casing
 
 ```json
 {
-  "vue.features.complete.propNameCasing": "autoCamel",
-  "vue.features.complete.tagNameCasing": "autoPascal"
+  "vue.complete.casing.props": "autoCamel",
+  "vue.complete.casing.tags": "kebab",
 }
 ```
 
