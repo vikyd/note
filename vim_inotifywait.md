@@ -10,6 +10,17 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # inotifywait 监控 Vim 编辑新文件时产生的临时文件 swp、swpx 等以及相关操作
+结论：从文件的增删改（`create,delete,modify`）监控监督可见：Vim 编辑新文件并并保存这样的简单操作的背后，内部发生了不少操作：自动创建了 `.b.swp`、`.b.swpx`，之后又删除了，又重新创建 `.b.swp` 等。
+
+> 本文起因：
+
+- 尝试用 inotifywait 监控 nginx 容器中的配置目录变化后自动 reload nginx
+- 并允许临时用 Vim 编辑配置文件，但发现 Vim 并未开始保存，inotifywait 已开始出发 nginx reload
+- 但即使 exclude 了 `swp`，inotifywait 也依然会在 Vim 保存文件前触发 reload
+- 曾一度怀疑 inotifywait 的 exclude 参数不生效
+- 最后发现，原来 Vim 还另外产生了 `.swpx` 文件，并且 `.swpx` 只存在了一小段时间（保存 Vim 的编辑文件前）就被自动删了
+
+
 
 # 使用
 
@@ -47,8 +58,6 @@ done
 /data/ MODIFY .b.swp
 /data/ DELETE .b.swp
 ```
-
-从文件的增删改（`create,delete,modify`）监控监督可见，虽然是简单的 Vim 编辑新文件操作，但内部却发生了不少操作：创建了 `.b.swp`、`.b.swpx`，之后又删除了，又重新创建 `.b.swp` 等。
 
 
 
