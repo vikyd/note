@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [inotifywait 监控 Vim 编辑新文件时产生的临时文件 swp、swpx 等以及相关操作](#inotifywait-%E7%9B%91%E6%8E%A7-vim-%E7%BC%96%E8%BE%91%E6%96%B0%E6%96%87%E4%BB%B6%E6%97%B6%E4%BA%A7%E7%94%9F%E7%9A%84%E4%B8%B4%E6%97%B6%E6%96%87%E4%BB%B6-swpswpx-%E7%AD%89%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C)
+- [使用](#%E4%BD%BF%E7%94%A8)
+- [只监控 `modify,delete,create` 操作](#%E5%8F%AA%E7%9B%91%E6%8E%A7-modifydeletecreate-%E6%93%8D%E4%BD%9C)
+- [监全部操作](#%E7%9B%91%E5%85%A8%E9%83%A8%E6%93%8D%E4%BD%9C)
+- [参考](#%E5%8F%82%E8%80%83)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # inotifywait 监控 Vim 编辑新文件时产生的临时文件 swp、swpx 等以及相关操作
 
 # 使用
