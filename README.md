@@ -8,6 +8,7 @@
 
 # Viky 一些技术笔记
 
+- 20240523 [已经习惯用 UnoCSS 了](https://github.com/vikyd/note/blob/master/unocss.md)
 - 20230905 [inotifywait 监控 Vim 编辑新文件时产生的临时文件 swp、swpx 等以及相关操作](https://github.com/vikyd/note/blob/master/vim_inotifywait.md)
 - 20230315 [Backbone.js、jQuery 老项目中整合 Vue 3 的一种姿势](https://github.com/vikyd/note/blob/master/backbonejs_jquery_vue3.md)
 - 20230210 [VSCode 自动补全 TDdesign Vue 3 的组件名、属性（含 pnpm 情况）](https://github.com/vikyd/note/blob/master/vscode_vue_ts_autocomple.md)
