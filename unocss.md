@@ -1,3 +1,21 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [已经习惯用 UnoCSS 了](#%E5%B7%B2%E7%BB%8F%E4%B9%A0%E6%83%AF%E7%94%A8-unocss-%E4%BA%86)
+- [原因](#%E5%8E%9F%E5%9B%A0)
+- [优点](#%E4%BC%98%E7%82%B9)
+- [缺点](#%E7%BC%BA%E7%82%B9)
+- [为什么不使用 Tailwind CSS ？](#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E4%BD%BF%E7%94%A8-tailwind-css-)
+- [其他担心](#%E5%85%B6%E4%BB%96%E6%8B%85%E5%BF%83)
+- [小结](#%E5%B0%8F%E7%BB%93)
+- [推荐看看](#%E6%8E%A8%E8%8D%90%E7%9C%8B%E7%9C%8B)
+- [部分示例](#%E9%83%A8%E5%88%86%E7%A4%BA%E4%BE%8B)
+  - [1. 使用 CSS 变量](#1-%E4%BD%BF%E7%94%A8-css-%E5%8F%98%E9%87%8F)
+  - [2. `@apply` 与复用](#2-apply-%E4%B8%8E%E5%A4%8D%E7%94%A8)
+  - [3. `@apply` + CSS 变量 + `variant-group`](#3-apply--css-%E5%8F%98%E9%87%8F--variant-group)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # 已经习惯用 UnoCSS 了
 2023-06 开始使用所谓 `原子 CSS` 库 [UnoCSS](https://unocss.dev/)，一年了，若不让用 UnoCSS，会觉得很不方便，因为有些优点回不去了。
 
