@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Vite、Vue 热更新失效的一次解决过程：被依赖包覆盖了全局变量 `__VUE_HMR_RUNTIME__`](#vitevue-%E7%83%AD%E6%9B%B4%E6%96%B0%E5%A4%B1%E6%95%88%E7%9A%84%E4%B8%80%E6%AC%A1%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B%E8%A2%AB%E4%BE%9D%E8%B5%96%E5%8C%85%E8%A6%86%E7%9B%96%E4%BA%86%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F-__vue_hmr_runtime__)
+- [起因](#%E8%B5%B7%E5%9B%A0)
+- [原因](#%E5%8E%9F%E5%9B%A0)
+- [解决](#%E8%A7%A3%E5%86%B3)
+- [验证](#%E9%AA%8C%E8%AF%81)
+- [其他的可能原因](#%E5%85%B6%E4%BB%96%E7%9A%84%E5%8F%AF%E8%83%BD%E5%8E%9F%E5%9B%A0)
+- [这一天的经历](#%E8%BF%99%E4%B8%80%E5%A4%A9%E7%9A%84%E7%BB%8F%E5%8E%86)
+- [事后（细节，不重要）](#%E4%BA%8B%E5%90%8E%E7%BB%86%E8%8A%82%E4%B8%8D%E9%87%8D%E8%A6%81)
+- [小结](#%E5%B0%8F%E7%BB%93)
+- [辅助](#%E8%BE%85%E5%8A%A9)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Vite、Vue 热更新失效的一次解决过程：被依赖包覆盖了全局变量 `__VUE_HMR_RUNTIME__`
 
 
