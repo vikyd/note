@@ -54,7 +54,7 @@
 1. 搜索到 Vite 官网 [相关网页](https://cn.vite.dev/guide/troubleshooting.html#hmr)，是否有 import 文件大小写问题，无，因为故意修改为大小写不匹配时，build 和 lint 能立即发现。
 1. 是否有循环依赖，有，解决之，刚开始用 [madge](https://github.com/pahen/madge) 因 typescript 版本不适合报错，改用 [dpdm](https://github.com/acrazing/dpdm)，可用，发现十几个循环依赖，甚至还有跨越六七个文件的循环依赖，解决之。无果，HMR 依然失效。
 1. 根据 [vite3+vue3 HMR热更新无效 页面无法局部自动更新（需手动刷新页面）的问题解决](https://blog.csdn.net/m0_49280365/article/details/140347908)，更新 Vite、Vue 相关的全部依赖包到最新版，无果。奇怪的事同样 Vite、Vue 依赖包版本的另一个项目则没问题。
-1. 最后，想到终极神奇：排除法。
+1. 最后，想到终极神器：排除法。
 1. 尝试禁用 Vue Route 大部分路由定义，逐步放开看是是不是全部路由都有 HMR 问题，一步步，最终定位到一个与 monaco editor 相关的路由。
 1. monaco-editor-vue3 的源码不算复杂，尝试将 monaco-editor-vue3 改为本地组件，不是有对应依赖库，发现问题消失！
 1. 到此问题算是解决，好奇的继续往下探索一下 ↓
