@@ -30,7 +30,7 @@
 
 - 比新建 class 省事（最最重要）
   - 节省心智：无需额外去想一个新的 class 名称
-  - 关注点集中：html 中就能一样看到样式，无需跳到 style 标签或独立的样式文件看
+  - 关注点集中：html 中就能一眼看到样式，无需跳到 style 标签或独立的样式文件看，删除元素同时删除了样式，无需担心忘删 style 对应的代码
 - 比 style 简洁，如：
   - style：`display: flex; flex-direction: column; padding-left: 10px; padding-right: 10px;`
   - 原子 class：只需 `flex flex-col px-10px`（[缩写查询](https://tailwindcss.com/docs/installation)）
